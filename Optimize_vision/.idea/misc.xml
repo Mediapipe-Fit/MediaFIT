@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/chdls/Desktop/Optimize_vision/app/src/main/res/layout/activity_chooser.xml" value="0.33645833333333336" />
+        <entry key="..\:/Users/chdls/Desktop/Optimize_vision/app/src/main/res/layout/activity_settings.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/chdls/Desktop/Optimize_vision/app/src/main/res/layout/activity_still_image.xml" value="0.33645833333333336" />
+        <entry key="..\:/Users/chdls/Desktop/Optimize_vision/app/src/main/res/layout/activity_vision_camerax_live_preview.xml" value="0.303125" />
+        <entry key="..\:/Users/chdls/Desktop/Optimize_vision/app/src/main/res/layout/activity_vision_live_preview.xml" value="0.33645833333333336" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/Optimize_vision/app/src/main/res/layout-land/activity_vision_cameraxsource_demo.xml" value="0.15052083333333333" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/Optimize_vision/app/src/main/res/layout/activity_chooser.xml" value="0.409375" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/Optimize_vision/app/src/main/res/layout/activity_settings.xml" value="0.409375" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/Optimize_vision/app/src/main/res/layout/activity_still_image.xml" value="0.409375" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/Optimize_vision/app/src/main/res/layout/activity_vision_cameraxsource_demo.xml" value="0.19706180344478216" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/Optimize_vision/app/src/main/res/layout/activity_vision_entry_choice.xml" value="0.19706180344478216" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/Optimize_vision/app/src/main/res/layout/activity_vision_live_preview.xml" value="0.19706180344478216" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/Optimize_vision/app/src/main/res/layout/settings_style.xml" value="0.19706180344478216" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/Optimize_vision/app/src/main/res/layout/spinner_style.xml" value="0.19706180344478216" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/Optimize_vision/app/src/main/res/layout/toggle_style.xml" value="0.19706180344478216" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/Optimize_vision/app/src/main/res/menu/camera_button_menu.xml" value="0.409375" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/mlkit-master/mlkit-master/android/vision-quickstart/app/src/main/res/drawable/list_item_background.xml" value="0.5703125" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/mlkit-master/mlkit-master/android/vision-quickstart/app/src/main/res/drawable/logo_mlkit.xml" value="0.5703125" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/mlkit-master/mlkit-master/android/vision-quickstart/app/src/main/res/layout-land/activity_vision_camerax_live_preview.xml" value="0.27998236331569665" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/mlkit-master/mlkit-master/android/vision-quickstart/app/src/main/res/layout-land/activity_vision_cameraxsource_demo.xml" value="0.27998236331569665" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/mlkit-master/mlkit-master/android/vision-quickstart/app/src/main/res/layout/activity_chooser.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/mlkit-master/mlkit-master/android/vision-quickstart/app/src/main/res/layout/activity_settings.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/mlkit-master/mlkit-master/android/vision-quickstart/app/src/main/res/layout/activity_still_image.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/mlkit-master/mlkit-master/android/vision-quickstart/app/src/main/res/layout/activity_vision_camerax_live_preview.xml" value="0.3307291666666667" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/mlkit-master/mlkit-master/android/vision-quickstart/app/src/main/res/layout/activity_vision_cameraxsource_demo.xml" value="0.3307291666666667" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/mlkit-master/mlkit-master/android/vision-quickstart/app/src/main/res/layout/activity_vision_entry_choice.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/mlkit-master/mlkit-master/android/vision-quickstart/app/src/main/res/layout/settings_style.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/mlkit-master/mlkit-master/android/vision-quickstart/app/src/main/res/layout/spinner_style.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/mlkit-master/mlkit-master/android/vision-quickstart/app/src/main/res/layout/toggle_style.xml" value="0.5541666666666667" />
+        <entry key="..\:/Users/kimqh/AndroidStudioProjects/mlkit-master/mlkit-master/android/vision-quickstart/app/src/main/res/menu/camera_button_menu.xml" value="0.5541666666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="SuppressKotlinCodeStyleNotification">
+    <option name="disableForAll" value="true" />
+  </component>
+</project>

@@ -1,0 +1,4 @@
+#Tue Sep 21 15:52:27 KST 2021
+base.0=C\:\\Users\\chdls\\Desktop\\Optimize_vision\\app\\build\\intermediates\\dex\\proguard\\minifyProguardWithR8\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
