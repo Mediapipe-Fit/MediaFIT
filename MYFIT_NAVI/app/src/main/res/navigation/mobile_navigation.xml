@@ -22,4 +22,11 @@
         android:name="com.example.myfit_navi.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_Routines"
+        android:name="com.example.myfit_navi.ui.Routines.RoutineFragment"
+        android:label="@string/Routine"
+        tools:layout="@layout/fragment_routine_list" />
+
 </navigation>

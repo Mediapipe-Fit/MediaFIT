@@ -3,4 +3,21 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="Routine">Routine</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_create_subject">CreateSubjectActivity</string>
+    <string name="Set_num">Set_num</string>
+    <string name="Repeat_num">Repeat_num</string>
+    <string name="Rest_time">Rest_time</string>
+    <string name="cross_image_content_description">Delete student from SQLite database</string>
+    <string name="empty_routine_list_message">Please Add List!</string>
+    <string name="exercise_name">exercise_name</string>
+    <string name="update">Update</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="create_button">Create</string>
+    <string name="all_delete">All Delete</string>
+    <string name="edit_button_description">Edit Single student information</string>
 </resources>
