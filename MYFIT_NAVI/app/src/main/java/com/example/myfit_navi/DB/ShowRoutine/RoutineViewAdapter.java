@@ -48,7 +48,7 @@ public class RoutineViewAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         final int itemPosition = position;
         final Routine Routine = RoutineList.get(position);
 
-        holder.Exercise_nameTextView.setText(Routine.getName());
+        holder.Exercise_nameTextView.setText(String.format("%d. %s",Routine.getRegNO(),Routine.getName()));
         holder.Set_numTextView.setText(String.valueOf(Routine.getSet_num()));
         holder.Repeat_numTextView.setText(String.valueOf(Routine.getRepeat_num()));
         holder.Rest_timeTextView.setText(String.valueOf(Routine.getRest_time()));

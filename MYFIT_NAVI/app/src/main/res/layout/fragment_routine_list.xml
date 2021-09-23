@@ -8,8 +8,17 @@
     android:paddingBottom="?actionBarSize"
     tools:context=".ui.Routines.RoutineFragment">
 
+    <Spinner
+        android:id="@+id/WeekDays"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="start"></Spinner>
 
-    <include layout="@layout/fragment_routine_content"/>
+    <include
+        layout="@layout/fragment_routine_content" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

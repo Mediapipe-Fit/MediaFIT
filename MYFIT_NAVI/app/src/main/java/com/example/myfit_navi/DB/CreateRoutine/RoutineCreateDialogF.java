@@ -29,10 +29,15 @@ public class RoutineCreateDialogF extends DialogFragment {
     private Button cancelButton;
 
     private Spinner Excercise_name;
+    private Spinner RegNo;
     private int Set_num = -1;
     private int Repeat_num = -1;
     private int Rest_time = -1;
+    private int Regno = -1;
     private String temp = "";
+
+    private QueryClass DBQueryClass; //DB 소환
+
 
     public RoutineCreateDialogF() {
         // Required empty public constructor
@@ -55,7 +60,7 @@ public class RoutineCreateDialogF extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.routine_create_dialog_f, container, false);
-
+        DBQueryClass = new QueryClass(getActivity());
         //Exercise_nameEditText = view.findViewById(R.id.Exercise_nameEditText);
         Set_numEditText = view.findViewById(R.id.Set_numEditText);
         Repeat_numEditText = view.findViewById(R.id.Repeat_numEditText);
@@ -68,6 +73,12 @@ public class RoutineCreateDialogF extends DialogFragment {
                 R.array.Exercises, android.R.layout.simple_spinner_item);
         Exercise_Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Excercise_name.setAdapter(Exercise_Adapter);
+
+        RegNo = view.findViewById(R.id.Spinner_RegNO);
+        ArrayAdapter RegNo_Adapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_dropdown_item,DBQueryClass.getDaysRegNo(Config.selected_weekday));
+        RegNo.setAdapter(RegNo_Adapter);
+
+
         String title = getArguments().getString(Config.TITLE);
         getDialog().setTitle(title);
 
@@ -75,12 +86,13 @@ public class RoutineCreateDialogF extends DialogFragment {
             @Override
             public void onClick(View view) {
                 temp = Excercise_name.getSelectedItem().toString();
+                Regno = Integer.parseInt(RegNo.getSelectedItem().toString());
                 Set_num = Integer.parseInt(Set_numEditText.getText().toString());
                 Repeat_num = Integer.parseInt(Repeat_numEditText.getText().toString());
                 Rest_time = Integer.parseInt(Rest_timeEditText.getText().toString());
                 //Log.i("DB_Insert_Routine_in_EditText", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", -1 , temp , Set_num, Repeat_num, Repeat_num));
 
-                Routine Routine = new Routine(-1, temp, Set_num, Repeat_num, Rest_time);
+                Routine Routine = new Routine(-1, temp,Regno, Set_num, Repeat_num, Rest_time);
 
                 QueryClass databaseQueryClass = new QueryClass(getContext());
 

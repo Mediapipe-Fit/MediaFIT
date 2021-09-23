@@ -17,6 +17,14 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"></Spinner>
 
+    <Spinner
+        android:id="@+id/Spinner_RegNO"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="left"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Exercise"></Spinner>
 
     <EditText
         android:id="@+id/Set_numEditText"
@@ -26,7 +34,7 @@
         android:inputType="number"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Exercise" />
+        app:layout_constraintTop_toBottomOf="@+id/Spinner_RegNO" />
 
     <EditText
         android:id="@+id/Repeat_numEditText"

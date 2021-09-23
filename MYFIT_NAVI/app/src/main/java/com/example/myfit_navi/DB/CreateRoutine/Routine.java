@@ -2,19 +2,25 @@ package com.example.myfit_navi.DB.CreateRoutine;
 
 import android.util.Log;
 
+import com.example.myfit_navi.cfg.Config;
+
 public class Routine {
     private long id;
     private String name;
+    private String Weekday;
+    private int RegNO;
     private long Set_num;
     private long Repeat_num;
     private long Rest_time;
 
-    public Routine(int id, String name, int Set_num, int Repeat_num, int Rest_time) {
+    public Routine(int id, String name, int RegNO, int Set_num, int Repeat_num, int Rest_time) {
         this.id = id;
         this.name = name;
+        this.RegNO = RegNO;
         this.Set_num = Set_num;
         this.Repeat_num = Repeat_num;
         this.Rest_time = Rest_time;
+        this.Weekday = Config.selected_weekday;
         Log.i("DB_Insert_Routine_in_R", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , name , Set_num, Repeat_num, Repeat_num));
 
     }
@@ -27,12 +33,24 @@ public class Routine {
         this.id = id;
     }
 
+    public String getWeekday() { return Weekday; }
+
+    public void setWeekday(String Weekday) { this.Weekday = Weekday; }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getRegNO() {
+        return RegNO;
+    }
+
+    public void setRegNO(long RegNO) {
+        this.Set_num = RegNO;
     }
 
     public long getSet_num() {

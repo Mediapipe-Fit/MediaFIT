@@ -34,9 +34,11 @@ public class RoutineUpdateDialogF extends DialogFragment {
     private Button cancelButton;
 
     private Spinner Excercise_name;
+    private Spinner RegNo;
 
 
     private String temp = "";
+    private long Regno = -1;
     private long Set_num = -1;
     private long Repeat_num = -1;
     private long Rest_time = -1;
@@ -89,6 +91,10 @@ public class RoutineUpdateDialogF extends DialogFragment {
         Exercise_Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Excercise_name.setAdapter(Exercise_Adapter);
 
+        RegNo = view.findViewById(R.id.Spinner_RegNO);
+        ArrayAdapter RegNo_Adapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_dropdown_item,DBQueryClass.getDaysRegNo(Config.selected_weekday));
+        RegNo.setAdapter(RegNo_Adapter);
+
         String title = getArguments().getString(Config.TITLE);
         getDialog().setTitle(title);
 
@@ -96,7 +102,7 @@ public class RoutineUpdateDialogF extends DialogFragment {
 
         if(mroutine!=null){
             Excercise_name.setSelection(getIndex(mroutine.getName()));
-            //nameEditText.setText(mroutine.getName());
+            RegNo.setSelection(mroutine.getRegNO());
             Set_numEditText.setText(String.valueOf(mroutine.getSet_num()));
             Repeat_numEditText.setText(String.valueOf(mroutine.getRepeat_num()));
             Rest_timeEditText.setText(String.valueOf(mroutine.getRest_time()));
@@ -105,11 +111,13 @@ public class RoutineUpdateDialogF extends DialogFragment {
                 @Override
                 public void onClick(View view) {
                     temp = Excercise_name.getSelectedItem().toString();
+                    Regno = Integer.parseInt(RegNo.getSelectedItem().toString());
                     Set_num = Integer.parseInt(Set_numEditText.getText().toString());
                     Repeat_num = Integer.parseInt(Repeat_numEditText.getText().toString());
                     Rest_time = Integer.parseInt(Rest_timeEditText.getText().toString());
 
                     mroutine.setName(temp);
+                    mroutine.setRegNO(Regno);
                     mroutine.setSet_num(Set_num);
                     mroutine.setRepeat_num(Repeat_num);
                     mroutine.setRest_time(Rest_time);

@@ -7,6 +7,8 @@ public class Config {
     //column names of Routine table
     public static final String TABLE_Routine = "Routine";
     public static final String COLUMN_Routine_ID = "_id";
+    public static final String COLUMN_Weekday = "Weekday";
+    public static final String COLUMN_RegNO = "RegNO";
     public static final String COLUMN_Exercise_NAME = "name";
     public static final String COLUMN_Routine_Set_num = "Set_num";
     public static final String COLUMN_Routine_Repeat_num = "Repeat_num";
@@ -16,4 +18,6 @@ public class Config {
     public static final String TITLE = "title";
     public static final String CREATE_Routine = "create_Routine";
     public static final String UPDATE_Routine = "update_Routine";
+
+    public static String selected_weekday = "";
 }

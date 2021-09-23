@@ -39,6 +39,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String CREATE_STUDENT_TABLE = "CREATE TABLE " + Config.TABLE_Routine + "("
                 + Config.COLUMN_Routine_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + Config.COLUMN_Exercise_NAME + " TEXT NOT NULL, "
+                + Config.COLUMN_Weekday + " TEXT NOT NULL, "
+                + Config.COLUMN_RegNO + " INTEGER NOT NULL, "
                 + Config.COLUMN_Routine_Set_num + " INTEGER NOT NULL, "
                 + Config.COLUMN_Routine_Repeat_num + " INTEGER NOT NULL, " //nullable
                 + Config.COLUMN_Routine_Rest_time + " INTEGER NOT NULL " //nullable
