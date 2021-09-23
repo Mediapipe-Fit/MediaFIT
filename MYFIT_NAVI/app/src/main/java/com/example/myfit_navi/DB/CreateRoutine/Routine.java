@@ -1,5 +1,7 @@
 package com.example.myfit_navi.DB.CreateRoutine;
 
+import android.util.Log;
+
 public class Routine {
     private long id;
     private String name;
@@ -13,6 +15,8 @@ public class Routine {
         this.Set_num = Set_num;
         this.Repeat_num = Repeat_num;
         this.Rest_time = Rest_time;
+        Log.i("DB_Insert_Routine_in_R", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , name , Set_num, Repeat_num, Repeat_num));
+
     }
 
     public long getId() {

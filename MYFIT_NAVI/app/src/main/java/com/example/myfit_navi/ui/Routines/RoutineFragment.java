@@ -69,10 +69,43 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener {
                 openRoutineCreateDialog();
             }
         });
+
+        FloatingActionButton del = (FloatingActionButton) getView().findViewById(R.id.del);
+        del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                all_delete();
+            }
+        });
     }
 
+    public void all_delete(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
+        alertDialogBuilder.setMessage("Are you sure, You wanted to delete all routines?");
+        alertDialogBuilder.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        boolean isAllDeleted = databaseQueryClass.deleteAllRoutines();
+                        if(isAllDeleted){
+                            routineList.clear();
+                            routineListRecyclerViewAdapter.notifyDataSetChanged();
+                            viewVisibility();
+                        }
+                    }
+                });
+
+        alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alertDialogBuilder.create(); // 만들고
+        alertDialogBuilder.show(); // 보여준다.
+    }
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) { // 메뉴바 사용할때.
 
         if(item.getItemId()==R.id.action_delete){
 

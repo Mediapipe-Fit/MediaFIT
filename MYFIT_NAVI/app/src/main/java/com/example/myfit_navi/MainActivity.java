@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.myfit_navi.DB.CreateRoutine.Routine;
-import com.example.myfit_navi.DB.ShowRoutine.RoutineListActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;

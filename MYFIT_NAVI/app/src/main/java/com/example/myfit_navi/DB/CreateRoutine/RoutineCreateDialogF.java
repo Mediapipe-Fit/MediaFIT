@@ -2,11 +2,14 @@ package com.example.myfit_navi.DB.CreateRoutine;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.fragment.app.DialogFragment;
 
@@ -18,17 +21,18 @@ public class RoutineCreateDialogF extends DialogFragment {
 
     private static RoutineCreateListener RoutineCreateListener;
 
-    private EditText Exercise_nameEditText;
+    //private EditText Exercise_nameEditText;
     private EditText Set_numEditText;
     private EditText Repeat_numEditText;
     private EditText Rest_timeEditText;
     private Button createButton;
     private Button cancelButton;
 
-    private String Exercise_name = "";
+    private Spinner Excercise_name;
     private int Set_num = -1;
     private int Repeat_num = -1;
     private int Rest_time = -1;
+    private String temp = "";
 
     public RoutineCreateDialogF() {
         // Required empty public constructor
@@ -52,25 +56,31 @@ public class RoutineCreateDialogF extends DialogFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.routine_create_dialog_f, container, false);
 
-        Exercise_nameEditText = view.findViewById(R.id.Exercise_nameEditText);
+        //Exercise_nameEditText = view.findViewById(R.id.Exercise_nameEditText);
         Set_numEditText = view.findViewById(R.id.Set_numEditText);
         Repeat_numEditText = view.findViewById(R.id.Repeat_numEditText);
         Rest_timeEditText = view.findViewById(R.id.Rest_timeEditText);
         createButton = view.findViewById(R.id.createButton);
         cancelButton = view.findViewById(R.id.cancelButton);
 
+        Excercise_name = view.findViewById(R.id.Exercise);
+        ArrayAdapter Exercise_Adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.Exercises, android.R.layout.simple_spinner_item);
+        Exercise_Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Excercise_name.setAdapter(Exercise_Adapter);
         String title = getArguments().getString(Config.TITLE);
         getDialog().setTitle(title);
 
         createButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Exercise_name = Exercise_nameEditText.getText().toString();
+                temp = Excercise_name.getSelectedItem().toString();
                 Set_num = Integer.parseInt(Set_numEditText.getText().toString());
                 Repeat_num = Integer.parseInt(Repeat_numEditText.getText().toString());
                 Rest_time = Integer.parseInt(Rest_timeEditText.getText().toString());
+                //Log.i("DB_Insert_Routine_in_EditText", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", -1 , temp , Set_num, Repeat_num, Repeat_num));
 
-                Routine Routine = new Routine(-1, Exercise_name, Set_num, Repeat_num, Rest_time);
+                Routine Routine = new Routine(-1, temp, Set_num, Repeat_num, Rest_time);
 
                 QueryClass databaseQueryClass = new QueryClass(getContext());
 
@@ -81,6 +91,8 @@ public class RoutineCreateDialogF extends DialogFragment {
                     RoutineCreateListener.onRoutineCreated(Routine);
                     getDialog().dismiss();
                 }
+                //Log.i("DB_Insert_Routine_in_D", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , Routine.getName() , Routine.getSet_num(), Routine.getRepeat_num(), Routine.getRepeat_num()));
+
             }
         });
 

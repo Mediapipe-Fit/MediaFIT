@@ -7,15 +7,15 @@
     android:padding="10dp"
     tools:context=".DB.UpdateRoutine.RoutineUpdateDialogF">
 
-    <EditText
-        android:id="@+id/Exercise_nameEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+    <Spinner
+        android:id="@+id/Exercise"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:hint="@string/exercise_name"
-        android:inputType="textPersonName"/>
+        android:gravity="start"></Spinner>
+
 
     <EditText
         android:id="@+id/Set_numEditText"
@@ -23,8 +23,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Exercise_nameEditText"
-        android:hint="@string/Set_num"
+        app:layout_constraintTop_toBottomOf="@+id/Exercise"
+        android:autofillHints="@string/Set_num"
         android:inputType="number"/>
 
     <EditText
@@ -34,7 +34,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Set_numEditText"
-        android:hint="@string/Repeat_num"
+        android:autofillHints="@string/Repeat_num"
         android:inputType="phone"/>
 
     <EditText
@@ -44,7 +44,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Repeat_numEditText"
-        android:hint="@string/Rest_time"
+        android:autofillHints="@string/Rest_time"
         android:inputType="textEmailAddress"/>
 
     <Button

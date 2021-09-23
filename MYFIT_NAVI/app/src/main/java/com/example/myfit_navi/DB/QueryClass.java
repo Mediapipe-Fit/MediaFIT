@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.myfit_navi.DB.CreateRoutine.Routine;
@@ -17,6 +18,7 @@ import com.orhanobut.logger.Logger;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 public class QueryClass {
 
@@ -37,8 +39,8 @@ public class QueryClass {
         contentValues.put(Config.COLUMN_Exercise_NAME, Routine.getName());
         contentValues.put(Config.COLUMN_Routine_Set_num, Routine.getSet_num());
         contentValues.put(Config.COLUMN_Routine_Repeat_num, Routine.getRepeat_num());
-        contentValues.put(Config.COLUMN_Routine_Rest_time, Routine.getRepeat_num());
-
+        contentValues.put(Config.COLUMN_Routine_Rest_time, Routine.getRest_time());
+        //Log.i("Before_insert",contentValues.toString());
         try {
             id = sqLiteDatabase.insertOrThrow(Config.TABLE_Routine, null, contentValues);
         } catch (SQLiteException e){
@@ -47,6 +49,7 @@ public class QueryClass {
         } finally {
             sqLiteDatabase.close();
         }
+        //Log.i("DB_Insert_Routine", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , Routine.getName() , Routine.getSet_num(), Routine.getRepeat_num(), Routine.getRepeat_num()));
 
         return id;
     }
@@ -77,6 +80,7 @@ public class QueryClass {
                         @SuppressLint("Range") int Set_num = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Set_num));
                         @SuppressLint("Range") int Rest_time = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Rest_time));
                         @SuppressLint("Range") int Repeat_num = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Repeat_num));
+                        //Log.i("DB_Get_Routine_ALL", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , name , Set_num, Repeat_num, Rest_time));
 
                         RoutineList.add(new Routine(id, name, Set_num, Rest_time, Repeat_num));
                     }   while (cursor.moveToNext());
@@ -95,7 +99,7 @@ public class QueryClass {
         return Collections.emptyList();
     }
 
-    public Routine getRoutineByRegNum(long Set_numNum){
+    public Routine getRoutineByRegNum(long Reg_ID){
 
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
         SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();
@@ -105,7 +109,7 @@ public class QueryClass {
         try {
 
             cursor = sqLiteDatabase.query(Config.TABLE_Routine, null,
-                    Config.COLUMN_Routine_Set_num + " = ? ", new String[]{String.valueOf(Set_numNum)},
+                    Config.COLUMN_Routine_ID + " = ? ", new String[]{String.valueOf(Reg_ID)},
                     null, null, null);
 
             /**
@@ -122,6 +126,7 @@ public class QueryClass {
                 @SuppressLint("Range") int Repeat_num = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Repeat_num));
                 @SuppressLint("Range") int Rest_time = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Rest_time));
 
+                //Log.i("DB_Get_Routine_bynum", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , name , Set_num, Repeat_num, Rest_time));
                 Routine = new Routine(id, name, Set_num, Repeat_num, Rest_time);
             }
         } catch (Exception e){
@@ -132,7 +137,6 @@ public class QueryClass {
                 cursor.close();
             sqLiteDatabase.close();
         }
-
         return Routine;
     }
 
@@ -162,15 +166,15 @@ public class QueryClass {
         return rowCount;
     }
 
-    public long deleteRoutineByRegNum(long Set_numNum) {
+    public long deleteRoutineByRegNum(long ID) {
         long deletedRowCount = -1;
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
 
         try {
             deletedRowCount = sqLiteDatabase.delete(Config.TABLE_Routine,
-                    Config.COLUMN_Routine_Set_num + " = ? ",
-                    new String[]{ String.valueOf(Set_numNum)});
+                    Config.COLUMN_Routine_ID + " = ? ",
+                    new String[]{ String.valueOf(ID)});
         } catch (SQLiteException e){
             Logger.d("Exception: " + e.getMessage());
             Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();

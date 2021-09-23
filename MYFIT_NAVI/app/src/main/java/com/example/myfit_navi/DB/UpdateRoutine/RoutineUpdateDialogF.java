@@ -1,12 +1,16 @@
 package com.example.myfit_navi.DB.UpdateRoutine;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.fragment.app.DialogFragment;
 
@@ -17,20 +21,22 @@ import com.example.myfit_navi.cfg.Config;
 
 public class RoutineUpdateDialogF extends DialogFragment {
 
-    private static long routineRegNo;
+    private static long Reg_ID;
     private static int routineItemPosition;
     private static RoutineUpdateListener routineUpdateListener;
 
     private Routine mroutine;
 
-    private EditText nameEditText;
     private EditText Set_numEditText;
     private EditText Repeat_numEditText;
     private EditText Rest_timeEditText;
     private Button updateButton;
     private Button cancelButton;
 
-    private String nameString = "";
+    private Spinner Excercise_name;
+
+
+    private String temp = "";
     private long Set_num = -1;
     private long Repeat_num = -1;
     private long Rest_time = -1;
@@ -41,8 +47,8 @@ public class RoutineUpdateDialogF extends DialogFragment {
         // Required empty public constructor
     }
 
-    public static RoutineUpdateDialogF newInstance(long Set_num, int position, RoutineUpdateListener listener){
-        routineRegNo = Set_num;
+    public static RoutineUpdateDialogF newInstance(long ID, int position, RoutineUpdateListener listener){
+        Reg_ID = ID;
         routineItemPosition = position;
         routineUpdateListener = listener;
         RoutineUpdateDialogF routineUpdateDialogFragment = new RoutineUpdateDialogF();
@@ -55,6 +61,15 @@ public class RoutineUpdateDialogF extends DialogFragment {
         return routineUpdateDialogFragment;
     }
 
+    public int getIndex(String s){
+        String[] Excercise_names = getResources().getStringArray(R.array.Exercises);
+        for(int i=0;i<Excercise_names.length ;++i){
+            if(s.contains(Excercise_names[i])){
+                return i;
+            }
+        }
+        return 0;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,20 +78,25 @@ public class RoutineUpdateDialogF extends DialogFragment {
 
         DBQueryClass = new QueryClass(getContext());
 
-        nameEditText = view.findViewById(R.id.Exercise_nameEditText);
         Set_numEditText = view.findViewById(R.id.Set_numEditText);
         Repeat_numEditText = view.findViewById(R.id.Repeat_numEditText);
         Rest_timeEditText = view.findViewById(R.id.Rest_timeEditText);
         updateButton = view.findViewById(R.id.updateRoutineInfoButton);
         cancelButton = view.findViewById(R.id.cancelButton);
+        Excercise_name = view.findViewById(R.id.Exercise);
+        ArrayAdapter Exercise_Adapter = ArrayAdapter.createFromResource(getActivity(),
+                R.array.Exercises, android.R.layout.simple_spinner_item);
+        Exercise_Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Excercise_name.setAdapter(Exercise_Adapter);
 
         String title = getArguments().getString(Config.TITLE);
         getDialog().setTitle(title);
 
-        mroutine = DBQueryClass.getRoutineByRegNum(routineRegNo);
+        mroutine = DBQueryClass.getRoutineByRegNum(Reg_ID);
 
         if(mroutine!=null){
-            nameEditText.setText(mroutine.getName());
+            Excercise_name.setSelection(getIndex(mroutine.getName()));
+            //nameEditText.setText(mroutine.getName());
             Set_numEditText.setText(String.valueOf(mroutine.getSet_num()));
             Repeat_numEditText.setText(String.valueOf(mroutine.getRepeat_num()));
             Rest_timeEditText.setText(String.valueOf(mroutine.getRest_time()));
@@ -84,12 +104,12 @@ public class RoutineUpdateDialogF extends DialogFragment {
             updateButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    nameString = nameEditText.getText().toString();
+                    temp = Excercise_name.getSelectedItem().toString();
                     Set_num = Integer.parseInt(Set_numEditText.getText().toString());
                     Repeat_num = Integer.parseInt(Repeat_numEditText.getText().toString());
                     Rest_time = Integer.parseInt(Rest_timeEditText.getText().toString());
 
-                    mroutine.setName(nameString);
+                    mroutine.setName(temp);
                     mroutine.setSet_num(Set_num);
                     mroutine.setRepeat_num(Repeat_num);
                     mroutine.setRest_time(Rest_time);
@@ -100,6 +120,8 @@ public class RoutineUpdateDialogF extends DialogFragment {
                         routineUpdateListener.onRoutineUpdateListener(mroutine, routineItemPosition);
                         getDialog().dismiss();
                     }
+                    Log.i("DB_Update_Routine_in_D", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", -1 , temp , Set_num, Repeat_num, Repeat_num));
+
                 }
             });
 

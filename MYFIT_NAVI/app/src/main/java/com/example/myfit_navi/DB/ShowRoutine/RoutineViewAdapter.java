@@ -81,7 +81,7 @@ public class RoutineViewAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         holder.editButtonImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RoutineUpdateDialogF routineUpdateDialogFragment = RoutineUpdateDialogF.newInstance(Routine.getSet_num(), itemPosition, (Routine1, position1) -> {
+                RoutineUpdateDialogF routineUpdateDialogFragment = RoutineUpdateDialogF.newInstance(Routine.getId(), itemPosition, (Routine1, position1) -> {
                     RoutineList.set(position1, Routine1);
                     notifyDataSetChanged();
                 });
@@ -92,7 +92,7 @@ public class RoutineViewAdapter extends RecyclerView.Adapter<CustomViewHolder> {
 
     private void deleteRoutine(int position) {
         Routine Routine = RoutineList.get(position);
-        long count = queryClass.deleteRoutineByRegNum(Routine.getSet_num());
+        long count = queryClass.deleteRoutineByRegNum(Routine.getId());
 
         if(count>0){
             RoutineList.remove(position);
