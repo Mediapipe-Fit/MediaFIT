@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/call_background_stroke.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/ic_call.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/ic_home.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/ic_photos.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/ic_playlist.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/ic_restaurant.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/ic_room.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/ic_search.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/ic_shop.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/list_background_oval.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/photos_background_stroke.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/search_background_oval.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/search_background_stroke.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/transition_background_drawable_home.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/transition_background_drawable_list.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/transition_background_drawable_person.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/transition_background_drawable_search.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/transition_background_drawable_shop.xml" value="0.4734375" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/layout/activity_bottom_bar.xml" value="0.22239108409321176" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/layout/activity_equal_bottom_bar.xml" value="0.22239108409321176" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/layout/activity_floating_top_bar.xml" value="0.22239108409321176" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/layout/activity_main.xml" value="0.22239108409321176" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/layout/activity_top_bar.xml" value="0.22239108409321176" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/layout/fragment_equal_bottom_bar.xml" value="0.22239108409321176" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/layout/fragment_screen_slide_page.xml" value="0.22239108409321176" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/bubblenavigation/src/main/res/drawable/badge_background_white.xml" value="0.34444444444444444" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/bubblenavigation/src/main/res/drawable/default_icon.xml" value="0.34444444444444444" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/bubblenavigation/src/main/res/drawable/rounded_rect.xml" value="0.34444444444444444" />
+        <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/bubblenavigation/src/main/res/drawable/transition_background_drawable.xml" value="0.34444444444444444" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
