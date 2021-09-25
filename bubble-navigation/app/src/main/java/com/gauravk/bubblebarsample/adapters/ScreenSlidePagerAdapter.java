@@ -13,9 +13,9 @@ import java.util.List;
  */
 public class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
 
-    private List<ScreenSlidePageFragment> fragmentList;
+    private List<Fragment> fragmentList;
 
-    public ScreenSlidePagerAdapter(List<ScreenSlidePageFragment> fragmentList, FragmentManager fm) {
+    public ScreenSlidePagerAdapter(List<Fragment> fragmentList, FragmentManager fm) {
         super(fm);
         this.fragmentList = fragmentList;
     }

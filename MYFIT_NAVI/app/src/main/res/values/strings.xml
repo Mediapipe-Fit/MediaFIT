@@ -12,12 +12,12 @@
     <string name="Set_num">Set_num</string>
     <string name="Repeat_num">Repeat_num</string>
     <string name="Rest_time">Rest_time</string>
-    <string name="cross_image_content_description">Delete student from SQLite database</string>
+    <string name="cross_image_content_description">Delete Routine from SQLite database</string>
     <string name="empty_routine_list_message">Please Add List!</string>
     <string name="exercise_name">exercise_name</string>
     <string name="update">Update</string>
     <string name="cancel_button">Cancel</string>
     <string name="create_button">Create</string>
     <string name="all_delete">All Delete</string>
-    <string name="edit_button_description">Edit Single student information</string>
+    <string name="edit_button_description">Edit Single Routine information</string>
 </resources>

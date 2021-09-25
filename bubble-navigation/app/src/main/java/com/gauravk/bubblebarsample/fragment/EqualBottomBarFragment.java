@@ -31,7 +31,7 @@ public class EqualBottomBarFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        ArrayList<ScreenSlidePageFragment> fragList = new ArrayList<>();
+        ArrayList<Fragment> fragList = new ArrayList<>();
         fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.shop), R.color.blue_inactive));
         fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.photos), R.color.purple_inactive));
         fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.call), R.color.green_inactive));

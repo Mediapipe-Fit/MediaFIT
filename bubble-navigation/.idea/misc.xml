@@ -8,6 +8,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/chdls/Desktop/MediaFIT/bubble-navigation/app/src/main/res/layout/activity_bottom_bar.xml" value="0.1" />
+        <entry key="..\:/Users/chdls/Desktop/MediaFIT/bubble-navigation/app/src/main/res/layout/fragment_routine_content.xml" value="0.2046875" />
+        <entry key="..\:/Users/chdls/Desktop/MediaFIT/bubble-navigation/app/src/main/res/layout/fragment_routine_list.xml" value="0.2046875" />
+        <entry key="..\:/Users/chdls/Desktop/MediaFIT/bubble-navigation/app/src/main/res/layout/routine_create_dialog_f.xml" value="0.2046875" />
+        <entry key="..\:/Users/chdls/Desktop/MediaFIT/bubble-navigation/app/src/main/res/layout/routine_item.xml" value="0.2046875" />
+        <entry key="..\:/Users/chdls/Desktop/MediaFIT/bubble-navigation/app/src/main/res/layout/routine_time.xml" value="0.2046875" />
+        <entry key="..\:/Users/chdls/Desktop/MediaFIT/bubble-navigation/app/src/main/res/layout/routine_update_dialog_f.xml" value="0.2046875" />
         <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/call_background_stroke.xml" value="0.4734375" />
         <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/ic_call.xml" value="0.4734375" />
         <entry key="..\:/Users/whwhd/AndroidStudioProjects/bubble-navigation/app/src/main/res/drawable/ic_home.xml" value="0.4734375" />

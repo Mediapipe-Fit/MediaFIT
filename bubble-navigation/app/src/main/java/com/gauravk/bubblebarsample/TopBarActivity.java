@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import com.gauravk.bubblebarsample.adapters.ScreenSlidePagerAdapter;
 import com.gauravk.bubblebarsample.fragment.ScreenSlidePageFragment;
@@ -17,7 +18,7 @@ public class TopBarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top_bar);
 
-        ArrayList<ScreenSlidePageFragment> fragList = new ArrayList<>();
+        ArrayList<Fragment> fragList = new ArrayList<>();
         fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.restaurant), R.color.orange_inactive));
         fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.room), R.color.red_inactive));
         fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.happy), R.color.green_inactive));

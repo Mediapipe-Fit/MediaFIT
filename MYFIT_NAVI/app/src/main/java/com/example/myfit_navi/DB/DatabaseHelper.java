@@ -36,7 +36,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         // Create tables SQL execution
-        String CREATE_STUDENT_TABLE = "CREATE TABLE " + Config.TABLE_Routine + "("
+        String CREATE_Routine_TABLE = "CREATE TABLE " + Config.TABLE_Routine + "("
                 + Config.COLUMN_Routine_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + Config.COLUMN_Exercise_NAME + " TEXT NOT NULL, "
                 + Config.COLUMN_Weekday + " TEXT NOT NULL, "
@@ -46,9 +46,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + Config.COLUMN_Routine_Rest_time + " INTEGER NOT NULL " //nullable
                 + ")";
 
-        Logger.d("Table create SQL: " + CREATE_STUDENT_TABLE);
+        Logger.d("Table create SQL: " + CREATE_Routine_TABLE);
 
-        db.execSQL(CREATE_STUDENT_TABLE);
+        db.execSQL(CREATE_Routine_TABLE);
 
         Logger.d("DB created!");
     }

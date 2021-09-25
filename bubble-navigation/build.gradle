@@ -30,7 +30,7 @@ ext {
     minSdkVersion = 15
     targetSdkVersion = 29
 
-    jUnitVersion = '4.12'
+    jUnitVersion = '4.13.2'
     testRunnerVersion = '1.0.2'
     espressoVersion = '3.0.2'
 }

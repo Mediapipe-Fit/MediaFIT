@@ -4,6 +4,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import com.gauravk.bubblebarsample.adapters.ScreenSlidePagerAdapter;
 import com.gauravk.bubblebarsample.fragment.ScreenSlidePageFragment;
@@ -22,7 +23,7 @@ public class FloatingTopBarActivity extends AppCompatActivity {
         bncw.setBadgeValue(0, "3");
         bncw.setBadgeValue(1, "9+"); //invisible badge
 
-        ArrayList<ScreenSlidePageFragment> fragList = new ArrayList<>();
+        ArrayList<Fragment> fragList = new ArrayList<>();
         fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.home), R.color.red_inactive));
         fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.search), R.color.blue_inactive));
         fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.likes), R.color.blue_grey_inactive));
