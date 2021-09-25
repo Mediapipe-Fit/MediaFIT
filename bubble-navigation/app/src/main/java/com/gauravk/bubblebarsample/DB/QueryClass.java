@@ -302,4 +302,25 @@ public class QueryClass {
         return deleteStatus;
     }
 
+    public boolean deleteDayRoutines(String Day){
+        boolean deleteStatus = false;
+        DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
+        SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
+
+        try {
+            //for "1" delete() method returns  of deleted rows
+            //if you don't want row count just use delete(TABLE_NAME, null, null)
+            sqLiteDatabase.delete(Config.TABLE_Routine, Config.COLUMN_Weekday + " = ? ", new String[]{Day});
+            deleteStatus = true;
+
+        } catch (SQLiteException e){
+            Logger.d("Exception: " + e.getMessage());
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
+        } finally {
+            sqLiteDatabase.close();
+        }
+
+        return deleteStatus;
+    }
+
 }

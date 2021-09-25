@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.gauravk.bubblebarsample.BottomBarActivity;
 import com.gauravk.bubblebarsample.DB.CreateRoutine.Routine;
 import com.gauravk.bubblebarsample.DB.CreateRoutine.RoutineCreateDialogF;
 import com.gauravk.bubblebarsample.DB.CreateRoutine.RoutineCreateListener;
@@ -91,7 +92,7 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener {
         del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                all_delete();
+                Days_routine_delete();
             }
         });
         WeekDays.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -116,22 +117,23 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener {
         routineListRecyclerViewAdapter = new RoutineViewAdapter(getActivity(), Days_routineList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(routineListRecyclerViewAdapter);
-
         viewVisibility();
     }
+
     public String getday(int index){
         String[] mWeekdays = getResources().getStringArray(R.array.WeekDays);
         return mWeekdays[index];
     }
 
-    public void all_delete(){
+    public void Days_routine_delete(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
-        alertDialogBuilder.setMessage("Are you sure, You wanted to delete all routines?");
+        alertDialogBuilder.setMessage("Are you sure, You wanted to delete routines?");
         alertDialogBuilder.setPositiveButton("Yes",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
-                        boolean isAllDeleted = databaseQueryClass.deleteAllRoutines();
+                        boolean isAllDeleted = databaseQueryClass.deleteDayRoutines(Config.selected_weekday);
+
                         if(isAllDeleted){
                             Days_routineList.clear();
                             routineListRecyclerViewAdapter.notifyDataSetChanged();
