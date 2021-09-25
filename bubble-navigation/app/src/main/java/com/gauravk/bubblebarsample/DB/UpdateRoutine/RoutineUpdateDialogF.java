@@ -17,11 +17,11 @@ import com.gauravk.bubblebarsample.DB.CreateRoutine.Routine;
 import com.gauravk.bubblebarsample.DB.QueryClass;
 import com.gauravk.bubblebarsample.R;
 import com.gauravk.bubblebarsample.cfg.Config;
+import com.gauravk.bubblebarsample.fragment.RoutineFragment;
 
 
 public class RoutineUpdateDialogF extends DialogFragment {
 
-    private static long Reg_ID;
     private static int routineItemPosition;
     private static RoutineUpdateListener routineUpdateListener;
 
@@ -44,13 +44,11 @@ public class RoutineUpdateDialogF extends DialogFragment {
     private long Rest_time = -1;
 
     private QueryClass DBQueryClass;
-
     public RoutineUpdateDialogF() {
         // Required empty public constructor
     }
 
     public static RoutineUpdateDialogF newInstance(long ID, int position, RoutineUpdateListener listener){
-        Reg_ID = ID;
         routineItemPosition = position;
         routineUpdateListener = listener;
         RoutineUpdateDialogF routineUpdateDialogFragment = new RoutineUpdateDialogF();
@@ -79,7 +77,6 @@ public class RoutineUpdateDialogF extends DialogFragment {
         View view = inflater.inflate(R.layout.routine_update_dialog_f, container, false);
 
         DBQueryClass = new QueryClass(getContext());
-
         Set_numEditText = view.findViewById(R.id.Set_numEditText);
         Repeat_numEditText = view.findViewById(R.id.Repeat_numEditText);
         Rest_timeEditText = view.findViewById(R.id.Rest_timeEditText);
@@ -98,7 +95,7 @@ public class RoutineUpdateDialogF extends DialogFragment {
         String title = getArguments().getString(Config.TITLE);
         getDialog().setTitle(title);
 
-        mroutine = DBQueryClass.getRoutineByRegNum(Reg_ID);
+        mroutine = DBQueryClass.getRoutineByRegNum(Config.selected_ID);
 
         if(mroutine!=null){
             Excercise_name.setSelection(getIndex(mroutine.getName()));
@@ -128,7 +125,7 @@ public class RoutineUpdateDialogF extends DialogFragment {
                         routineUpdateListener.onRoutineUpdateListener(mroutine, routineItemPosition);
                         getDialog().dismiss();
                     }
-                    Log.i("DB_Update_Routine_in_D", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", -1 , temp , Set_num, Repeat_num, Repeat_num));
+                    //Log.i("DB_Update_Routine_in_D", String.format("ID = %d, RegNO = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", -1 , Regno, temp , Set_num, Repeat_num, Repeat_num));
 
                 }
             });

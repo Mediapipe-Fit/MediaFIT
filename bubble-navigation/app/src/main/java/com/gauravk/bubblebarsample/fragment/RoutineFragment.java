@@ -10,15 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.gauravk.bubblebarsample.BottomBarActivity;
 import com.gauravk.bubblebarsample.DB.CreateRoutine.Routine;
 import com.gauravk.bubblebarsample.DB.CreateRoutine.RoutineCreateDialogF;
 import com.gauravk.bubblebarsample.DB.CreateRoutine.RoutineCreateListener;
@@ -31,10 +32,11 @@ import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
-public class RoutineFragment extends Fragment implements RoutineCreateListener {
+public class RoutineFragment extends Fragment implements RoutineCreateListener{
 
     private QueryClass databaseQueryClass;
 
@@ -44,7 +46,6 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener {
     private RecyclerView recyclerView;
     private RoutineViewAdapter routineListRecyclerViewAdapter;
 
-    private Spinner WeekDays;
 
     public static RoutineFragment newInstance() {
         RoutineFragment fragment = new RoutineFragment();
@@ -61,13 +62,7 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener {
     public void onStart() {
         super.onStart();
         Logger.addLogAdapter(new AndroidLogAdapter());
-
-        WeekDays = (Spinner) getView().findViewById(R.id.WeekDays);
-        ArrayAdapter WeekDays_Adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.WeekDays, android.R.layout.simple_spinner_item);
-        WeekDays_Adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        WeekDays.setAdapter(WeekDays_Adapter);
-
+        setBtns();
 
         recyclerView = (RecyclerView) getView().findViewById(R.id.RoutineRecyclerView);
         routineListEmptyTextView = (TextView) getView().findViewById(R.id.emptyRoutineListTextView);
@@ -95,35 +90,46 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener {
                 Days_routine_delete();
             }
         });
-        WeekDays.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                Config.selected_weekday = getday(position);
-                change_View(Config.selected_weekday);
-                Log.i("haha",Config.selected_weekday);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // your code here
-            }
-
-        });
     }
-
-    public void change_View(String days){
+    public void setBtns(){
+        ArrayList<Button> Btns = new ArrayList<>();
+        ArrayList<Integer> Weekdays = new ArrayList<>(Arrays.asList(R.id.Mon,R.id.Tue,R.id.Wed,R.id.Thu,R.id.Fri,R.id.Sat,R.id.Sun));
+        for(int i=0;i<7;++i){
+            Button cur = (Button) getView().findViewById(Weekdays.get(i));
+            Btns.add(cur);
+        }
+        Set_onButtonClick(Btns);
+    }
+    public void Set_onButtonClick(ArrayList<Button> btns) {
+        for(int i=0;i<btns.size();++i){
+            int finalI = i;
+            btns.get(i).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    reset_button(btns);
+                    btns.get(finalI).setBackgroundDrawable(ContextCompat.getDrawable(getActivity(),R.drawable.weekday_active));
+                    Log.i("Touched", String.valueOf(btns.get(finalI).getText()));
+                    Config.selected_weekday = String.valueOf(btns.get(finalI).getText());
+                    change_View();
+                }
+            });
+        }
+    }
+    public void reset_button(ArrayList<Button> btns){
+        for(int i=0;i<btns.size();++i){
+            int finalI = i;
+            btns.get(finalI).setBackgroundDrawable(ContextCompat.getDrawable(getActivity(),R.drawable.weekday_inactive));
+        }
+    }
+    public void change_View(){
         Days_routineList = new ArrayList<>();
-        Days_routineList.addAll(databaseQueryClass.getDaysRoutine(days));
+        Days_routineList.addAll(databaseQueryClass.getDaysRoutine(Config.selected_weekday));
         routineListRecyclerViewAdapter = new RoutineViewAdapter(getActivity(), Days_routineList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(routineListRecyclerViewAdapter);
         viewVisibility();
     }
 
-    public String getday(int index){
-        String[] mWeekdays = getResources().getStringArray(R.array.WeekDays);
-        return mWeekdays[index];
-    }
 
     public void Days_routine_delete(){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
@@ -172,10 +178,10 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener {
 
     @Override
     public void onRoutineCreated(Routine routine) {
-        Days_routineList.add(routine);
         routineListRecyclerViewAdapter.notifyDataSetChanged();
-        viewVisibility();
+        change_View();
         Logger.d(routine.getName());
     }
+
 }
 

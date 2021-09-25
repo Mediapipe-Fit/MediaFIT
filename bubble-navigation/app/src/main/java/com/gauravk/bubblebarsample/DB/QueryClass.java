@@ -84,7 +84,7 @@ public class QueryClass {
                         @SuppressLint("Range") int Set_num = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Set_num));
                         @SuppressLint("Range") int Rest_time = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Rest_time));
                         @SuppressLint("Range") int Repeat_num = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Repeat_num));
-                        Log.i("DB_Get_Routine_ALL", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , name , Set_num, Repeat_num, Rest_time));
+                        Log.i("DB_Get_Routine_ALL", String.format("ID = %d, Reg_no = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , RegNo, name , Set_num, Repeat_num, Rest_time));
 
                         RoutineList.add(new Routine(id, name, RegNo, Set_num, Rest_time, Repeat_num));
                     }   while (cursor.moveToNext());

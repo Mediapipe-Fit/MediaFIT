@@ -5,12 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginTop="8dp"
-    android:layout_marginStart="8dp"
+    android:layout_marginStart="15dp"
     android:layout_marginLeft="8dp"
-    android:layout_marginEnd="8dp"
+    android:layout_marginEnd="15dp"
     android:layout_marginRight="8dp"
-    android:padding="8dp"
-    android:background="@color/white">
+    android:padding="20dp"
+    android:background="@drawable/routine_item">
 
     <TextView
         android:id="@+id/Exercise_nameTextView"

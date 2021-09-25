@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="haha" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="DB_Get_Routine_ALL" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="AutoImportSettings">
@@ -46,8 +46,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
-        <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -66,6 +67,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android-custom-viewC:/Users/chdls/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_RecyclerView_DIMENSIONS" value="1080&#10;1920" />
     <property name="android-custom-viewC:/Users/chdls/.gradle/caches/modules-2/files-2.1/androidx.recyclerview/recyclerview/1.1.0/f2bdf79e1977939817f54a9d3e2f6bc52b63bdd0/recyclerview-1.1.0-sources.jar!/androidx/recyclerview/widget/RecyclerView.java_SELECTED" value="RecyclerView" />
+    <property name="android-custom-viewC:/Users/chdls/AppData/Local/Android/Sdk/sources/android-29/android/widget/Spinner.java_SELECTED" value="Spinner" />
+    <property name="android-custom-viewC:/Users/chdls/AppData/Local/Android/Sdk/sources/android-29/android/widget/Spinner.java_Spinner_DIMENSIONS" value="1080&#10;1920" />
     <property name="android-custom-viewC:/Users/whwhd/AndroidStudioProjects/bubble-navigation/bubblenavigation/src/main/java/com/gauravk/bubblenavigation/BubbleNavigationConstraintView.java_BubbleNavigationConstraintView_DIMENSIONS" value="1080&#10;1920" />
     <property name="android-custom-viewC:/Users/whwhd/AndroidStudioProjects/bubble-navigation/bubblenavigation/src/main/java/com/gauravk/bubblenavigation/BubbleNavigationConstraintView.java_SELECTED" value="BubbleNavigationConstraintView" />
     <property name="android-custom-viewC:/Users/whwhd/AndroidStudioProjects/bubble-navigation/bubblenavigation/src/main/java/com/gauravk/bubblenavigation/BubbleNavigationLinearView.java_BubbleNavigationLinearView_DIMENSIONS" value="1080&#10;1920" />
@@ -73,8 +76,8 @@
     <property name="android-custom-viewC:/Users/whwhd/AndroidStudioProjects/bubble-navigation/bubblenavigation/src/main/java/com/gauravk/bubblenavigation/BubbleToggleView.java_BubbleToggleView_DIMENSIONS" value="1080&#10;1920" />
     <property name="android-custom-viewC:/Users/whwhd/AndroidStudioProjects/bubble-navigation/bubblenavigation/src/main/java/com/gauravk/bubblenavigation/BubbleToggleView.java_SELECTED" value="BubbleToggleView" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/java/com/gauravk/bubblebarsample" />
-    <property name="project.structure.last.edited" value="Suggestions" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ElasticViews" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.21827412" />
   </component>
@@ -170,5 +173,41 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/gauravk/bubblebarsample/DB/UpdateRoutine/RoutineUpdateDialogF.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/gauravk/bubblebarsample/DB/UpdateRoutine/RoutineUpdateDialogF.java</url>
+          <line>113</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/gauravk/bubblebarsample/DB/UpdateRoutine/RoutineUpdateDialogF.java</url>
+          <line>119</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/gauravk/bubblebarsample/DB/UpdateRoutine/RoutineUpdateDialogF.java</url>
+          <line>116</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/gauravk/bubblebarsample/DB/UpdateRoutine/RoutineUpdateDialogF.java</url>
+          <line>125</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/gauravk/bubblebarsample/DB/UpdateRoutine/RoutineUpdateDialogF.java</url>
+          <line>127</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

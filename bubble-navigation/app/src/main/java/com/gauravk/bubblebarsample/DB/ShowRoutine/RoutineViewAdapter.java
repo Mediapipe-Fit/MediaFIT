@@ -45,12 +45,12 @@ public class RoutineViewAdapter extends RecyclerView.Adapter<CustomViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         final int itemPosition = position;
-        final Routine Routine = RoutineList.get(position);
+        final Routine routine = RoutineList.get(position);
 
-        holder.Exercise_nameTextView.setText(String.format("%d. %s",Routine.getRegNO(),Routine.getName()));
-        holder.Set_numTextView.setText(String.valueOf(Routine.getSet_num()));
-        holder.Repeat_numTextView.setText(String.valueOf(Routine.getRepeat_num()));
-        holder.Rest_timeTextView.setText(String.valueOf(Routine.getRest_time()));
+        holder.Exercise_nameTextView.setText(String.format("%d. %s",routine.getRegNO(),routine.getName()));
+        holder.Set_numTextView.setText(String.valueOf(routine.getSet_num()));
+        holder.Repeat_numTextView.setText(String.valueOf(routine.getRepeat_num()));
+        holder.Rest_timeTextView.setText(String.valueOf(routine.getRest_time()));
 
         holder.crossButtonImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +80,8 @@ public class RoutineViewAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         holder.editButtonImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RoutineUpdateDialogF routineUpdateDialogFragment = RoutineUpdateDialogF.newInstance(Routine.getId(), itemPosition, (Routine1, position1) -> {
+                Config.selected_ID = routine.getId();
+                RoutineUpdateDialogF routineUpdateDialogFragment = RoutineUpdateDialogF.newInstance(routine.getId(), itemPosition, (Routine1, position1) -> {
                     RoutineList.set(position1, Routine1);
                     notifyDataSetChanged();
                 });

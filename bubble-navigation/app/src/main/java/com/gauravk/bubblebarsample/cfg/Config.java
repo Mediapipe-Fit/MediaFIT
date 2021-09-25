@@ -20,4 +20,6 @@ public class Config {
     public static final String UPDATE_Routine = "update_Routine";
 
     public static String selected_weekday = "";
+    public static long selected_ID = -1;
+    public static String Today = "";
 }
