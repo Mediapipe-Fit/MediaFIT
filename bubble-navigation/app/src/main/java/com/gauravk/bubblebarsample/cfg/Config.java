@@ -5,7 +5,7 @@ public class Config {
     public static final String DATABASE_NAME = "Routine-db";
 
     //column names of Routine table
-    public static final String TABLE_Routine = "Routine";
+    public static final String TABLE_Routine = "Routines";
     public static final String COLUMN_Routine_ID = "_id";
     public static final String COLUMN_Weekday = "Weekday";
     public static final String COLUMN_RegNO = "RegNO";
@@ -13,6 +13,8 @@ public class Config {
     public static final String COLUMN_Routine_Set_num = "Set_num";
     public static final String COLUMN_Routine_Repeat_num = "Repeat_num";
     public static final String COLUMN_Routine_Rest_time = "Rest_time";
+    public static final String COLUMN_Routine_Counts = "Counts";
+    public static final String COLUMN_Routine_Complete = "Complete";
 
     //others for general purpose key-value pair data
     public static final String TITLE = "title";

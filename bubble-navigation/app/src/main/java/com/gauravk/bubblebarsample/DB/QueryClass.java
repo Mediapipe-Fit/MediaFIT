@@ -42,6 +42,8 @@ public class QueryClass {
         contentValues.put(Config.COLUMN_Routine_Set_num, Routine.getSet_num());
         contentValues.put(Config.COLUMN_Routine_Repeat_num, Routine.getRepeat_num());
         contentValues.put(Config.COLUMN_Routine_Rest_time, Routine.getRest_time());
+        contentValues.put(Config.COLUMN_Routine_Counts, Routine.getCounts());
+        contentValues.put(Config.COLUMN_Routine_Complete, Routine.getcheck());
         //Log.i("Before_insert",contentValues.toString());
         try {
             id = sqLiteDatabase.insertOrThrow(Config.TABLE_Routine, null, contentValues);
@@ -84,9 +86,11 @@ public class QueryClass {
                         @SuppressLint("Range") int Set_num = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Set_num));
                         @SuppressLint("Range") int Rest_time = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Rest_time));
                         @SuppressLint("Range") int Repeat_num = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Repeat_num));
+                        @SuppressLint("Range") int Counts = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Counts));
+                        @SuppressLint("Range") int check = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Complete));
                         Log.i("DB_Get_Routine_ALL", String.format("ID = %d, Reg_no = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , RegNo, name , Set_num, Repeat_num, Rest_time));
 
-                        RoutineList.add(new Routine(id, name, RegNo, Set_num, Rest_time, Repeat_num));
+                        RoutineList.add(new Routine(id, name, RegNo, Set_num, Rest_time, Repeat_num, Counts, check));
                     }   while (cursor.moveToNext());
 
                     return RoutineList;
@@ -170,9 +174,11 @@ public class QueryClass {
                         @SuppressLint("Range") int Set_num = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Set_num));
                         @SuppressLint("Range") int Rest_time = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Rest_time));
                         @SuppressLint("Range") int Repeat_num = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Repeat_num));
-                        //Log.i("DB_Get_Routine_ALL", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , name , Set_num, Repeat_num, Rest_time));
+                        @SuppressLint("Range") int Counts = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Counts));
+                        @SuppressLint("Range") int check = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Complete));
+                        Log.i("DB_Get_Routine_ALL", String.format("ID = %d, Reg_no = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , RegNo, name , Set_num, Repeat_num, Rest_time));
 
-                        RoutineList.add(new Routine(id, name, RegNo, Set_num, Rest_time, Repeat_num));
+                        RoutineList.add(new Routine(id, name, RegNo, Set_num, Rest_time, Repeat_num, Counts, check));
                     }   while (cursor.moveToNext());
 
                     return RoutineList;
@@ -217,8 +223,10 @@ public class QueryClass {
                 @SuppressLint("Range") int Repeat_num = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Repeat_num));
                 @SuppressLint("Range") int Rest_time = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Rest_time));
 
+                @SuppressLint("Range") int Counts = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Counts));
+                @SuppressLint("Range") int check = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Complete));
                 //Log.i("DB_Get_Routine_bynum", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , name , Set_num, Repeat_num, Rest_time));
-                Routine = new Routine(id, name, RegNo, Set_num, Repeat_num, Rest_time);
+                Routine = new Routine(id, name, RegNo, Set_num, Repeat_num, Rest_time, Counts, check);
             }
         } catch (Exception e){
             Logger.d("Exception: " + e.getMessage());

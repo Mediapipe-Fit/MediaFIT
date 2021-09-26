@@ -42,8 +42,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + Config.COLUMN_Weekday + " TEXT NOT NULL, "
                 + Config.COLUMN_RegNO + " INTEGER NOT NULL, "
                 + Config.COLUMN_Routine_Set_num + " INTEGER NOT NULL, "
-                + Config.COLUMN_Routine_Repeat_num + " INTEGER NOT NULL, " //nullable
-                + Config.COLUMN_Routine_Rest_time + " INTEGER NOT NULL " //nullable
+                + Config.COLUMN_Routine_Repeat_num + " INTEGER NOT NULL, "
+                + Config.COLUMN_Routine_Rest_time + " INTEGER NOT NULL, "
+                + Config.COLUMN_Routine_Counts + " INTEGER NOT NULL, "
+                + Config.COLUMN_Routine_Complete + " INTEGER NOT NULL "
                 + ")";
 
         Logger.d("Table create SQL: " + CREATE_Routine_TABLE);

@@ -13,8 +13,10 @@ public class Routine {
     private long Set_num;
     private long Repeat_num;
     private long Rest_time;
+    private long Counts;
+    private int check;
 
-    public Routine(int id, String name, int RegNO, int Set_num, int Repeat_num, int Rest_time) {
+    public Routine(int id, String name, int RegNO, int Set_num, int Repeat_num, int Rest_time, int Counts, int check) {
         this.id = id;
         this.name = name;
         this.RegNO = RegNO;
@@ -22,8 +24,9 @@ public class Routine {
         this.Repeat_num = Repeat_num;
         this.Rest_time = Rest_time;
         this.Weekday = Config.selected_weekday;
-        Log.i("DB_Insert_Routine_in_R", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , name , Set_num, Repeat_num, Repeat_num));
-
+        this.Counts = Counts;
+        this.check = check;
+        //Log.i("DB_Insert_Routine_in_R", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , name , Set_num, Repeat_num, Repeat_num));
     }
 
     public long getId() {
@@ -76,5 +79,24 @@ public class Routine {
 
     public void setRest_time(long Rest_time) {
         this.Rest_time = Rest_time;
+    }
+
+    public long getCounts() {
+        return Counts;
+    }
+
+    public void setCounts(long Counts) {
+        this.Counts = Counts;
+    }
+
+    public void plusCounts(){
+        this.Counts++;
+    }
+    public int getcheck() {
+        return check;
+    }
+
+    public void Complete() {
+        this.check = 1;
     }
 }

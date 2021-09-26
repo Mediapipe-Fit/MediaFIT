@@ -92,7 +92,8 @@ public class RoutineCreateDialogF extends DialogFragment {
                 Rest_time = Integer.parseInt(Rest_timeEditText.getText().toString());
                 //Log.i("DB_Insert_Routine_in_EditText", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", -1 , temp , Set_num, Repeat_num, Repeat_num));
 
-                Routine Routine = new Routine(-1, temp,Regno, Set_num, Repeat_num, Rest_time);
+                //만들때는 0으로
+                Routine Routine = new Routine(-1, temp,Regno, Set_num, Repeat_num, Rest_time,0,0);
 
                 QueryClass databaseQueryClass = new QueryClass(getContext());
 
