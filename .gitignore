@@ -20,8 +20,8 @@ out/
 # release/
 
 # Gradle files
-.gradle/
-build/
+*.gradle/
+*/build/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -33,25 +33,25 @@ proguard/
 *.log
 
 # Android Studio Navigation editor temp files
-.navigation/
+*.navigation/
 
 # Android Studio captures folder
 captures/
 
 # IntelliJ
 *.iml
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/gradle.xml
-.idea/assetWizardSettings.xml
-.idea/dictionaries
-.idea/libraries
-.idea/jarRepositories.xml
+*.idea/workspace.xml
+*.idea/tasks.xml
+*.idea/gradle.xml
+*.idea/assetWizardSettings.xml
+*.idea/dictionaries
+*.idea/libraries
+*.idea/jarRepositories.xml
 # Android Studio 3 in .gitignore file.
-.idea/caches
-.idea/modules.xml
+*.idea/caches
+*.idea/modules.xml
 # Comment next line if keeping position of elements in Navigation Editor is relevant for you
-.idea/navEditor.xml
+*.idea/navEditor.xml
 
 # Keystore files
 # Uncomment the following lines if you do not want to check your keystore files in.
@@ -106,7 +106,7 @@ output.json
 *.ctxt
 
 # Mobile Tools for Java (J2ME)
-.mtj.tmp/
+*.mtj.tmp/
 
 # Package Files #
 *.jar
@@ -132,10 +132,10 @@ hs_err_pid*
 # Generated files
 
 # Gradle files
-.gradle
+*.gradle
 
 # Signing files
-.signing/
+*.signing/
 
 # Local configuration file (sdk path, etc)
 
@@ -172,22 +172,22 @@ obj/
 /out/
 
 # User-specific configurations
-.idea/caches/
-.idea/libraries/
-.idea/shelf/
-.idea/.name
-.idea/compiler.xml
-.idea/copyright/profiles_settings.xml
-.idea/encodings.xml
-.idea/misc.xml
-.idea/scopes/scope_settings.xml
-.idea/vcs.xml
-.idea/jsLibraryMappings.xml
-.idea/datasources.xml
-.idea/dataSources.ids
-.idea/sqlDataSources.xml
-.idea/dynamic.xml
-.idea/uiDesigner.xml
+*.idea/caches/
+*.idea/libraries/
+*.idea/shelf/
+*.idea/.name
+*.idea/compiler.xml
+*.idea/copyright/profiles_settings.xml
+*.idea/encodings.xml
+*.idea/misc.xml
+*.idea/scopes/scope_settings.xml
+*.idea/vcs.xml
+*.idea/jsLibraryMappings.xml
+*.idea/datasources.xml
+*.idea/dataSources.ids
+*.idea/sqlDataSources.xml
+*.idea/dynamic.xml
+*.idea/uiDesigner.xml
 
 # OS-specific files
 .DS_Store
