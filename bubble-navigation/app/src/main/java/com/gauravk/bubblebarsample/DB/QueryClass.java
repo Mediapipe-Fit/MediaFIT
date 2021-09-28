@@ -29,27 +29,33 @@ public class QueryClass {
         this.context = context;
         Logger.addLogAdapter(new AndroidLogAdapter());
     }
-    public void CreateNewDay(ArrayList<String> Day){
+    public Boolean isOkay(){
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
         long count = DatabaseUtils.queryNumEntries(sqLiteDatabase, Config.TABLE_Calendar);
         boolean status = false;
         if(count==0)
             status = true;
-        if(status){
-            for(int i=0;i<Day.size();++i){
-                ContentValues contentValues = new ContentValues();
-                contentValues.put(Config.COLUMN_Calendar_Day, Day.get(i));
-                contentValues.put(Config.COLUMN_Calendar_Complete, 0);
-                //Log.i("Before_insert",contentValues.toString());
-                try {
-                    sqLiteDatabase.insertOrThrow(Config.TABLE_Calendar, null, contentValues);
-                } catch (SQLiteException e){
-                    Logger.d("Exception: " + e.getMessage());
-                    Toast.makeText(context, "Operation failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                } finally {
-                    sqLiteDatabase.close();
-                }
+
+        Logger.d("counts : "+ count);
+        return status;
+    }
+
+    public void CreateNewDay(ArrayList<String> Day){
+        DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
+        SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
+        for(int i=0;i<Day.size();++i){
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(Config.COLUMN_Calendar_Day, Day.get(i));
+            contentValues.put(Config.COLUMN_Calendar_Complete, 0);
+            //Log.i("Before_insert",contentValues.toString());
+            try {
+                sqLiteDatabase.insertOrThrow(Config.TABLE_Calendar, null, contentValues);
+            } catch (SQLiteException e){
+                Logger.d("Exception: " + e.getMessage());
+                Toast.makeText(context, "Operation failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+            } finally {
+                sqLiteDatabase.close();
             }
         }
     }
@@ -59,7 +65,6 @@ public class QueryClass {
         SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();
         int Status = 0;
         Cursor cursor = null;
-        Routine Routine = null;
         try {
 
             cursor = sqLiteDatabase.query(Config.TABLE_Calendar, null,
@@ -84,7 +89,29 @@ public class QueryClass {
                 cursor.close();
             sqLiteDatabase.close();
         }
+        Logger.d("Status : "+ Status);
         return Status;
+    }
+
+    public void Update_Status(String Day){
+
+        DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
+        SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(Config.COLUMN_Calendar_Complete, 1);
+
+        try {
+            sqLiteDatabase.update(Config.TABLE_Calendar, contentValues,
+                    Config.COLUMN_Calendar_Day + " = ? ",
+                    new String[] {String.valueOf(Day)});
+        } catch (SQLiteException e){
+            Logger.d("Exception: " + e.getMessage());
+            Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
+        } finally {
+            sqLiteDatabase.close();
+        }
+
     }
     public long insertRoutine(Routine Routine){
 

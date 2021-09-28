@@ -61,24 +61,30 @@ public class CalendarFragment extends Fragment {
                 .commit();
         Date start = new Date();
         SimpleDateFormat sdformat = new SimpleDateFormat("yyyy-MM-dd");
-        Date before3Mon = addMonth(start,-3);
-        Date next3Mon = addMonth(start,3);
         String today = sdformat.format(start);
-        String before3Months = sdformat.format(before3Mon);
-        String next3Mons = sdformat.format(next3Mon);
-        ArrayList<String> Mydays = new ArrayList<>();
+        if(databaseQueryClass.isOkay()){
+            Date before3Mon = addMonth(start,-3);
+            Date next3Mon = addMonth(start,3);
+            String before3Months = sdformat.format(before3Mon);
+            String next3Mons = sdformat.format(next3Mon);
+            ArrayList<String> Mydays = new ArrayList<>();
 
-        Calendar c1 = Calendar.getInstance();
-        Calendar c2 = Calendar.getInstance();
+            Calendar c1 = Calendar.getInstance();
+            Calendar c2 = Calendar.getInstance();
 
-        c1.setTime( before3Mon );
-        c2.setTime( next3Mon );
-        while( c1.compareTo( c2 ) !=1 ) {
-            System.out.printf("%tF\n", c1.getTime());
-            Mydays.add(sdformat.format(c1.getTime()));
-            c1.add(Calendar.DATE, 1);
+            c1.setTime( before3Mon );
+            c2.setTime( next3Mon );
+            while( c1.compareTo( c2 ) !=1 ) {
+                System.out.printf("%tF\n", c1.getTime());
+                Mydays.add(sdformat.format(c1.getTime()));
+                c1.add(Calendar.DATE, 1);
+            }
+            databaseQueryClass.CreateNewDay(Mydays);
         }
-        databaseQueryClass.CreateNewDay(Mydays);
+        else{
+            databaseQueryClass.Update_Status(today);
+        }
+
         Mycalendar.addDecorators(
                 new SundayDecorator(),
                 new SaturdayDecorator(),
