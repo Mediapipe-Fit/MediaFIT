@@ -41,4 +41,9 @@
     <color name="black">#FF000000</color>
     <color name="light_shadow">#efeaeaea</color>
     <color name="white">#ffffff</color>
+
+
+    <color name="Spinner">#2196F3</color>
+    <color name="Spinner2">#1976D2</color>
+    <color name="dark_grey">#3b3b3b</color>
 </resources>
