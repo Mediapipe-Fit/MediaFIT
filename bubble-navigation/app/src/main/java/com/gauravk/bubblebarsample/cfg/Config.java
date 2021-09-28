@@ -24,4 +24,10 @@ public class Config {
     public static String selected_weekday = "";
     public static long selected_ID = -1;
     public static String Today = "";
+
+
+    //column names of Calendar table
+    public static final String TABLE_Calendar = "Calendar";
+    public static final String COLUMN_Calendar_Day = "_Day";
+    public static final String COLUMN_Calendar_Complete = "Complete";
 }

@@ -18,6 +18,7 @@ import com.orhanobut.logger.Logger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 public class QueryClass {
@@ -28,7 +29,63 @@ public class QueryClass {
         this.context = context;
         Logger.addLogAdapter(new AndroidLogAdapter());
     }
+    public void CreateNewDay(ArrayList<String> Day){
+        DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
+        SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
+        long count = DatabaseUtils.queryNumEntries(sqLiteDatabase, Config.TABLE_Calendar);
+        boolean status = false;
+        if(count==0)
+            status = true;
+        if(status){
+            for(int i=0;i<Day.size();++i){
+                ContentValues contentValues = new ContentValues();
+                contentValues.put(Config.COLUMN_Calendar_Day, Day.get(i));
+                contentValues.put(Config.COLUMN_Calendar_Complete, 0);
+                //Log.i("Before_insert",contentValues.toString());
+                try {
+                    sqLiteDatabase.insertOrThrow(Config.TABLE_Calendar, null, contentValues);
+                } catch (SQLiteException e){
+                    Logger.d("Exception: " + e.getMessage());
+                    Toast.makeText(context, "Operation failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                } finally {
+                    sqLiteDatabase.close();
+                }
+            }
+        }
+    }
 
+    public int Get_Status(String Day){
+        DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
+        SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();
+        int Status = 0;
+        Cursor cursor = null;
+        Routine Routine = null;
+        try {
+
+            cursor = sqLiteDatabase.query(Config.TABLE_Calendar, null,
+                    Config.COLUMN_Calendar_Day + " = ? ", new String[]{String.valueOf(Day)},
+                    null, null, null);
+
+            /**
+             // If you want to execute raw query then uncomment below 2 lines. And comment out above sqLiteDatabase.query() method.
+
+             String SELECT_QUERY = String.format("SELECT * FROM %s WHERE %s = %s", Config.TABLE_Routine, Config.COLUMN_Routine_Set_num, String.valueOf(Set_numNum));
+             cursor = sqLiteDatabase.rawQuery(SELECT_QUERY, null);
+             */
+
+            if(cursor.moveToFirst()){
+                Status = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Calendar_Complete));
+            }
+        } catch (Exception e){
+            Logger.d("Exception: " + e.getMessage());
+            Toast.makeText(context, "Operation failed", Toast.LENGTH_SHORT).show();
+        } finally {
+            if(cursor!=null)
+                cursor.close();
+            sqLiteDatabase.close();
+        }
+        return Status;
+    }
     public long insertRoutine(Routine Routine){
 
         long id = -1;

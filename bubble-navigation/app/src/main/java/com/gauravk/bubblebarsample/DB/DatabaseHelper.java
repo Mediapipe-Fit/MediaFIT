@@ -52,7 +52,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.execSQL(CREATE_Routine_TABLE);
 
-        Logger.d("DB created!");
+        Logger.d("TABLE_Routine created!");
+
+        // Create tables SQL execution
+        String CREATE_Calendar_TABLE = "CREATE TABLE " + Config.TABLE_Calendar + "("
+                + Config.COLUMN_Calendar_Day + " TEXT PRIMARY KEY , "
+                + Config.COLUMN_Calendar_Complete + " INTEGER NOT NULL "
+                + ")";
+
+        Logger.d("Table_calendar create SQL: " + CREATE_Calendar_TABLE);
+
+        db.execSQL(CREATE_Calendar_TABLE);
+
+        Logger.d("Table_calendar created!");
     }
 
     @Override

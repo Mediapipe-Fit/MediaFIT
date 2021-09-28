@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.gauravk.bubblebarsample.DB.CreateRoutine.Routine;
 import com.gauravk.bubblebarsample.adapters.ScreenSlidePagerAdapter;
+import com.gauravk.bubblebarsample.fragment.CalendarFragment;
 import com.gauravk.bubblebarsample.fragment.RoutineFragment;
 import com.gauravk.bubblebarsample.fragment.ScreenSlidePageFragment;
 import com.gauravk.bubblenavigation.BubbleNavigationLinearView;
@@ -35,7 +36,7 @@ public class BottomBarActivity extends AppCompatActivity {
 
         ArrayList<Fragment> fragList = new ArrayList<>();
         fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.home), R.color.black));
-        fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.search), R.color.black));
+        fragList.add(CalendarFragment.newInstance());
         fragList.add(RoutineFragment.newInstance());
         fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.likes), R.color.black));
         fragList.add(ScreenSlidePageFragment.newInstance(getString(R.string.profile), R.color.black));
