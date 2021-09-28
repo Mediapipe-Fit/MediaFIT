@@ -32,7 +32,9 @@ public class QueryClass {
     public Boolean isOkay(){
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
-        long count = DatabaseUtils.queryNumEntries(sqLiteDatabase, Config.TABLE_Calendar);
+        Cursor cursor = sqLiteDatabase.query(Config.TABLE_Calendar, null, null, null, null, null, null, null);
+
+        long count = cursor.getCount();
         boolean status = false;
         if(count==0)
             status = true;
@@ -49,28 +51,29 @@ public class QueryClass {
             contentValues.put(Config.COLUMN_Calendar_Day, Day.get(i));
             contentValues.put(Config.COLUMN_Calendar_Complete, 0);
             //Log.i("Before_insert",contentValues.toString());
+            Logger.d("counts = "+contentValues);
             try {
                 sqLiteDatabase.insertOrThrow(Config.TABLE_Calendar, null, contentValues);
             } catch (SQLiteException e){
                 Logger.d("Exception: " + e.getMessage());
                 Toast.makeText(context, "Operation failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
-            } finally {
-                sqLiteDatabase.close();
             }
         }
+        sqLiteDatabase.close();
     }
 
     public int Get_Status(String Day){
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
         SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();
-        int Status = 0;
         Cursor cursor = null;
+        int Status = -1;
         try {
 
-            cursor = sqLiteDatabase.query(Config.TABLE_Calendar, null,
+            cursor = sqLiteDatabase.query(Config.TABLE_Calendar, new String[]{Config.COLUMN_Calendar_Complete},
                     Config.COLUMN_Calendar_Day + " = ? ", new String[]{String.valueOf(Day)},
                     null, null, null);
 
+            Logger.d(Day + ", Yap ");
             /**
              // If you want to execute raw query then uncomment below 2 lines. And comment out above sqLiteDatabase.query() method.
 
@@ -80,6 +83,7 @@ public class QueryClass {
 
             if(cursor.moveToFirst()){
                 Status = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Calendar_Complete));
+                Logger.d("Here : " + Status);
             }
         } catch (Exception e){
             Logger.d("Exception: " + e.getMessage());
@@ -89,7 +93,6 @@ public class QueryClass {
                 cursor.close();
             sqLiteDatabase.close();
         }
-        Logger.d("Status : "+ Status);
         return Status;
     }
 
@@ -100,6 +103,7 @@ public class QueryClass {
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(Config.COLUMN_Calendar_Complete, 1);
+        Logger.d(Day + ", Yap, " + contentValues);
 
         try {
             sqLiteDatabase.update(Config.TABLE_Calendar, contentValues,
@@ -111,6 +115,7 @@ public class QueryClass {
         } finally {
             sqLiteDatabase.close();
         }
+        Get_Status(Day);
 
     }
     public long insertRoutine(Routine Routine){

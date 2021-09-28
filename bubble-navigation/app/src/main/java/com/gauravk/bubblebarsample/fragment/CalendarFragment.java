@@ -20,6 +20,7 @@ import com.gauravk.bubblebarsample.Decorators.OneDayDecorator;
 import com.gauravk.bubblebarsample.Decorators.SaturdayDecorator;
 import com.gauravk.bubblebarsample.Decorators.SundayDecorator;
 import com.gauravk.bubblebarsample.R;
+import com.gauravk.bubblebarsample.cfg.Config;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.CalendarMode;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
@@ -37,6 +38,7 @@ public class CalendarFragment extends Fragment {
     private final OneDayDecorator oneDayDecorator = new OneDayDecorator();
     String time,kcal,menu;
     Cursor cursor;
+    SimpleDateFormat sdformat;
     MaterialCalendarView Mycalendar;
     public static CalendarFragment newInstance() {
         CalendarFragment fragment = new CalendarFragment();
@@ -60,7 +62,7 @@ public class CalendarFragment extends Fragment {
                 .setCalendarDisplayMode(CalendarMode.MONTHS)
                 .commit();
         Date start = new Date();
-        SimpleDateFormat sdformat = new SimpleDateFormat("yyyy-MM-dd");
+        sdformat = new SimpleDateFormat("yyyy-MM-dd");
         String today = sdformat.format(start);
         if(databaseQueryClass.isOkay()){
             Date before3Mon = addMonth(start,-3);
@@ -72,7 +74,7 @@ public class CalendarFragment extends Fragment {
             Calendar c1 = Calendar.getInstance();
             Calendar c2 = Calendar.getInstance();
 
-            c1.setTime( before3Mon );
+            c1.setTime( start );
             c2.setTime( next3Mon );
             while( c1.compareTo( c2 ) !=1 ) {
                 System.out.printf("%tF\n", c1.getTime());
@@ -97,20 +99,17 @@ public class CalendarFragment extends Fragment {
         Mycalendar.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
-                int Year = date.getYear();
-                int Month = date.getMonth() + 1;
-                int Day = date.getDay();
+                Date shot_Day = date.getDate();
 
-                Log.i("Year test", Year + "");
-                Log.i("Month test", Month + "");
-                Log.i("Day test", Day + "");
+                String str_Day = sdformat.format(shot_Day);
 
-                String shot_Day = Year + "-" + Month + "-" + Day;
-                int status = databaseQueryClass.Get_Status(shot_Day);
-                Log.i("shot_Day test", shot_Day + "");
+                Log.i("shot_Day test", str_Day + "");
                 Mycalendar.clearSelection();
                 String Myre = "";
-                if(status==0)
+                int Status = databaseQueryClass.Get_Status(str_Day);
+                if(Status == -1)
+                    Myre = "Not Created";
+                else if(Status==0)
                     Myre = "Not Complete";
                 else
                     Myre = "Complete";
