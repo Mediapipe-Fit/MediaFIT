@@ -43,7 +43,7 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener{
 
     private QueryClass databaseQueryClass;
 
-    private List<Routine> Days_routineList;
+    private ArrayList<Routine> Days_routineList;
 
     private TextView routineListEmptyTextView;
     private RecyclerView recyclerView;

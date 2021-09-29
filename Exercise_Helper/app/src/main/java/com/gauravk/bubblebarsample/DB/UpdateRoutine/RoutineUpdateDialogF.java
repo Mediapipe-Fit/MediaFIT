@@ -1,6 +1,7 @@
 package com.gauravk.bubblebarsample.DB.UpdateRoutine;
 
 import android.app.Dialog;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 
 import com.gauravk.bubblebarsample.DB.CreateRoutine.Routine;
@@ -18,6 +20,9 @@ import com.gauravk.bubblebarsample.DB.QueryClass;
 import com.gauravk.bubblebarsample.R;
 import com.gauravk.bubblebarsample.cfg.Config;
 import com.gauravk.bubblebarsample.fragment.RoutineFragment;
+import com.shawnlin.numberpicker.NumberPicker;
+
+import java.util.Locale;
 
 
 public class RoutineUpdateDialogF extends DialogFragment {
@@ -44,6 +49,7 @@ public class RoutineUpdateDialogF extends DialogFragment {
     private long Rest_time = -1;
 
     private QueryClass DBQueryClass;
+    private NumberPicker Set,Repeat,Rest;
     public RoutineUpdateDialogF() {
         // Required empty public constructor
     }
@@ -77,9 +83,9 @@ public class RoutineUpdateDialogF extends DialogFragment {
         View view = inflater.inflate(R.layout.routine_update_dialog_f, container, false);
 
         DBQueryClass = new QueryClass(getContext());
-        Set_numEditText = view.findViewById(R.id.Set_numEditText);
-        Repeat_numEditText = view.findViewById(R.id.Repeat_numEditText);
-        Rest_timeEditText = view.findViewById(R.id.Rest_timeEditText);
+        //Set_numEditText = view.findViewById(R.id.Set_numEditText);
+        //Repeat_numEditText = view.findViewById(R.id.Repeat_numEditText);
+        //Rest_timeEditText = view.findViewById(R.id.Rest_timeEditText);
         updateButton = view.findViewById(R.id.updateRoutineInfoButton);
         cancelButton = view.findViewById(R.id.cancelButton);
         Excercise_name = view.findViewById(R.id.Exercise);
@@ -97,21 +103,28 @@ public class RoutineUpdateDialogF extends DialogFragment {
 
         mroutine = DBQueryClass.getRoutineByRegNum(Config.selected_ID);
 
+        Set = view.findViewById(R.id.number_picker_Set_num);
+        Repeat = view.findViewById(R.id.number_picker_Repeat_num);
+        Rest = view.findViewById(R.id.number_picker_Rest_time);
+
         if(mroutine!=null){
             Excercise_name.setSelection(getIndex(mroutine.getName()));
             RegNo.setSelection(mroutine.getRegNO());
-            Set_numEditText.setText(String.valueOf(mroutine.getSet_num()));
-            Repeat_numEditText.setText(String.valueOf(mroutine.getRepeat_num()));
-            Rest_timeEditText.setText(String.valueOf(mroutine.getRest_time()));
+            Set = set_nummber_picker(Set, (int) mroutine.getSet_num());
+            Repeat = set_nummber_picker(Repeat, (int) mroutine.getRepeat_num());
+            Rest = set_nummber_picker(Rest,(int) mroutine.getRest_time());
+            //Set_numEditText.setText(String.valueOf(mroutine.getSet_num()));
+            //Repeat_numEditText.setText(String.valueOf(mroutine.getRepeat_num()));
+            //Rest_timeEditText.setText(String.valueOf(mroutine.getRest_time()));
 
             updateButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     temp = Excercise_name.getSelectedItem().toString();
                     Regno = Integer.parseInt(RegNo.getSelectedItem().toString());
-                    Set_num = Integer.parseInt(Set_numEditText.getText().toString());
-                    Repeat_num = Integer.parseInt(Repeat_numEditText.getText().toString());
-                    Rest_time = Integer.parseInt(Rest_timeEditText.getText().toString());
+                    Set_num = Set.getValue();
+                    Repeat_num = Repeat.getValue();
+                    Rest_time = Rest.getValue();
 
                     mroutine.setName(temp);
                     mroutine.setRegNO(Regno);
@@ -152,6 +165,97 @@ public class RoutineUpdateDialogF extends DialogFragment {
             //noinspection ConstantConditions
             dialog.getWindow().setLayout(width, height);
         }
+    }
+
+
+    public NumberPicker set_nummber_picker(NumberPicker numberPicker, int num){
+        // Set divider color
+        numberPicker.setDividerColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
+        numberPicker.setDividerColorResource(R.color.colorPrimary);
+
+        // Set formatter
+        numberPicker.setFormatter(getString(R.string.number_picker_formatter));
+        numberPicker.setFormatter(R.string.number_picker_formatter);
+
+        // Set selected text color
+        numberPicker.setSelectedTextColor(ContextCompat.getColor(getContext(), R.color.purple_inactive));
+        numberPicker.setSelectedTextColorResource(R.color.red_active);
+
+        // Set selected text size
+        numberPicker.setSelectedTextSize(getResources().getDimension(R.dimen.selected_text_size));
+        numberPicker.setSelectedTextSize(R.dimen.selected_text_size);
+
+        // Set selected typeface
+        numberPicker.setSelectedTypeface(Typeface.create(getString(R.string.roboto_light), Typeface.NORMAL));
+        numberPicker.setSelectedTypeface(getString(R.string.roboto_light), Typeface.NORMAL);
+        numberPicker.setSelectedTypeface(getString(R.string.roboto_light));
+        numberPicker.setSelectedTypeface(R.string.roboto_light, Typeface.NORMAL);
+        numberPicker.setSelectedTypeface(R.string.roboto_light);
+
+        // Set text color
+        numberPicker.setTextColor(ContextCompat.getColor(getContext(), R.color.dark_grey));
+        numberPicker.setTextColorResource(R.color.dark_grey);
+
+        // Set text size
+        numberPicker.setTextSize(getResources().getDimension(R.dimen.text_size));
+        numberPicker.setTextSize(R.dimen.text_size);
+
+        // Set typeface
+        numberPicker.setTypeface(Typeface.create(getString(R.string.roboto_light), Typeface.NORMAL));
+        numberPicker.setTypeface(getString(R.string.roboto_light), Typeface.NORMAL);
+        numberPicker.setTypeface(getString(R.string.roboto_light));
+        numberPicker.setTypeface(R.string.roboto_light, Typeface.NORMAL);
+        numberPicker.setTypeface(R.string.roboto_light);
+
+        // Set value
+        numberPicker.setMaxValue(60);
+        numberPicker.setMinValue(0);
+        numberPicker.setValue(num);
+
+        // Set string values
+//        String[] data = {"A", "B", "C", "D", "E", "F", "G", "H", "I"};
+//        numberPicker.setMinValue(1);
+//        numberPicker.setMaxValue(data.length);
+//        numberPicker.setDisplayedValues(data);
+
+        // Set fading edge enabled
+        numberPicker.setFadingEdgeEnabled(true);
+
+        // Set scroller enabled
+        numberPicker.setScrollerEnabled(true);
+
+        // Set wrap selector wheel
+        numberPicker.setWrapSelectorWheel(true);
+
+        // Set accessibility description enabled
+        numberPicker.setAccessibilityDescriptionEnabled(true);
+
+        // OnClickListener
+        numberPicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("TAG", "Click on current value");
+            }
+        });
+
+        // OnValueChangeListener
+        numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                Log.d("TAG", String.format(Locale.US, "oldVal: %d, newVal: %d", oldVal, newVal));
+            }
+        });
+
+        // OnScrollListener
+        numberPicker.setOnScrollListener(new NumberPicker.OnScrollListener() {
+            @Override
+            public void onScrollStateChange(NumberPicker picker, int scrollState) {
+                if (scrollState == SCROLL_STATE_IDLE) {
+                    Log.d("TAG", String.format(Locale.US, "newVal: %d", picker.getValue()));
+                }
+            }
+        });
+        return numberPicker;
     }
 
 }

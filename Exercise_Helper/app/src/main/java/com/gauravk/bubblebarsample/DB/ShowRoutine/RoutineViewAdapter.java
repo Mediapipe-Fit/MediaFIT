@@ -20,16 +20,17 @@ import com.gauravk.bubblebarsample.cfg.Config;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class RoutineViewAdapter extends RecyclerView.Adapter<CustomViewHolder> {
 
     private Context context;
-    private List<Routine> RoutineList;
+    private ArrayList<Routine> RoutineList;
     private QueryClass queryClass;
 
-    public RoutineViewAdapter(Context context, List<Routine> RoutineList) {
+    public RoutineViewAdapter(Context context, ArrayList<Routine> RoutineList) {
         this.context = context;
         this.RoutineList = RoutineList;
         queryClass = new QueryClass(context);
@@ -45,6 +46,8 @@ public class RoutineViewAdapter extends RecyclerView.Adapter<CustomViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
         final int itemPosition = position;
+        //Logger.d(RoutineList.size());
+        //Logger.d(position);
         final Routine routine = RoutineList.get(position);
 
         holder.Exercise_nameTextView.setText(String.format("%d. %s",routine.getRegNO(),routine.getName()));

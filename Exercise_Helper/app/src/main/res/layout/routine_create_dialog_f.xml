@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="left"
+        android:layout_margin="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"></Spinner>
@@ -22,55 +23,131 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="left"
+        android:layout_margin="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Exercise"></Spinner>
 
-    <EditText
-        android:id="@+id/Set_numEditText"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:id="@+id/centers"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/Set_num"
-        android:inputType="number"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Spinner_RegNO" />
+        android:gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/Spinner_RegNO"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_vertical">
 
-    <EditText
-        android:id="@+id/Repeat_numEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/Repeat_num"
-        android:inputType="number"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Set_numEditText" />
+            <TextView
+                android:id="@+id/set"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="횟수"
+                android:textSize="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
 
-    <EditText
-        android:id="@+id/Rest_timeEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/Rest_time"
-        android:inputType="number"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Repeat_numEditText" />
+            </TextView>
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/number_picker_Set_num"
+                android:layout_width="80dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/set"
+                tools:ignore="MissingConstraints"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/Repeat"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="반복횟수"
+                android:textSize="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
+
+            </TextView>
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/number_picker_Repeat_num"
+                android:gravity="center"
+                android:layout_width="80dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/Repeat"
+                tools:ignore="MissingConstraints"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/Rest"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="휴식시간"
+                android:textSize="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
+
+            </TextView>
+
+            <com.shawnlin.numberpicker.NumberPicker
+                android:id="@+id/number_picker_Rest_time"
+                android:gravity="center"
+                android:layout_width="80dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/Rest"
+                tools:ignore="MissingConstraints"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
     <Button
+        android:layout_margin="10dp"
         android:id="@+id/createButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/create_button"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/cancelButton"
-        app:layout_constraintTop_toBottomOf="@+id/Rest_timeEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/centers" />
 
     <Button
+        android:layout_margin="10dp"
         android:id="@+id/cancelButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/cancel_button"
         app:layout_constraintLeft_toRightOf="@+id/createButton"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Rest_timeEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/centers" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
