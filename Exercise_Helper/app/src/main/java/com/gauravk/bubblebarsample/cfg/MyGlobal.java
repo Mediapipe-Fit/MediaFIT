@@ -35,9 +35,7 @@ public class MyGlobal {
     private long Num = 2;  //개수
     private long now_num;  //현재개수
     private Routine now_routine; //현재 돌고있는 루틴
-
-
-
+    private boolean finish = false;
 
     private boolean rest_time;
     private float REP;  //상자 그려줄떄 사용
@@ -54,7 +52,6 @@ public class MyGlobal {
     public long getSET(){return this.SET;}
     public float getREP(){return this.REP;}
     public long getREST(){return this.REST;}
-    public long getNow_set(){return this.now_set;}
     public String getPOSE_SAMPLE_FILE(){return this.POSE_SAMPLE_FILE;}
     public String[] getPOSE_CLASSES(){return this.POSE_CLASSES;}
     public long getNum(){return this.Num;}
@@ -62,7 +59,7 @@ public class MyGlobal {
     public long getnow_set(){return this.now_set;}
     public Routine getNow_routine(){return this.now_routine;}
     public boolean getRest_time(){return this.rest_time;}
-
+    public boolean isFinish(){return this.finish;}
     public void initRoutine(List<Routine> routineList){
         this.rest_time = false;
         routinList = new ArrayList<>();
@@ -116,7 +113,7 @@ public class MyGlobal {
     public void setREP(float rep){ this.REP = rep; }
     public void setREST(long rest){ this.REST = rest; }
     public void setPOSE_SAMPLE_FILE(String str){this.POSE_SAMPLE_FILE = str;}
-
+    public void setFinish(boolean fin){this.finish = fin;}
 
     public static int index = -1;
     public static String today_hangle(){

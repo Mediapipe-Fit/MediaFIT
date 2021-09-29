@@ -20,6 +20,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
@@ -127,10 +130,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
       selectedModel = savedInstanceState.getString(STATE_SELECTED_MODEL, POSE_DETECTION);
     }
     cameraSelector = new CameraSelector.Builder().requireLensFacing(lensFacing).build();
-
     setContentView(R.layout.routine_camera);
-
-
     previewView = findViewById(R.id.preview_view);
     if (previewView == null) {
       Log.d(TAG, "previewView is null");
@@ -153,9 +153,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
     if(routineList.isEmpty()){
       //this.finish();
     }
-    System.out.println("sex1");
     temp = routineList.get(0);
-    System.out.println("sex2");
     ToggleButton facingSwitch = findViewById(R.id.facing_switch);
     facingSwitch.setOnCheckedChangeListener(this);
     new ViewModelProvider(this, AndroidViewModelFactory.getInstance(getApplication()))
@@ -363,13 +361,23 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
                 //세트,개수 확인;
                 if(MyGlobal.getInstance().getNum() == MyGlobal.getInstance().getNow_num()){
                   MyGlobal.getInstance().do1set();
+                  temp.setCounts(MyGlobal.getInstance().getSET());
+                  databaseQueryClass.updateRoutineInfo(temp);
                   if(MyGlobal.getInstance().getnow_set()== MyGlobal.getInstance().getSET()){
                     //운동이 아예 끝난 상황이면
                     temp = MyGlobal.getInstance().getNow_routine();
                     temp.Complete();
                     databaseQueryClass.updateRoutineInfo(temp); //끝났다고 표시를 해주고
-                    if(!MyGlobal.getInstance().Done()){
-                      finish();     //끝냄
+                    if(!MyGlobal.getInstance().Done()){   //여기서 세트수를 올려주고 다음 세트를 셋팅합니다
+                      MyGlobal.getInstance().setFinish(true);
+                      Handler mHandler = new Handler();
+                      mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                          finish();
+                        }
+                      },10000);
+                      //finish();     //끝냄
                     }
                     else{       //현재운동은 끝났으나 다음운동이 있으면
                       Handler mHandler = new Handler();
@@ -383,7 +391,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
                       MyGlobal.getInstance().setRest_time(true);  //휴식시간인것을 세팅해줌
                     }
                   }
-                  else{
+                  else{     //현재운동이 끝났지만 다음운동이 있음
                     Handler mHandler = new Handler();
                     mHandler.postDelayed(new Runnable() {
                       @Override

@@ -106,8 +106,16 @@ public class PoseGraphic extends Graphic {
   @Override
   public void draw(Canvas canvas) {
 
+    if(MyGlobal.getInstance().isFinish() == true){
+      Paint white = new Paint();
+      white.setColor(Color.WHITE);
+      white.setTextSize(30);
+      canvas.drawText("오늘의 운동을 완료하였습니다",500,800, white);
+      return;
+    }
+
     if(MyGlobal.getInstance().getRest_time() == true){
-      canvas.drawText("휴식시간입니다~",canvas.getWidth()/2,canvas.getHeight()/2,classificationTextPaint);
+      canvas.drawText("" + MyGlobal.getInstance().getREST()+"second 휴식시간입니다!",canvas.getWidth()/2-200,canvas.getHeight()/2,classificationTextPaint);
       return;
     }
 
@@ -120,6 +128,9 @@ public class PoseGraphic extends Graphic {
     float classificationX = POSE_CLASSIFICATION_TEXT_SIZE * 0.5f;
     poseClassification.add("운동이름 : "+MyGlobal.getInstance().getExercise());
     poseClassification.add("현재 파일 : " + MyGlobal.getInstance().getPOSE_SAMPLE_FILE());
+    if(MyGlobal.getInstance().getmode() == true){
+      poseClassification.add("남은 세트: " + (MyGlobal.getInstance().getSET()-MyGlobal.getInstance().getnow_set()));
+    }
     for (int i = 0; i < poseClassification.size(); i++) {
       if(MyGlobal.getInstance().getmode() == false){    //운동모드
         float classificationY = (canvas.getHeight() - POSE_CLASSIFICATION_TEXT_SIZE * 1.5f
