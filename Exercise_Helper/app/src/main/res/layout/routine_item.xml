@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="8dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginRight="8dp"
+    android:padding="20dp"
+    android:background="@drawable/routine_item">
+
+    <TextView
+        android:id="@+id/Exercise_nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:text="Bench Press"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/editImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/crossImageView"
+        android:src="@drawable/ic_mode_edit_black_24dp"
+        android:alpha="0.5"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:contentDescription="@string/edit_button_description"/>
+
+    <ImageView
+        android:id="@+id/crossImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/ic_delete_black_24dp"
+        android:alpha="0.5"
+        android:contentDescription="@string/cross_image_content_description" />
+
+    <TextView
+        android:id="@+id/Set_numTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Exercise_nameTextView"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/Set_num"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/Set_numTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="5"
+        app:layout_constraintTop_toBottomOf="@id/Exercise_nameTextView"
+        app:layout_constraintLeft_toRightOf="@id/Set_numTitle"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"/>
+
+    <TextView
+        android:id="@+id/Repeat_numTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Set_numTitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/Repeat_num"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/Repeat_numTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="12"
+        app:layout_constraintTop_toBottomOf="@id/Set_numTitle"
+        app:layout_constraintLeft_toRightOf="@id/Repeat_numTitle"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"/>
+
+    <TextView
+        android:id="@+id/Rest_timeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Repeat_numTitle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/Rest_time"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/Rest_timeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/Repeat_numTextView"
+        app:layout_constraintLeft_toRightOf="@id/Rest_timeTitle"
+        tools:text="30"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

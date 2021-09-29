@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    tools:context=".DB.UpdateRoutine.RoutineUpdateDialogF">
+
+    <Spinner
+        android:id="@+id/Exercise"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="start"></Spinner>
+
+    <Spinner
+        android:id="@+id/Spinner_RegNO"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="left"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Exercise"></Spinner>
+
+    <EditText
+        android:id="@+id/Set_numEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Spinner_RegNO"
+        android:autofillHints="@string/Set_num"
+        android:inputType="number"/>
+
+    <EditText
+        android:id="@+id/Repeat_numEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Set_numEditText"
+        android:autofillHints="@string/Repeat_num"
+        android:inputType="phone"/>
+
+    <EditText
+        android:id="@+id/Rest_timeEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Repeat_numEditText"
+        android:autofillHints="@string/Rest_time"
+        android:inputType="textEmailAddress"/>
+
+    <Button
+        android:id="@+id/updateRoutineInfoButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Rest_timeEditText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/cancelButton"
+        android:text="@string/update"/>
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Rest_timeEditText"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/updateRoutineInfoButton"
+        android:text="@string/cancel_button"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
