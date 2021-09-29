@@ -81,6 +81,9 @@ public class HomeFragment extends Fragment implements CircleProgressBar.Progress
     public void set_circle(){
         for(int i=0;i<Days_routineList.size();++i){
             Routine cur = Days_routineList.get(i);
+            if(cur.getcheck() == 1){
+                Days_routineList.remove(i);
+            }
             total_setnum = (int) (total_setnum + cur.getSet_num());
             complete_setnum = (int) (complete_setnum + cur.getCounts());
             prograss_num = (int)(100*complete_setnum/total_setnum);
