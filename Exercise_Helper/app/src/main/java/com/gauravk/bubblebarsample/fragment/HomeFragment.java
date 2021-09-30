@@ -69,6 +69,7 @@ public class HomeFragment extends Fragment implements CircleProgressBar.Progress
                 startActivity(intent);
             }
         });
+
         recyclerView = (RecyclerView) getView().findViewById(R.id.home_recycler);
 
         Days_routineList.addAll(databaseQueryClass.getDaysRoutine(today_hangle()));

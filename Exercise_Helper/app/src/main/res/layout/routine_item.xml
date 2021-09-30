@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Exercise_nameTextView"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/Set_num"
+        android:text="세트 수"
         android:textStyle="bold"/>
 
     <TextView
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Set_numTitle"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/Repeat_num"
+        android:text="반복 횟수"
         android:textStyle="bold"/>
 
     <TextView
@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/Repeat_numTitle"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="@string/Rest_time"
+        android:text="휴식 시간"
         android:textStyle="bold"/>
 
     <TextView
