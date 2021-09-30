@@ -7,7 +7,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="fragment.RoutineFragment"
     tools:showIn="@layout/fragment_routine_list"
-    android:paddingTop="80dp"
+    android:paddingTop="150dp"
     android:layout_marginBottom="8dp">
 
     <androidx.recyclerview.widget.RecyclerView

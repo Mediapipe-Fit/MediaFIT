@@ -7,6 +7,32 @@
     android:background="@color/light_shadow"
     tools:context="fragment.RoutineFragment">
 
+    <LinearLayout
+        android:id="@+id/Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="80dp"
+        android:paddingRight="80dp"
+        tools:ignore="MissingConstraints">
+        <TextView
+            style="@android:style/Widget.Button"
+            android:shadowColor="@color/gery_inactive"
+            android:shadowDx="8"
+            android:shadowDy="8"
+            android:shadowRadius="4"
+            android:id="@+id/Title_Routine"
+            android:text="@string/Routine"
+            android:gravity="center"
+            android:textSize="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/weekday_inactive"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"/>
+        
+    </LinearLayout>
+
+
 
     <include
         layout="@layout/weekday_button" />

@@ -43,7 +43,7 @@ import java.util.List;
 public class RoutineFragment extends Fragment implements RoutineCreateListener{
 
     private QueryClass databaseQueryClass;
-
+    private TextView Title;
     private List<Routine> Days_routineList;
 
     private TextView routineListEmptyTextView;
@@ -71,6 +71,8 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener{
         super.onStart();
         Logger.addLogAdapter(new AndroidLogAdapter());
         setBtns();
+        Config.selected_weekday = MyGlobal.today_hangle();
+        Title = (TextView) getView().findViewById(R.id.Title_Routine);
         recyclerView = (RecyclerView) getView().findViewById(R.id.RoutineRecyclerView);
         routineListEmptyTextView = (TextView) getView().findViewById(R.id.emptyRoutineListTextView);
         Btns.get(MyGlobal.index-1).callOnClick();
@@ -108,8 +110,8 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener{
                 @Override
                 public void onClick(View v) {
                     reset_button(btns);
+                    Title.setText(Config.selected_weekday+"요일 루틴");
                     btns.get(finalI).setBackgroundDrawable(ContextCompat.getDrawable(getActivity(),R.drawable.weekday_active));
-                    
                     Log.i("Touched", String.valueOf(btns.get(finalI).getText()));
                     Config.selected_weekday = String.valueOf(btns.get(finalI).getText());
                     change_View();
@@ -179,7 +181,7 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener{
     }
 
     private void openRoutineCreateDialog() {
-        RoutineCreateDialogF routineCreateDialogFragment = RoutineCreateDialogF.newInstance("Create routine", this::onRoutineCreated);
+        RoutineCreateDialogF routineCreateDialogFragment = RoutineCreateDialogF.newInstance(Config.selected_weekday+"요일 루틴", this::onRoutineCreated);
         routineCreateDialogFragment.show(getActivity().getSupportFragmentManager(), Config.CREATE_Routine);
     }
 

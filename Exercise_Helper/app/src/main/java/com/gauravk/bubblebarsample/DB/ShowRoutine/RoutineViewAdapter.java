@@ -89,8 +89,6 @@ public class RoutineViewAdapter extends RecyclerView.Adapter<CustomViewHolder> {
                 Config.selected_ID = routine.getId();
                 RoutineUpdateDialogF routineUpdateDialogFragment = RoutineUpdateDialogF.newInstance(routine.getId(), itemPosition, (Routine, position) -> {
                     RoutineList.set(position, Routine);
-                    Logger.d(position);
-                    Logger.d(Routine);
                     notifyDataSetChanged();
                 });
                 routineUpdateDialogFragment.show(((BottomBarActivity) context).getSupportFragmentManager(), Config.UPDATE_Routine);

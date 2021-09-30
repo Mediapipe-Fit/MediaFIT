@@ -19,6 +19,7 @@ import com.gauravk.bubblebarsample.DB.CreateRoutine.Routine;
 import com.gauravk.bubblebarsample.DB.QueryClass;
 import com.gauravk.bubblebarsample.R;
 import com.gauravk.bubblebarsample.cfg.Config;
+import com.gauravk.bubblebarsample.cfg.MyGlobal;
 import com.gauravk.bubblebarsample.fragment.RoutineFragment;
 import com.shawnlin.numberpicker.NumberPicker;
 
@@ -59,7 +60,7 @@ public class RoutineUpdateDialogF extends DialogFragment {
         routineUpdateListener = listener;
         RoutineUpdateDialogF routineUpdateDialogFragment = new RoutineUpdateDialogF();
         Bundle args = new Bundle();
-        args.putString("title", "Update routine information");
+        args.putString("title", Config.selected_weekday+"요일 루틴 업데이트");
         routineUpdateDialogFragment.setArguments(args);
 
         routineUpdateDialogFragment.setStyle(DialogFragment.STYLE_NORMAL, R.style.CustomDialog);

@@ -67,10 +67,6 @@ public class RoutineCreateDialogF extends DialogFragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.routine_create_dialog_f, container, false);
         DBQueryClass = new QueryClass(getActivity());
-        //Exercise_nameEditText = view.findViewById(R.id.Exercise_nameEditText);
-        //Set_numEditText = view.findViewById(R.id.Set_numEditText);
-        //Repeat_numEditText = view.findViewById(R.id.Repeat_numEditText);
-        //Rest_timeEditText = view.findViewById(R.id.Rest_timeEditText);
         createButton = view.findViewById(R.id.createButton);
         cancelButton = view.findViewById(R.id.cancelButton);
 
@@ -96,11 +92,6 @@ public class RoutineCreateDialogF extends DialogFragment {
                 Set_num = Set.getValue();
                 Repeat_num = Repeat.getValue();
                 Rest_time = Rest.getValue();
-
-                //Set_num = Integer.parseInt(Set_numEditText.getText().toString());
-                //Repeat_num = Integer.parseInt(Repeat_numEditText.getText().toString());
-                //Rest_time = Integer.parseInt(Rest_timeEditText.getText().toString());
-                //Log.i("DB_Insert_Routine_in_EditText", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", -1 , temp , Set_num, Repeat_num, Repeat_num));
 
                 //만들때는 0으로
                 Routine routine = new Routine(-1, temp,Regno, Set_num, Repeat_num, Rest_time,0,0);
@@ -191,12 +182,6 @@ public class RoutineCreateDialogF extends DialogFragment {
         numberPicker.setMaxValue(60);
         numberPicker.setMinValue(0);
         numberPicker.setValue(num);
-
-        // Set string values
-//        String[] data = {"A", "B", "C", "D", "E", "F", "G", "H", "I"};
-//        numberPicker.setMinValue(1);
-//        numberPicker.setMaxValue(data.length);
-//        numberPicker.setDisplayedValues(data);
 
         // Set fading edge enabled
         numberPicker.setFadingEdgeEnabled(true);
