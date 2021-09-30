@@ -29,22 +29,25 @@ public class QueryClass {
         Logger.addLogAdapter(new AndroidLogAdapter());
     }
 
-    public long insertRoutine(Routine Routine){
+    public long insertRoutine(Routine routine){
 
         long id = -1;
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
-        contentValues.put(Config.COLUMN_Exercise_NAME, Routine.getName());;
-        contentValues.put(Config.COLUMN_Weekday, Routine.getWeekday());
-        contentValues.put(Config.COLUMN_RegNO, Routine.getRegNO());
-        contentValues.put(Config.COLUMN_Routine_Set_num, Routine.getSet_num());
-        contentValues.put(Config.COLUMN_Routine_Repeat_num, Routine.getRepeat_num());
-        contentValues.put(Config.COLUMN_Routine_Rest_time, Routine.getRest_time());
-        contentValues.put(Config.COLUMN_Routine_Counts, Routine.getCounts());
-        contentValues.put(Config.COLUMN_Routine_Complete, Routine.getcheck());
+        contentValues.put(Config.COLUMN_Exercise_NAME, routine.getName());;
+        contentValues.put(Config.COLUMN_Weekday, routine.getWeekday());
+        contentValues.put(Config.COLUMN_RegNO, routine.getRegNO());
+        contentValues.put(Config.COLUMN_Routine_Set_num, routine.getSet_num());
+        contentValues.put(Config.COLUMN_Routine_Repeat_num, routine.getRepeat_num());
+        contentValues.put(Config.COLUMN_Routine_Rest_time, routine.getRest_time());
+        contentValues.put(Config.COLUMN_Routine_Counts, routine.getCounts());
+        contentValues.put(Config.COLUMN_Routine_Complete, routine.getcheck());
         //Log.i("Before_insert",contentValues.toString());
+        Log.i("Holder_routine_Insert", String.format("ID = %d, Reg_no = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", routine.getId() , routine.getRegNO(), routine.getName() , routine.getSet_num(), routine.getRepeat_num(), routine.getRest_time()));
+
+
         try {
             id = sqLiteDatabase.insertOrThrow(Config.TABLE_Routine, null, contentValues);
         } catch (SQLiteException e){
@@ -79,6 +82,7 @@ public class QueryClass {
             if(cursor!=null)
                 if(cursor.moveToFirst()){
                     List<Routine> RoutineList = new ArrayList<>();
+                    int i=0;
                     do {
                         @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_ID));
                         @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(Config.COLUMN_Exercise_NAME));
@@ -88,9 +92,12 @@ public class QueryClass {
                         @SuppressLint("Range") int Repeat_num = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Repeat_num));
                         @SuppressLint("Range") int Counts = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Counts));
                         @SuppressLint("Range") int check = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_Routine_Complete));
-                        Log.i("DB_Get_Routine_ALL", String.format("ID = %d, Reg_no = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , RegNo, name , Set_num, Repeat_num, Rest_time));
+                        Log.i("Holder_routine_FROM_DB", String.format("ID = %d, Reg_no = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , RegNo, name , Set_num, Repeat_num, Rest_time));
+                        RoutineList.add(new Routine(id, name, RegNo, Set_num, Repeat_num, Rest_time, Counts, check));
+                        Routine routine = RoutineList.get(i++);
+                        Log.i("Holder_routine_FROM_DB_", String.format("ID = %d, Reg_no = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", routine.getId() , routine.getRegNO(), routine.getName() , routine.getSet_num(), routine.getRepeat_num(), routine.getRest_time()));
 
-                        RoutineList.add(new Routine(id, name, RegNo, Set_num, Rest_time, Repeat_num, Counts, check));
+
                     }   while (cursor.moveToNext());
 
                     return RoutineList;

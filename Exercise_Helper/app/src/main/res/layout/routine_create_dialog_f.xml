@@ -5,26 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
+    android:background="@drawable/weekday_inactive"
     tools:context=".DB.CreateRoutine.RoutineCreateDialogF">
 
 
+
+    <TextView
+        android:id="@+id/NAME"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="운동이름 : "
+        android:textSize="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/Exercise"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </TextView>
     <Spinner
         android:id="@+id/Exercise"
-        android:layout_width="match_parent"
+        android:layout_width="180dp"
         android:layout_height="50dp"
         android:gravity="left"
         android:layout_margin="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/NAME"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"></Spinner>
+    <TextView
+        android:id="@+id/Reg"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="운동순서 : "
+        android:textSize="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/Spinner_RegNO"
+        app:layout_constraintTop_toBottomOf="@+id/Exercise">
+
+    </TextView>
 
     <Spinner
         android:id="@+id/Spinner_RegNO"
-        android:layout_width="match_parent"
+        android:layout_width="180dp"
         android:layout_height="50dp"
         android:gravity="left"
         android:layout_margin="20dp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/Reg"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Exercise"></Spinner>
 
@@ -39,17 +67,17 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/set"
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="횟수"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints">
 
@@ -57,10 +85,10 @@
 
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/number_picker_Set_num"
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 app:layout_constraintTop_toBottomOf="@+id/set"
                 tools:ignore="MissingConstraints"/>
 
@@ -68,17 +96,17 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/Repeat"
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="반복횟수"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints">
 
@@ -87,10 +115,10 @@
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/number_picker_Repeat_num"
                 android:gravity="center"
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 app:layout_constraintTop_toBottomOf="@+id/Repeat"
                 tools:ignore="MissingConstraints"/>
 
@@ -100,17 +128,17 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/Rest"
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="휴식시간"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints">
 
@@ -119,10 +147,10 @@
             <com.shawnlin.numberpicker.NumberPicker
                 android:id="@+id/number_picker_Rest_time"
                 android:gravity="center"
-                android:layout_width="80dp"
+                android:layout_width="70dp"
                 android:layout_height="150dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 app:layout_constraintTop_toBottomOf="@+id/Rest"
                 tools:ignore="MissingConstraints"/>
 
@@ -149,5 +177,6 @@
         app:layout_constraintLeft_toRightOf="@+id/createButton"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/centers" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

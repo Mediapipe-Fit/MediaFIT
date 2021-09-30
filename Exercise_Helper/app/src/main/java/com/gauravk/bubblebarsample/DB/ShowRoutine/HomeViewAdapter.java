@@ -17,13 +17,13 @@ import com.orhanobut.logger.Logger;
 import java.util.List;
 
 
-public class RoutineViewAdapter2 extends RecyclerView.Adapter<CustomViewHolder> {
+public class HomeViewAdapter extends RecyclerView.Adapter<HomeViewHolder> {
 
     private Context context;
     private List<Routine> RoutineList;
     private QueryClass queryClass;
 
-    public RoutineViewAdapter2(Context context, List<Routine> RoutineList) {
+    public HomeViewAdapter(Context context, List<Routine> RoutineList) {
         this.context = context;
         this.RoutineList = RoutineList;
         queryClass = new QueryClass(context);
@@ -31,13 +31,13 @@ public class RoutineViewAdapter2 extends RecyclerView.Adapter<CustomViewHolder> 
     }
 
     @Override
-    public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.routine_item2, parent, false);
-        return new CustomViewHolder(view);
+        return new HomeViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
         final int itemPosition = position;
         final Routine routine = RoutineList.get(position);
 
@@ -45,11 +45,6 @@ public class RoutineViewAdapter2 extends RecyclerView.Adapter<CustomViewHolder> 
         holder.Set_numTextView.setText(String.valueOf(routine.getSet_num()-routine.getCounts()));
         holder.Repeat_numTextView.setText(String.valueOf(routine.getRepeat_num()));
         holder.Rest_timeTextView.setText(String.valueOf(routine.getRest_time()));
-        Logger.d(routine.getRepeat_num());
-        Logger.d(routine.getRest_time());
-
-
-
     }
 
 

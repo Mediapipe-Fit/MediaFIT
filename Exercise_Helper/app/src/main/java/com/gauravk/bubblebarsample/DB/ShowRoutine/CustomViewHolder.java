@@ -20,11 +20,12 @@ public class CustomViewHolder extends RecyclerView.ViewHolder {
 
     public CustomViewHolder(View itemView) {
         super(itemView);
-        Exercise_nameTextView = itemView.findViewById(R.id.Exercise_nameTextView);
-        Set_numTextView = itemView.findViewById(R.id.Set_numTextView);
-        Repeat_numTextView = itemView.findViewById(R.id.Repeat_numTextView);
-        Rest_timeTextView = itemView.findViewById(R.id.Rest_timeTextView);
+        Exercise_nameTextView = itemView.findViewById(R.id.Exercise_name);
+        Set_numTextView = itemView.findViewById(R.id.Set_num);
+        Repeat_numTextView = itemView.findViewById(R.id.Repeat_num);
+        Rest_timeTextView = itemView.findViewById(R.id.Rest_time);
         crossButtonImageView = itemView.findViewById(R.id.crossImageView);
         editButtonImageView = itemView.findViewById(R.id.editImageView);
     }
+
 }

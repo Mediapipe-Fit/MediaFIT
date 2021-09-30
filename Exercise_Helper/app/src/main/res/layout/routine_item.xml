@@ -13,7 +13,7 @@
     android:background="@drawable/routine_item">
 
     <TextView
-        android:id="@+id/Exercise_nameTextView"
+        android:id="@+id/Exercise_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -48,17 +48,17 @@
         android:id="@+id/Set_numTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/Exercise_nameTextView"
+        app:layout_constraintTop_toBottomOf="@id/Exercise_name"
         app:layout_constraintLeft_toLeftOf="parent"
         android:text="세트 수"
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/Set_numTextView"
+        android:id="@+id/Set_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="5"
-        app:layout_constraintTop_toBottomOf="@id/Exercise_nameTextView"
+        app:layout_constraintTop_toBottomOf="@id/Exercise_name"
         app:layout_constraintLeft_toRightOf="@id/Set_numTitle"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"/>
@@ -73,7 +73,7 @@
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/Repeat_numTextView"
+        android:id="@+id/Repeat_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="12"
@@ -92,10 +92,10 @@
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/Rest_timeTextView"
+        android:id="@+id/Rest_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/Repeat_numTextView"
+        app:layout_constraintTop_toBottomOf="@id/Repeat_num"
         app:layout_constraintLeft_toRightOf="@id/Rest_timeTitle"
         tools:text="30"
         android:layout_marginStart="4dp"

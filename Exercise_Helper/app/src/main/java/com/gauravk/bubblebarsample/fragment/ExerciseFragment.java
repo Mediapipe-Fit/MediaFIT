@@ -46,7 +46,7 @@ public class ExerciseFragment extends Fragment {
                 startActivity(intent);
             }
         });
-        squat = getView().findViewById(R.id.squat);
+        squat = getView().findViewById(R.id.squirt);
         squat.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {

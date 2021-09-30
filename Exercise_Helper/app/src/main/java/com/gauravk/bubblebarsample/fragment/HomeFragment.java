@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.dinuscxj.progressbar.CircleProgressBar;
 import com.gauravk.bubblebarsample.DB.CreateRoutine.Routine;
 import com.gauravk.bubblebarsample.DB.QueryClass;
-import com.gauravk.bubblebarsample.DB.ShowRoutine.RoutineViewAdapter2;
+import com.gauravk.bubblebarsample.DB.ShowRoutine.HomeViewAdapter;
 import com.gauravk.bubblebarsample.R;
 import com.gauravk.bubblebarsample.mlkit.mlpose.RoutineCameraXLivePreviewActivity;
 
@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment implements CircleProgressBar.Progress
     private List<Routine> Days_routineList;
 
     private RecyclerView recyclerView;
-    private RoutineViewAdapter2 routineListRecyclerViewAdapter;
+    private HomeViewAdapter routineListRecyclerViewAdapter;
     private static final String DEFAULT_PATTERN = "%d%%";
     private Button button;
     CircleProgressBar circleProgressBar;
@@ -74,7 +74,7 @@ public class HomeFragment extends Fragment implements CircleProgressBar.Progress
 
         Days_routineList.addAll(databaseQueryClass.getDaysRoutine(today_hangle()));
 
-        routineListRecyclerViewAdapter = new RoutineViewAdapter2(getActivity(), Days_routineList);
+        routineListRecyclerViewAdapter = new HomeViewAdapter(getActivity(), Days_routineList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(routineListRecyclerViewAdapter);
         set_circle();

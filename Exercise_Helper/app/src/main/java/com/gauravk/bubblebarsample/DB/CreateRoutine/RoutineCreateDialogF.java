@@ -103,15 +103,16 @@ public class RoutineCreateDialogF extends DialogFragment {
                 //Log.i("DB_Insert_Routine_in_EditText", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", -1 , temp , Set_num, Repeat_num, Repeat_num));
 
                 //만들때는 0으로
-                Routine Routine = new Routine(-1, temp,Regno, Set_num, Repeat_num, Rest_time,0,0);
+                Routine routine = new Routine(-1, temp,Regno, Set_num, Repeat_num, Rest_time,0,0);
+                Log.i("Holder_routine_Make", String.format("ID = %d, Reg_no = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", routine.getId() , routine.getRegNO(), routine.getName() , routine.getSet_num(), routine.getRepeat_num(), routine.getRest_time()));
 
                 QueryClass databaseQueryClass = new QueryClass(getContext());
 
-                long id = databaseQueryClass.insertRoutine(Routine);
+                long id = databaseQueryClass.insertRoutine(routine);
 
                 if(id>0){
-                    Routine.setId(id);
-                    RoutineCreateListener.onRoutineCreated(Routine);
+                    routine.setId(id);
+                    RoutineCreateListener.onRoutineCreated(routine);
                     getDialog().dismiss();
                 }
                 //Log.i("DB_Insert_Routine_in_D", String.format("ID = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", id , Routine.getName() , Routine.getSet_num(), Routine.getRepeat_num(), Routine.getRepeat_num()));

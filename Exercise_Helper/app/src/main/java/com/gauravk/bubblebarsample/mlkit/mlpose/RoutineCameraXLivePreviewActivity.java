@@ -16,6 +16,8 @@
 
 package com.gauravk.bubblebarsample.mlkit.mlpose;
 
+import static com.gauravk.bubblebarsample.cfg.MyGlobal.today_hangle;
+
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -63,6 +65,7 @@ import com.gauravk.bubblebarsample.mlkit.preference.SettingsActivity;
 import com.google.android.gms.common.annotation.KeepName;
 import com.google.mlkit.common.MlKitException;
 import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
+import com.orhanobut.logger.Logger;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -146,14 +149,13 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
     databaseQueryClass = new QueryClass(this);
     routineList = new ArrayList<>();
     currentTime = Calendar.getInstance().getTime();
-    weekdayFormat = new SimpleDateFormat("EE", Locale.getDefault());
-    weekDay = weekdayFormat.format(currentTime);
-    routineList.addAll(databaseQueryClass.getDaysRoutine(weekDay));
+    routineList.addAll(databaseQueryClass.getDaysRoutine(today_hangle()));
     MyGlobal.getInstance().initRoutine(routineList);
     if(routineList.isEmpty()){
       //this.finish();
     }
     temp = routineList.get(0);
+    Logger.d(temp);
     ToggleButton facingSwitch = findViewById(R.id.facing_switch);
     facingSwitch.setOnCheckedChangeListener(this);
     new ViewModelProvider(this, AndroidViewModelFactory.getInstance(getApplication()))

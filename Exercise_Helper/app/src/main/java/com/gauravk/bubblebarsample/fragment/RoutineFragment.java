@@ -6,6 +6,7 @@ import static com.gauravk.bubblebarsample.cfg.MyGlobal.today_hangle;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,11 +44,12 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener{
 
     private QueryClass databaseQueryClass;
 
-    private ArrayList<Routine> Days_routineList;
+    private List<Routine> Days_routineList;
 
     private TextView routineListEmptyTextView;
     private RecyclerView recyclerView;
     private RoutineViewAdapter routineListRecyclerViewAdapter;
+    Display display;
 
     private ArrayList<Button> Btns;
 
@@ -61,6 +63,7 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         databaseQueryClass = new QueryClass(getActivity());
+        display = getActivity().getWindowManager().getDefaultDisplay();
         return inflater.inflate(R.layout.fragment_routine_list, container, false);
     }
     @Override
@@ -68,17 +71,9 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener{
         super.onStart();
         Logger.addLogAdapter(new AndroidLogAdapter());
         setBtns();
-        //
-        Days_routineList = new ArrayList<>();
         recyclerView = (RecyclerView) getView().findViewById(R.id.RoutineRecyclerView);
         routineListEmptyTextView = (TextView) getView().findViewById(R.id.emptyRoutineListTextView);
-
-        Days_routineList.addAll(databaseQueryClass.getDaysRoutine(today_hangle()));
-
-        routineListRecyclerViewAdapter = new RoutineViewAdapter(getActivity(), Days_routineList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-        recyclerView.setAdapter(routineListRecyclerViewAdapter);
-
+        Btns.get(MyGlobal.index-1).callOnClick();
         viewVisibility();
 
         FloatingActionButton fab = (FloatingActionButton) getView().findViewById(R.id.fab);
@@ -96,7 +91,6 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener{
                 Days_routine_delete();
             }
         });
-        Btns.get(MyGlobal.index-1).callOnClick();
     }
     public void setBtns(){
         Btns = new ArrayList<>();
@@ -115,6 +109,7 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener{
                 public void onClick(View v) {
                     reset_button(btns);
                     btns.get(finalI).setBackgroundDrawable(ContextCompat.getDrawable(getActivity(),R.drawable.weekday_active));
+                    
                     Log.i("Touched", String.valueOf(btns.get(finalI).getText()));
                     Config.selected_weekday = String.valueOf(btns.get(finalI).getText());
                     change_View();
@@ -129,8 +124,13 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener{
         }
     }
     public void change_View(){
-        Days_routineList = new ArrayList<>();
-        Days_routineList.addAll(databaseQueryClass.getDaysRoutine(Config.selected_weekday));
+        Days_routineList = new ArrayList<Routine>();
+        Days_routineList = databaseQueryClass.getDaysRoutine(Config.selected_weekday);
+        for(int i=0;i<Days_routineList.size();++i){
+            Routine routine = Days_routineList.get(i);
+            Log.i("Holder_routine_Fragment", String.format("ID = %d, Reg_no = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", routine.getId() , routine.getRegNO(), routine.getName() , routine.getSet_num(), routine.getRepeat_num(), routine.getRest_time()));
+
+        }
         routineListRecyclerViewAdapter = new RoutineViewAdapter(getActivity(), Days_routineList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(routineListRecyclerViewAdapter);
