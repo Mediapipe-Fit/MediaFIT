@@ -45,6 +45,8 @@ public class RoutineViewAdapter2 extends RecyclerView.Adapter<CustomViewHolder> 
         holder.Set_numTextView.setText(String.valueOf(routine.getSet_num()-routine.getCounts()));
         holder.Repeat_numTextView.setText(String.valueOf(routine.getRepeat_num()));
         holder.Rest_timeTextView.setText(String.valueOf(routine.getRest_time()));
+        Logger.d(routine.getRepeat_num());
+        Logger.d(routine.getRest_time());
 
 
 
