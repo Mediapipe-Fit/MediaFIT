@@ -29,7 +29,7 @@
             android:background="@drawable/weekday_inactive"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"/>
-        
+
     </LinearLayout>
 
 
