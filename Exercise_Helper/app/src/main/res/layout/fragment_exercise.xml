@@ -2,14 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffffff">
+    android:layout_height="match_parent">
 
     <TextView
         style="@android:style/Widget.Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="245dp"
+        android:layout_height="52dp"
         android:background="@drawable/weekday_inactive"
         android:gravity="center"
         android:shadowColor="@color/gery_inactive"
@@ -19,9 +19,10 @@
         android:text="가능한 운동 목록"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -108,7 +109,7 @@
             android:layout_height="83dp"
             android:padding="0sp"
             android:scaleType="fitCenter"
-            android:src="@drawable/squat"
+            android:src="@drawable/kneeup"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.2"
@@ -142,7 +143,7 @@
             android:layout_height="83dp"
             android:padding="0sp"
             android:scaleType="fitCenter"
-            android:src="@drawable/squat"
+            android:src="@drawable/situp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.2"
@@ -154,7 +155,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="스쿼트"
+            android:text="윗몸일으키기"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -176,7 +177,7 @@
             android:layout_height="83dp"
             android:padding="0sp"
             android:scaleType="fitCenter"
-            android:src="@drawable/deadlift"
+            android:src="@drawable/barbellcrul"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.2"
@@ -188,7 +189,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="데드리프트"
+            android:text="바벨컬"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -211,7 +212,7 @@
             android:layout_height="83dp"
             android:padding="0sp"
             android:scaleType="fitCenter"
-            android:src="@drawable/benchpress"
+            android:src="@drawable/deadlift"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.2"
@@ -223,7 +224,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="벤치프레스"
+            android:text="데드리프트"
             android:textStyle="bold" />
 
     </LinearLayout>
