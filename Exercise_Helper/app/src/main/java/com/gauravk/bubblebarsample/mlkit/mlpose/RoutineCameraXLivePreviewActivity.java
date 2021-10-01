@@ -300,12 +300,13 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
     //옵션, Z축 저건 다 환경설정의 옵션
     try {
       switch (selectedModel) {
-        case POSE_DETECTION:
-          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/fitness_pose_samples.csv");
-          break;
+
         case KNEEL_UP: MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/kneel_up.csv");
           break;
-        case SQUATS: MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/fitness_pose_samples.csv");
+        case SQUATS: MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/squat.csv");
+          break;
+        case PUSH_UP:
+          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/push_up.csv");
           break;
       }
       System.out.println("selected:" + selectedModel);

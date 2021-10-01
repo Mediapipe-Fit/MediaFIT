@@ -134,16 +134,18 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
 
     Spinner spinner = findViewById(R.id.spinner);
     List<String> options = new ArrayList<>();
-    options.add(POSE_DETECTION);
     options.add(KNEEL_UP);
     options.add(SQUATS);
     options.add(PUSH_UP);
     int select=0;
     String exer = MyGlobal.getInstance().getExercise();
     if(exer.compareTo(KNEEL_UP)==0){
-      select = 1;
+      select = 0;
     }
     else if(exer.compareTo(SQUATS)==0){
+      select = 1;
+    }
+    else if(exer.compareTo(PUSH_UP)==0){
       select = 2;
     }
 
@@ -302,14 +304,14 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
     //옵션, Z축 저건 다 환경설정의 옵션
     try {
       switch (selectedModel) {
-        case POSE_DETECTION:
-          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/fitness_pose_samples.csv");
-          break;
         case KNEEL_UP:
           MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/kneel_up.csv");
           break;
         case SQUATS:
-          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/fitness_pose_samples.csv");
+          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/squat.csv");
+          break;
+        case PUSH_UP:
+          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/push_up.csv");
           break;
       }
       PoseDetectorOptionsBase poseDetectorOptions =
@@ -378,8 +380,6 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
             Toast.makeText(getApplicationContext(), e.getLocalizedMessage(), Toast.LENGTH_SHORT)
                 .show();
           }
-
-
         });
     //이부분 제거하면 detector 사라지네
     //analysisusecase에서 imageprocessor하고 graphic씌우고 여기서 그걸 업로드 해주나 봄
