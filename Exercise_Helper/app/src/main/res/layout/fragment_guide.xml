@@ -1,22 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/guide_btn"
-        android:layout_width="wrap_content"
+    <TextView
+        style="@android:style/Widget.Button"
+        android:shadowColor="@color/gery_inactive"
+        android:shadowDx="8"
+        android:shadowDy="8"
+        android:shadowRadius="4"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="guide를 보기위한 링크 열기"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        android:background="@drawable/weekday_inactive"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="GUIDE"
+        android:textSize="30sp" />
+    <ImageView
+        android:id="@+id/imageview"
+        android:src="@drawable/navigation_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity ="center"
+        android:fillViewport="true"
+        android:layout_marginTop="0dp"
+        android:id="@+id/scrollView">
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:text="\n\n1. 홈 버튼입니다. 금일 해야하는 운동의 종류, 세트수, 반복수, 쉬는 시간을 표시해줍니다. 가운데에 금일 운동을 시작시키는 버튼이 있으며, 하단에는 금일 운동이 얼마나 진행되었는지에 대한 progress bar가 원형으로 위치해 있습니다.\n"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="15sp" />
+            <TextView
+                android:text="2. 캘린더 버튼입니다. 원래는 지난 두달동안의 운동 진행사항을 나타낼 예정이었습니다. 라이브러리 충돌로 인해서 추가하지 못하였고, 차후에 기능을 추가할 예정입니다.\n"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp" />
+            <TextView
+                android:text="3. 루틴 설정 페이지 버튼입니다. 요일별로 어떤 운동들을 할지 종류를 정하고 세트수, 반복수, 쉬는 시간을 정할 수 있습니다. 그리고 만들어진 운동 루틴이 마음에 들지 않을 경우를 위한 업데이트와 삭제기능이 있습니다. 현재 어플에서 지원 가능한 운동만 등록이 가능합니다.\n"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp" />
+            <TextView
+                android:text="4. 운동 종류 페이지 버튼입니다. 본 어플을 통해서 어떤 운동을 할 수 있을지 보고, 버튼을 클릭하므로써 그 운동을 직접 해볼 수 있습니다. 현재 어플에서 지원 가능한 운동만 테스트 가능합니다.\n"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp" />
+            <TextView
+                android:text="5. 본 페이지로 이동시키는 가이드 버튼입니다.\n"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp" />
+            <Button
+                android:text="운동 인식페이지 자세히 보기"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/exercise_guide_btn"/>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

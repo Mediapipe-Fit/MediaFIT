@@ -32,15 +32,6 @@ public class GuideFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        button = getView().findViewById(R.id.guide_btn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("https://github.com/Mediapipe-Fit/MediaFIT/blob/main/README.md"));
-                startActivity(intent);
-            }
-        });
     }
 }
 
