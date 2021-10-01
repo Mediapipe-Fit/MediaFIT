@@ -1,1 +1,18 @@
-네비게이션 빠 https://github.com/gauravk95/bubble-navigation
+오픈소스
+
+ML-Kit
+https://github.com/googlesamples/mlkit
+
+네비게이션 바 
+https://github.com/gauravk95/bubble-navigation
+
+SQLite-Database
+https://github.com/UsamaKhurshid/SQLite-CRUD-Android-Tutorial
+
+NumberPicker
+https://github.com/ShawnLin013/NumberPicker
+
+
+운동 아이콘
+1. https://www.flaticon.com/
+2. https://thenounproject.com/
