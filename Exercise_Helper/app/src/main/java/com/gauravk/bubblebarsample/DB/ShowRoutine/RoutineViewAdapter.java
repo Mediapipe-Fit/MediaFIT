@@ -1,5 +1,6 @@
 package com.gauravk.bubblebarsample.DB.ShowRoutine;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.util.Log;
@@ -16,6 +17,7 @@ import com.gauravk.bubblebarsample.BottomBarActivity;
 import com.gauravk.bubblebarsample.DB.CreateRoutine.Routine;
 import com.gauravk.bubblebarsample.DB.QueryClass;
 import com.gauravk.bubblebarsample.DB.UpdateRoutine.RoutineUpdateDialogF;
+import com.gauravk.bubblebarsample.DB.UpdateRoutine.RoutineUpdateListener;
 import com.gauravk.bubblebarsample.R;
 import com.gauravk.bubblebarsample.cfg.Config;
 import com.orhanobut.logger.AndroidLogAdapter;
@@ -45,10 +47,8 @@ public class RoutineViewAdapter extends RecyclerView.Adapter<CustomViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CustomViewHolder holder, @SuppressLint("RecyclerView") int position) {
         final int itemPosition = position;
-        //Logger.d(RoutineList.size());
-        //Logger.d(position);
         Routine routine = RoutineList.get(position);
         Log.i("Holder_routine",Integer.toString(position));
         holder.Exercise_nameTextView.setText(String.format("%d. %s",routine.getRegNO(),routine.getName()));
@@ -62,8 +62,14 @@ public class RoutineViewAdapter extends RecyclerView.Adapter<CustomViewHolder> {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-                alertDialogBuilder.setMessage("Are you sure, You wanted to delete this Routine?");
-                alertDialogBuilder.setPositiveButton("Yes",
+                alertDialogBuilder.setMessage("해당 루틴을 삭제하겠습니까?");
+                alertDialogBuilder.setPositiveButton("No",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                alertDialogBuilder.setNegativeButton("Yes",
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface arg0, int arg1) {
@@ -71,12 +77,6 @@ public class RoutineViewAdapter extends RecyclerView.Adapter<CustomViewHolder> {
                             }
                         });
 
-                alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
 
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
@@ -86,16 +86,21 @@ public class RoutineViewAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         holder.editButtonImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Config.selected_ID = routine.getId();
-                RoutineUpdateDialogF routineUpdateDialogFragment = RoutineUpdateDialogF.newInstance(routine.getId(), itemPosition, (Routine, position) -> {
-                    RoutineList.set(position, Routine);
-                    notifyDataSetChanged();
+                Config.selected_ID = routine.getId();;
+                RoutineUpdateDialogF routineUpdateDialogFragment = RoutineUpdateDialogF.newInstance(routine.getId(), new RoutineUpdateListener() {
+                    @Override
+                    public void onRoutineUpdateListener(Routine routine) {
+                        resetRoutineList();
+                    }
                 });
                 routineUpdateDialogFragment.show(((BottomBarActivity) context).getSupportFragmentManager(), Config.UPDATE_Routine);
             }
         });
     }
-
+    public void resetRoutineList(){
+        RoutineList.clear();
+        RoutineList.addAll(queryClass.getDaysRoutine(Config.selected_weekday));
+    }
     private void deleteRoutine(int position) {
         Routine Routine = RoutineList.get(position);
         long count = queryClass.deleteRoutineByRegNum(Routine.getId());

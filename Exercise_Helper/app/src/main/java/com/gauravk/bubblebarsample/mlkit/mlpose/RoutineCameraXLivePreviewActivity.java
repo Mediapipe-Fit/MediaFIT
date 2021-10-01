@@ -152,6 +152,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
     routineList.addAll(databaseQueryClass.getDaysRoutine(today_hangle()));
     MyGlobal.getInstance().initRoutine(routineList);
     if(routineList.isEmpty()){
+
       //this.finish();
     }
     temp = routineList.get(0);

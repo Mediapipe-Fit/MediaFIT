@@ -1,5 +1,6 @@
 package com.gauravk.bubblebarsample.DB.UpdateRoutine;
 
+
 import android.app.Dialog;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -23,12 +24,13 @@ import com.gauravk.bubblebarsample.cfg.MyGlobal;
 import com.gauravk.bubblebarsample.fragment.RoutineFragment;
 import com.shawnlin.numberpicker.NumberPicker;
 
+import java.util.List;
 import java.util.Locale;
 
 
 public class RoutineUpdateDialogF extends DialogFragment {
 
-    private static int routineItemPosition;
+    private static int routineItemID;
     private static RoutineUpdateListener routineUpdateListener;
 
     private Routine mroutine;
@@ -55,8 +57,8 @@ public class RoutineUpdateDialogF extends DialogFragment {
         // Required empty public constructor
     }
 
-    public static RoutineUpdateDialogF newInstance(long ID, int position, RoutineUpdateListener listener){
-        routineItemPosition = position;
+    public static RoutineUpdateDialogF newInstance(long ID, RoutineUpdateListener listener){
+        routineItemID = (int)ID;
         routineUpdateListener = listener;
         RoutineUpdateDialogF routineUpdateDialogFragment = new RoutineUpdateDialogF();
         Bundle args = new Bundle();
@@ -84,9 +86,6 @@ public class RoutineUpdateDialogF extends DialogFragment {
         View view = inflater.inflate(R.layout.routine_update_dialog_f, container, false);
 
         DBQueryClass = new QueryClass(getContext());
-        //Set_numEditText = view.findViewById(R.id.Set_numEditText);
-        //Repeat_numEditText = view.findViewById(R.id.Repeat_numEditText);
-        //Rest_timeEditText = view.findViewById(R.id.Rest_timeEditText);
         updateButton = view.findViewById(R.id.updateRoutineInfoButton);
         cancelButton = view.findViewById(R.id.cancelButton);
         Excercise_name = view.findViewById(R.id.Exercise);
@@ -96,21 +95,22 @@ public class RoutineUpdateDialogF extends DialogFragment {
         Excercise_name.setAdapter(Exercise_Adapter);
 
         RegNo = view.findViewById(R.id.Spinner_RegNO);
-        ArrayAdapter RegNo_Adapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_dropdown_item,DBQueryClass.getDaysRegNo(Config.selected_weekday));
-        RegNo.setAdapter(RegNo_Adapter);
+
 
         String title = getArguments().getString(Config.TITLE);
         getDialog().setTitle(title);
 
         mroutine = DBQueryClass.getRoutineByRegNum(Config.selected_ID);
-
+        List<String> my_list = DBQueryClass.getDaysRegNo_Update(Integer.toString(mroutine.getRegNO()),Config.selected_weekday);
+        ArrayAdapter RegNo_Adapter = new ArrayAdapter<>(getActivity(),android.R.layout.simple_spinner_dropdown_item,my_list);
+        RegNo.setAdapter(RegNo_Adapter);
         Set = view.findViewById(R.id.number_picker_Set_num);
         Repeat = view.findViewById(R.id.number_picker_Repeat_num);
         Rest = view.findViewById(R.id.number_picker_Rest_time);
 
         if(mroutine!=null){
             Excercise_name.setSelection(getIndex(mroutine.getName()));
-            RegNo.setSelection(mroutine.getRegNO());
+            RegNo.setSelection(my_list.indexOf(mroutine.getRegNO()));
             Set = set_nummber_picker(Set, (int) mroutine.getSet_num());
             Repeat = set_nummber_picker(Repeat, (int) mroutine.getRepeat_num());
             Rest = set_nummber_picker(Rest,(int) mroutine.getRest_time());
@@ -133,12 +133,9 @@ public class RoutineUpdateDialogF extends DialogFragment {
                     mroutine.setRepeat_num(Repeat_num);
                     mroutine.setRest_time(Rest_time);
 
-                    long id = DBQueryClass.updateRoutineInfo(mroutine);
-
-                    if(id>0){
-                        routineUpdateListener.onRoutineUpdateListener(mroutine, routineItemPosition);
-                        getDialog().dismiss();
-                    }
+                    DBQueryClass.updateRoutineInfo(mroutine);
+                    routineUpdateListener.onRoutineUpdateListener(mroutine);
+                    getDialog().dismiss();
                     //Log.i("DB_Update_Routine_in_D", String.format("ID = %d, RegNO = %d, name = %s, Set_num = %d, Repeat_num = %d, Rest_time = %d", -1 , Regno, temp , Set_num, Repeat_num, Repeat_num));
 
                 }

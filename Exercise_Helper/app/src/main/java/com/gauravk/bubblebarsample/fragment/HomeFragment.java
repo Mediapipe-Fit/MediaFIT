@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -61,18 +62,24 @@ public class HomeFragment extends Fragment implements CircleProgressBar.Progress
         super.onStart();
         Days_routineList = new ArrayList<>();
         button = getView().findViewById(R.id.exercise_start_btn);
-        button.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                //Intent intent  = new Intent(view.getContext(), CameraXLivePreviewActivity.class );
-                Intent intent = new Intent(view.getContext(), RoutineCameraXLivePreviewActivity.class);
-                startActivity(intent);
-            }
-        });
 
         recyclerView = (RecyclerView) getView().findViewById(R.id.home_recycler);
 
         Days_routineList.addAll(databaseQueryClass.getDaysRoutine(today_hangle()));
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                if(Days_routineList.size()==0){
+                    Toast.makeText(getActivity(), "오늘의 운동 루틴을 만들어 주세요", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    //Intent intent  = new Intent(view.getContext(), CameraXLivePreviewActivity.class );
+                    Intent intent = new Intent(view.getContext(), RoutineCameraXLivePreviewActivity.class);
+                    startActivity(intent);
+                }
+
+            }
+        });
 
         routineListRecyclerViewAdapter = new HomeViewAdapter(getActivity(), Days_routineList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));

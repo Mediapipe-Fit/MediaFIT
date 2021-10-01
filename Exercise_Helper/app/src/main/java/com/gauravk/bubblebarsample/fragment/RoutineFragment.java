@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
@@ -141,9 +142,19 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener{
 
 
     public void Days_routine_delete(){
+        if(Days_routineList.size() == 0){
+            Toast.makeText(getActivity(),"삭제할 루틴이 없습니다.",Toast.LENGTH_SHORT).show();
+            return;
+        }
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
-        alertDialogBuilder.setMessage("Are you sure, You wanted to delete routines?");
-        alertDialogBuilder.setPositiveButton("Yes",
+        alertDialogBuilder.setMessage(Config.selected_weekday+"요일 루틴을 모두 삭제 하시겠습니까?");
+        alertDialogBuilder.setPositiveButton("No",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alertDialogBuilder.setNegativeButton("Yes",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
@@ -156,13 +167,6 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener{
                         }
                     }
                 });
-
-        alertDialogBuilder.setNegativeButton("No",new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
         alertDialogBuilder.create(); // 만들고
         alertDialogBuilder.show(); // 보여준다.
     }

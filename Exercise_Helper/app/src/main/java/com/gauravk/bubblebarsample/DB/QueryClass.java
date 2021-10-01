@@ -114,6 +114,46 @@ public class QueryClass {
         return Collections.emptyList();
     }
 
+    public List<String> getDaysRegNo_Update(String Reg,String day){
+
+        DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
+        SQLiteDatabase sqLiteDatabase = databaseHelper.getReadableDatabase();
+
+        Cursor cursor = null;
+        List<String> RegNo = new ArrayList<String>(Arrays.asList("1","2","3","4","5","6","7","8","9","10"));
+        try {
+
+            cursor = sqLiteDatabase.query(Config.TABLE_Routine, new String[]{Config.COLUMN_RegNO},
+                    Config.COLUMN_Weekday + " = ? ", new String[]{day},
+                    null, null, null);
+
+            /**
+             // If you want to execute raw query then uncomment below 2 lines. And comment out above line.
+
+             String SELECT_QUERY = String.format("SELECT %s, %s, %s, %s, %s FROM %s", Config.COLUMN_Routine_ID, Config.COLUMN_Routine_NAME, Config.COLUMN_Routine_Set_num, Config.COLUMN_Routine_Rest_time, Config.COLUMN_Routine_Repeat_num, Config.TABLE_Routine);
+             cursor = sqLiteDatabase.rawQuery(SELECT_QUERY, null);
+             */
+            if(cursor!=null)
+                if(cursor.moveToFirst()){
+                    do {
+                        @SuppressLint("Range") int cur_RegNo = cursor.getInt(cursor.getColumnIndex(Config.COLUMN_RegNO));
+                        Log.i("Yes",String.format("cur_Reg_NO = %d",cur_RegNo));
+                        if(Reg != String.valueOf(cur_RegNo)) RegNo.remove(String.valueOf(cur_RegNo));
+                    }   while (cursor.moveToNext());
+
+                    return RegNo;
+                }
+        } catch (Exception e){
+            Logger.d("Exception: " + e.getMessage());
+            Toast.makeText(context, "Operation failed", Toast.LENGTH_SHORT).show();
+        } finally {
+            if(cursor!=null)
+                cursor.close();
+            sqLiteDatabase.close();
+        }
+
+        return RegNo;
+    }
     public List<String> getDaysRegNo(String day){
 
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
@@ -246,13 +286,14 @@ public class QueryClass {
         return Routine;
     }
 
-    public long updateRoutineInfo(Routine Routine){
+    public void updateRoutineInfo(Routine Routine){
 
         long rowCount = 0;
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
 
         ContentValues contentValues = new ContentValues();
+        //contentValues.put(Config.COLUMN_Routine_ID, Routine.getId());
         contentValues.put(Config.COLUMN_Exercise_NAME, Routine.getName());;
         contentValues.put(Config.COLUMN_Weekday, Routine.getWeekday());
         contentValues.put(Config.COLUMN_RegNO, Routine.getRegNO());
@@ -272,7 +313,7 @@ public class QueryClass {
             sqLiteDatabase.close();
         }
 
-        return rowCount;
+        return ;
     }
 
     public long deleteRoutineByRegNum(long ID) {
