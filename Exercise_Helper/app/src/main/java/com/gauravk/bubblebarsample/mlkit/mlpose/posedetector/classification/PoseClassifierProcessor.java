@@ -81,7 +81,6 @@ public class PoseClassifierProcessor {
     List<PoseSample> poseSamples = new ArrayList<>();
     try {
       BufferedReader reader = new BufferedReader(
-              //Myglobal에서 가져옴
           new InputStreamReader(context.getAssets().open(MyGlobal.getInstance().getPOSE_SAMPLE_FILE())));
       String csvLine = reader.readLine();
       while (csvLine != null) {
@@ -175,11 +174,6 @@ public class PoseClassifierProcessor {
 
       result.add("start : " + classification.getClassConfidence("start"));
       result.add("end : " + classification.getClassConfidence("end"));
-      /*
-      result.add(""+classification.getAllClasses());
-      result.add(""+classification.getClassConfidence(maxConfidenceClass));
-      result.add(""+poseClassifier.confidenceRange());
-       */
       MyGlobal.getInstance().setREP(
               classification.getClassConfidence("end")
               / poseClassifier.confidenceRange()
@@ -189,10 +183,6 @@ public class PoseClassifierProcessor {
     }
 
     return result;
-  }
-
-  public void rating(ClassificationResult temp){
-    MyGlobal.getInstance().setREP(temp.getClassConfidence("start"));
   }
 
 }

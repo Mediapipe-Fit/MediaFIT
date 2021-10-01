@@ -177,6 +177,9 @@ public class PoseGraphic extends Graphic {
     barHeight = barHeight * MyGlobal.getInstance().getREP();
     System.out.printf("getREP = %f \n",MyGlobal.getInstance().getREP());
     canvas.drawRect(leftupX ,leftupY, rightdownX,rightdownY,full);
+    if(MyGlobal.getInstance().getREP()>0.85){
+      rate.setColor(Color.RED);
+    }
     canvas.drawRect(leftupX ,rightdownY + barHeight, rightdownX,rightdownY,rate);
 
 
