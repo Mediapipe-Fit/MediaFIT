@@ -77,7 +77,7 @@ public class MyGlobal {
         this.REST = routinList.get(0).getRest_time();
         this.Num  = routinList.get(0).getRepeat_num();
         this.now_num = 0;
-        this.now_set = 0;
+        this.now_set = routinList.get(0).getCounts();
         this.now_routine = routinList.get(0);
     }
 

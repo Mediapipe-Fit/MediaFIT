@@ -138,7 +138,14 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
     options.add(KNEEL_UP);
     options.add(SQUATS);
     options.add(PUSH_UP);
-
+    int select=0;
+    String exer = MyGlobal.getInstance().getExercise();
+    if(exer.compareTo(KNEEL_UP)==0){
+      select = 1;
+    }
+    else if(exer.compareTo(SQUATS)==0){
+      select = 2;
+    }
 
     // Creating adapter for spinner
     ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, R.layout.spinner_style, options);
@@ -147,6 +154,7 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
     // attaching data adapter to spinner
     spinner.setAdapter(dataAdapter);
     spinner.setOnItemSelectedListener(this);
+    spinner.setSelection(select);
 
     ToggleButton facingSwitch = findViewById(R.id.facing_switch);
     facingSwitch.setOnCheckedChangeListener(this);
@@ -293,8 +301,6 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
     //이부분이 실질적으로 detect하는부분임
     //옵션, Z축 저건 다 환경설정의 옵션
     try {
-      System.out.println("이부분이 반복이 되나?");
-
       switch (selectedModel) {
         case POSE_DETECTION:
           MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/fitness_pose_samples.csv");
@@ -305,29 +311,6 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
         case SQUATS:
           MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/fitness_pose_samples.csv");
           break;
-        /*
-        case POSE_DETECTION:
-          //모델 옵션설정
-          PoseDetectorOptionsBase poseDetectorOptions =
-              PreferenceUtils.getPoseDetectorOptionsForLivePreview(this);
-          boolean shouldShowInFrameLikelihood =
-              PreferenceUtils.shouldShowPoseDetectionInFrameLikelihoodLivePreview(this);
-          boolean visualizeZ = PreferenceUtils.shouldPoseDetectionVisualizeZ(this);
-          boolean rescaleZ = PreferenceUtils.shouldPoseDetectionRescaleZForVisualization(this);
-          //boolean runClassification = PreferenceUtils.shouldPoseDetectionRunClassification(this);
-          boolean runClassification = true;
-          //이미지 프로세서 설정
-          imageProcessor =
-              new PoseDetectorProcessor(
-                  this,
-                  poseDetectorOptions,
-                  shouldShowInFrameLikelihood,
-                  visualizeZ,
-                  rescaleZ,
-                  runClassification,
-                  true);
-          break;
-       */
       }
       PoseDetectorOptionsBase poseDetectorOptions =
               PreferenceUtils.getPoseDetectorOptionsForLivePreview(this);

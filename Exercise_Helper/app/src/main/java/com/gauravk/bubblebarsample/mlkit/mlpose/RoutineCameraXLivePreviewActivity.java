@@ -364,19 +364,22 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
                 //세트,개수 확인;
                 if(MyGlobal.getInstance().getNum() == MyGlobal.getInstance().getNow_num()){
                   MyGlobal.getInstance().do1set();
-                  temp.setCounts(MyGlobal.getInstance().getSET());
+                  temp.setCounts(MyGlobal.getInstance().getnow_set());
                   databaseQueryClass.updateRoutineInfo(temp);
+
                   if(MyGlobal.getInstance().getnow_set()== MyGlobal.getInstance().getSET()){
                     //운동이 아예 끝난 상황이면
                     temp = MyGlobal.getInstance().getNow_routine();
                     temp.Complete();
                     databaseQueryClass.updateRoutineInfo(temp); //끝났다고 표시를 해주고
+
                     if(!MyGlobal.getInstance().Done()){   //여기서 세트수를 올려주고 다음 세트를 셋팅합니다
                       MyGlobal.getInstance().setFinish(true);
                       Handler mHandler = new Handler();
                       mHandler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
+                          MyGlobal.getInstance().setFinish(false);
                           finish();
                         }
                       },10000);
