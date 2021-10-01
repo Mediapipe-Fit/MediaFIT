@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
@@ -14,12 +13,16 @@ import androidx.fragment.app.Fragment;
 import com.gauravk.bubblebarsample.R;
 import com.gauravk.bubblebarsample.cfg.MyGlobal;
 import com.gauravk.bubblebarsample.mlkit.mlpose.CameraXLivePreviewActivity;
-import com.gauravk.bubblebarsample.mlkit.mlpose.RoutineCameraXLivePreviewActivity;
 
 
 public class ExerciseFragment extends Fragment {
     private ImageButton kneelup;
     private ImageButton squat;
+    private ImageButton pushup;
+    private ImageButton situp;
+    private ImageButton barbell_curl;
+    private ImageButton dead;
+
 
     public static ExerciseFragment newInstance() {
         ExerciseFragment fragment = new ExerciseFragment();
@@ -40,19 +43,57 @@ public class ExerciseFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), CameraXLivePreviewActivity.class);
-                MyGlobal.getInstance().setExercise("KNEEL UP");
-                MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/kneel_up.csv");
+                MyGlobal.getInstance().setExercise("KNEE RAISE");
                 MyGlobal.getInstance().setMode(false);
                 startActivity(intent);
             }
         });
-        squat = getView().findViewById(R.id.squirt);
+        squat = getView().findViewById(R.id.squat);
         squat.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), CameraXLivePreviewActivity.class);
                 MyGlobal.getInstance().setExercise("SQUATS");
-                MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/fitness_pose_samples.csv");
+                MyGlobal.getInstance().setMode(false);
+                startActivity(intent);
+            }
+        });
+        pushup = getView().findViewById(R.id.pushup);
+        pushup.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), CameraXLivePreviewActivity.class);
+                MyGlobal.getInstance().setExercise("PUSH UP");
+                MyGlobal.getInstance().setMode(false);
+                startActivity(intent);
+            }
+        });
+        situp = getView().findViewById(R.id.situp);
+        situp.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), CameraXLivePreviewActivity.class);
+                MyGlobal.getInstance().setExercise("SITUP");
+                MyGlobal.getInstance().setMode(false);
+                startActivity(intent);
+            }
+        });
+        barbell_curl = getView().findViewById(R.id.barbell_curl);
+        barbell_curl.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), CameraXLivePreviewActivity.class);
+                MyGlobal.getInstance().setExercise("BARBELL_CURL");
+                MyGlobal.getInstance().setMode(false);
+                startActivity(intent);
+            }
+        });
+        dead = getView().findViewById(R.id.dead);
+        dead.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), CameraXLivePreviewActivity.class);
+                MyGlobal.getInstance().setExercise("DEAD");
                 MyGlobal.getInstance().setMode(false);
                 startActivity(intent);
             }

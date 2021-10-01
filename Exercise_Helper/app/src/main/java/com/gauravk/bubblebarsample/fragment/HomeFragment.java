@@ -4,6 +4,8 @@ package com.gauravk.bubblebarsample.fragment;
 import static com.gauravk.bubblebarsample.cfg.MyGlobal.today_hangle;
 
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,7 +41,7 @@ public class HomeFragment extends Fragment implements CircleProgressBar.Progress
     private static final String DEFAULT_PATTERN = "%d%%";
     private Button button;
     CircleProgressBar circleProgressBar;
-
+    ToneGenerator tone = new ToneGenerator(AudioManager.STREAM_MUSIC,ToneGenerator.MAX_VOLUME);
     private int total_setnum = 0;
     private int complete_setnum = 0;
     private int prograss_num = 0;
@@ -62,7 +64,6 @@ public class HomeFragment extends Fragment implements CircleProgressBar.Progress
         super.onStart();
         Days_routineList = new ArrayList<>();
         button = getView().findViewById(R.id.exercise_start_btn);
-
         recyclerView = (RecyclerView) getView().findViewById(R.id.home_recycler);
 
         Days_routineList.addAll(databaseQueryClass.getDaysRoutine(today_hangle()));

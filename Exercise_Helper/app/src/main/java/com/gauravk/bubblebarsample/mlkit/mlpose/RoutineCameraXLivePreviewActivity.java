@@ -86,8 +86,11 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
 
   private static final String POSE_DETECTION = "Pose Detection";
   private static final String PUSH_UP = "PUSH UP";
-  private static final String KNEEL_UP = "KNEEL UP";
+  private static final String KNEE_RAISE = "KNEE RAISE";
   private static final String SQUATS = "SQUATS";
+  private static final String SITUP = "SITUP";
+  private static final String BARBELL_CURL = "BARBELL_CURL";
+  private static final String DEAD = "DEAD";
   private static final String STATE_SELECTED_MODEL = "selected_model";
 
   private PreviewView previewView;
@@ -292,21 +295,34 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
 
     selectedModel = MyGlobal.getInstance().getExercise();
     if(selectedModel.compareTo("스쿼트")==0){selectedModel = SQUATS;}
-    else if (selectedModel.compareTo("무릎올리기")==0){selectedModel = KNEEL_UP;}
-
+    else if (selectedModel.compareTo("무릎올리기")==0){selectedModel = KNEE_RAISE;}
+    else if (selectedModel.compareTo("팔굽혀펴기")==0){selectedModel = PUSH_UP;}
+    else if (selectedModel.compareTo("윗몸일으키기")==0){selectedModel = SITUP;}
+    else if (selectedModel.compareTo("턱걸이")==0){selectedModel = BARBELL_CURL;}
+    else if (selectedModel.compareTo("크런치")==0){selectedModel = DEAD;}
 
 
     //이부분이 실질적으로 detect하는부분임
     //옵션, Z축 저건 다 환경설정의 옵션
     try {
       switch (selectedModel) {
-
-        case KNEEL_UP: MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/kneel_up.csv");
-          break;
-        case SQUATS: MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/squat.csv");
-          break;
         case PUSH_UP:
           MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/push_up.csv");
+          break;
+        case SQUATS:
+          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/squat.csv");
+          break;
+        case KNEE_RAISE:
+          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/kneel_up.csv");
+          break;
+        case SITUP:
+          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/situp.csv");
+          break;
+        case BARBELL_CURL:
+          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/barbell_curl.csv");
+          break;
+        case DEAD:
+          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/dead.csv");
           break;
       }
       System.out.println("selected:" + selectedModel);

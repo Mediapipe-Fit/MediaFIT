@@ -70,7 +70,7 @@
         app:layout_constraintVertical_bias="0.2">
 
         <ImageButton
-            android:id="@+id/squirt"
+            android:id="@+id/squat"
             android:layout_width="82dp"
             android:layout_height="83dp"
             android:padding="0sp"
@@ -138,7 +138,7 @@
         app:layout_constraintVertical_bias="0.45">
 
         <ImageButton
-            android:id="@+id/crunch"
+            android:id="@+id/situp"
             android:layout_width="82dp"
             android:layout_height="83dp"
             android:padding="0sp"
@@ -172,7 +172,7 @@
         app:layout_constraintVertical_bias="0.7">
 
         <ImageButton
-            android:id="@+id/deadlift"
+            android:id="@+id/barbell_curl"
             android:layout_width="82dp"
             android:layout_height="83dp"
             android:padding="0sp"
@@ -207,7 +207,7 @@
         app:layout_constraintVertical_bias="0.7">
 
         <ImageButton
-            android:id="@+id/benchpress"
+            android:id="@+id/dead"
             android:layout_width="82dp"
             android:layout_height="83dp"
             android:padding="0sp"

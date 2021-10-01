@@ -77,8 +77,11 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
 
   private static final String POSE_DETECTION = "Pose Detection";
   private static final String PUSH_UP = "PUSH UP";
-  private static final String KNEEL_UP = "KNEEL UP";
+  private static final String KNEE_RAISE = "KNEE RAISE";
   private static final String SQUATS = "SQUATS";
+  private static final String SITUP = "SITUP";
+  private static final String BARBELL_CURL = "BARBELL_CURL";
+  private static final String DEAD = "DEAD";
   private static final String STATE_SELECTED_MODEL = "selected_model";
 
   private PreviewView previewView;
@@ -134,20 +137,33 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
 
     Spinner spinner = findViewById(R.id.spinner);
     List<String> options = new ArrayList<>();
-    options.add(KNEEL_UP);
-    options.add(SQUATS);
     options.add(PUSH_UP);
+    options.add(SQUATS);
+    options.add(KNEE_RAISE);
+    options.add(SITUP);
+    options.add(BARBELL_CURL);
+    options.add(DEAD);
     int select=0;
     String exer = MyGlobal.getInstance().getExercise();
-    if(exer.compareTo(KNEEL_UP)==0){
+    if(exer.compareTo(PUSH_UP)==0){
       select = 0;
     }
     else if(exer.compareTo(SQUATS)==0){
       select = 1;
     }
-    else if(exer.compareTo(PUSH_UP)==0){
+    else if(exer.compareTo(KNEE_RAISE)==0){
       select = 2;
     }
+    else if(exer.compareTo(SITUP)==0){
+      select = 3;
+    }
+    else if(exer.compareTo(BARBELL_CURL)==0){
+      select = 4;
+    }
+    else if(exer.compareTo(DEAD)==0){
+      select = 5;
+    }
+
 
     // Creating adapter for spinner
     ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(this, R.layout.spinner_style, options);
@@ -304,14 +320,29 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
     //옵션, Z축 저건 다 환경설정의 옵션
     try {
       switch (selectedModel) {
-        case KNEEL_UP:
-          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/kneel_up.csv");
+        case PUSH_UP:
+          MyGlobal.getInstance().setExercise(PUSH_UP);
+          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/push_up.csv");
           break;
         case SQUATS:
+          MyGlobal.getInstance().setExercise(SQUATS);
           MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/squat.csv");
           break;
-        case PUSH_UP:
-          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/push_up.csv");
+        case KNEE_RAISE:
+          MyGlobal.getInstance().setExercise(KNEE_RAISE);
+          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/kneel_up.csv");
+          break;
+        case SITUP:
+          MyGlobal.getInstance().setExercise(SITUP);
+          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/situp.csv");
+          break;
+        case BARBELL_CURL:
+          MyGlobal.getInstance().setExercise(BARBELL_CURL);
+          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/barbell_curl.csv");
+          break;
+        case DEAD:
+          MyGlobal.getInstance().setExercise(DEAD);
+          MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/dead.csv");
           break;
       }
       PoseDetectorOptionsBase poseDetectorOptions =

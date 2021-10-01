@@ -16,6 +16,9 @@
 
 package com.gauravk.bubblebarsample.mlkit.mlpose.posedetector.classification;
 
+import android.media.AudioManager;
+import android.media.ToneGenerator;
+
 import com.gauravk.bubblebarsample.cfg.MyGlobal;
 
 /**
@@ -26,7 +29,7 @@ public class RepetitionCounter {
   // The default Top K value is 10 so the range here is [0-10].
   private static final float DEFAULT_ENTER_THRESHOLD = 8f;
   private static final float DEFAULT_EXIT_THRESHOLD = 2f;
-
+  ToneGenerator tone = new ToneGenerator(AudioManager.STREAM_MUSIC,ToneGenerator.MAX_VOLUME);
   private final String className;
   private final float enterThreshold;
   private final float exitThreshold;
@@ -61,6 +64,7 @@ public class RepetitionCounter {
     }
 
     if (poseConfidence < exitThreshold) {
+      tone.startTone(ToneGenerator.TONE_PROP_ACK,200);
       MyGlobal.getInstance().Do1();
       numRepeats++;
       poseEntered = false;
