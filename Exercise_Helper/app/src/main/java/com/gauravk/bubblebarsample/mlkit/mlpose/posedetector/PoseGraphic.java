@@ -106,6 +106,8 @@ public class PoseGraphic extends Graphic {
   @Override
   public void draw(Canvas canvas) {
 
+
+
     if(MyGlobal.getInstance().isFinish() == true){
       Paint white = new Paint();
       white.setColor(Color.WHITE);
@@ -190,19 +192,16 @@ public class PoseGraphic extends Graphic {
     Paint full = new Paint();
     full.setColor(Color.WHITE);
     rate.setColor(Color.GREEN);
-    //canvas.drawRect(leftupX,leftupY,rightdownX,rightdownY,rate);
-
 
     float barHeight = leftupY - rightdownY;
     barHeight = barHeight * MyGlobal.getInstance().getREP();
     canvas.drawRect(leftupX ,leftupY, rightdownX,rightdownY,full);
     if(MyGlobal.getInstance().getREP()>0.8){ rate.setColor(Color.RED); }
-    if(MyGlobal.getInstance().getREP()>0.8){ rate.setColor(Color.RED); }
+    if(MyGlobal.getInstance().getREP()>0.8
+    ){ rate.setColor(Color.RED); }
     canvas.drawRect(leftupX ,rightdownY + barHeight, rightdownX,rightdownY,rate);
 
-
     // Draw all the points
-
     for (PoseLandmark landmark : landmarks) {
       drawPoint(canvas, landmark, whitePaint);
       if (visualizeZ && rescaleZForVisualization) {
@@ -320,6 +319,26 @@ public class PoseGraphic extends Graphic {
             translateX(rightKnee.getPosition().x),
             translateY(rightKnee.getPosition().y),
             whitePaint);
+    canvas.drawText(
+            String.format(Locale.US , "%.2f",getAngle(leftShoulder,leftHip,leftAnkle)),
+            translateX(leftHip.getPosition().x),
+            translateY(rightHip.getPosition().y),
+            whitePaint);
+
+    if(MyGlobal.getInstance().getExercise().compareTo("PUSH UP") == 0 ){
+      float temp = getAngle(leftShoulder,leftHip,leftKnee);
+      float temp2 = getAngle(rightShoulder,rightHip,rightKnee);
+      Paint tempPaint = new Paint();
+      tempPaint.setTextSize(80);
+      tempPaint.setColor(Color.RED);
+      if((temp<160 || temp>200) && (temp2<160 || temp2>200)){
+
+        canvas.drawText("허리를 일짜로 펴주세요!",
+                translateX(leftHip.getPosition().x-90),
+                translateY(leftHip.getPosition().y-20),
+                tempPaint);
+      }
+    }
 
 
   }

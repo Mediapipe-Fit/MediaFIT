@@ -90,10 +90,12 @@ public class InferenceInfoGraphic extends GraphicOverlay.Graphic {
 
      */
     canvas.drawText("현재 운동 : " + MyGlobal.getInstance().getExercise(),x,y,textPaint);
+    if(MyGlobal.getInstance().getmode()==true){
     canvas.drawText("쉬는 시간 : " + MyGlobal.getInstance().getREST(),x,y+TEXT_SIZE,textPaint);
     canvas.drawText("남은 세트 : " + (MyGlobal.getInstance().getSET() - MyGlobal.getInstance().getnow_set()),
             x,y+TEXT_SIZE*2,textPaint);
     canvas.drawText("세트 남은 개수 : " + (MyGlobal.getInstance().getNum()-MyGlobal.getInstance().getNow_num()),
             x,y+TEXT_SIZE*3,textPaint);
+    }
   }
 }
