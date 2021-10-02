@@ -68,59 +68,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.55" />
 
-        <Button
-            android:id="@+id/wear_os"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:text="Watch_start"
-            android:background="@drawable/weekday_inactive"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.9"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.55" />
-
-        <Button
-            android:id="@+id/send_info"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="Info"
-            android:background="@drawable/weekday_inactive"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.1"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.62" />
-
-        <Button
-            android:id="@+id/send_counts"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="Counts"
-            android:background="@drawable/weekday_inactive"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.62" />
-
-        <Button
-            android:id="@+id/send_rest"
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="Rests"
-            android:background="@drawable/weekday_inactive"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.9"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.62" />
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

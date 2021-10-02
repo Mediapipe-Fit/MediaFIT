@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Exercise_Helper.iml" filepath="$PROJECT_DIR$/.idea/modules/Exercise_Helper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Application/Exercise_Helper.Application.iml" filepath="$PROJECT_DIR$/.idea/modules/Application/Exercise_Helper.Application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Exercise_Helper.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Exercise_Helper.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bubblenavigation/Exercise_Helper.bubblenavigation.iml" filepath="$PROJECT_DIR$/.idea/modules/bubblenavigation/Exercise_Helper.bubblenavigation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/exercise_helper/Exercise_Helper.exercise_helper.iml" filepath="$PROJECT_DIR$/.idea/modules/exercise_helper/Exercise_Helper.exercise_helper.iml" />
+    </modules>
+  </component>
+</project>
