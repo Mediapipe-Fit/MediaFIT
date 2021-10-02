@@ -60,6 +60,7 @@ public class MyGlobal {
     public Routine getNow_routine(){return this.now_routine;}
     public boolean getRest_time(){return this.rest_time;}
     public boolean isFinish(){return this.finish;}
+
     public void initRoutine(List<Routine> routineList){
         this.rest_time = false;
         routinList = new ArrayList<>();
@@ -105,6 +106,7 @@ public class MyGlobal {
         this.now_set++;
         this.now_num = 0;
     }
+
     public void Do1(){this.now_num++;} //한개 했을떄 now_num 1증가;
     public void setMode(boolean mode){this.mode = mode;}
     public void setNum(long num){this.Num = num;}

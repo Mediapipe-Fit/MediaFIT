@@ -109,13 +109,13 @@ public class PoseGraphic extends Graphic {
     if(MyGlobal.getInstance().isFinish() == true){
       Paint white = new Paint();
       white.setColor(Color.WHITE);
-      white.setTextSize(30);
-      canvas.drawText("오늘의 운동을 완료하였습니다",500,800, white);
+      white.setTextSize(100);
+      canvas.drawText("오늘의 운동을 완료하였습니다",100,800, white);
       return;
     }
 
     if(MyGlobal.getInstance().getRest_time() == true){
-      canvas.drawText("" + MyGlobal.getInstance().getREST()+"second 휴식시간입니다!",canvas.getWidth()/2-200,canvas.getHeight()/2,classificationTextPaint);
+      canvas.drawText("" + MyGlobal.getInstance().getREST()+"second 휴식시간입니다!",canvas.getWidth()/2-400,canvas.getHeight()/2,classificationTextPaint);
       return;
     }
 
@@ -125,12 +125,18 @@ public class PoseGraphic extends Graphic {
     }
 
     // Draw pose classification text.
+    Paint number = new Paint();
+    number.setTextSize(200);
+    number.setColor(Color.BLACK);
+    number.setUnderlineText(true);
+    /*
     float classificationX = POSE_CLASSIFICATION_TEXT_SIZE * 0.5f;
     poseClassification.add("운동이름 : "+MyGlobal.getInstance().getExercise());
-    poseClassification.add("현재 파일 : " + MyGlobal.getInstance().getPOSE_SAMPLE_FILE());
+    //poseClassification.add("현재 파일 : " + MyGlobal.getInstance().getPOSE_SAMPLE_FILE());
     if(MyGlobal.getInstance().getmode() == true){
       poseClassification.add("남은 세트: " + (MyGlobal.getInstance().getSET()-MyGlobal.getInstance().getnow_set()));
     }
+
     for (int i = 0; i < poseClassification.size(); i++) {
       if(MyGlobal.getInstance().getmode() == false){    //운동모드
         float classificationY = (canvas.getHeight() - POSE_CLASSIFICATION_TEXT_SIZE * 1.5f
@@ -144,14 +150,28 @@ public class PoseGraphic extends Graphic {
       else{     //루틴모드
         float classificationY = (canvas.getHeight() - POSE_CLASSIFICATION_TEXT_SIZE * 1.5f
                 * (poseClassification.size() - i));
-        System.out.println(poseClassification.toString());
         canvas.drawText(
                 poseClassification.get(i),
                 classificationX,
                 classificationY,
                 classificationTextPaint);
       }
+    }*/
+    float classificationY = (canvas.getHeight() - POSE_CLASSIFICATION_TEXT_SIZE * 1.5f
+            * (poseClassification.size()));
+    Paint back = new Paint();
+    back.setColor(Color.WHITE);
+    long num = MyGlobal.getInstance().getNow_num();
+    int offset = 300;
+    if(num>9){
+      offset = 380;
     }
+    float classificationX = POSE_CLASSIFICATION_TEXT_SIZE * 0.5f;
+    canvas.drawRect(classificationX+120, classificationY-180,
+            classificationX+offset,classificationY+60,
+            back);
+    canvas.drawText(""+num,classificationX+140,classificationY,number);
+
 
 
     //draw rating bar
@@ -175,11 +195,9 @@ public class PoseGraphic extends Graphic {
 
     float barHeight = leftupY - rightdownY;
     barHeight = barHeight * MyGlobal.getInstance().getREP();
-    System.out.printf("getREP = %f \n",MyGlobal.getInstance().getREP());
     canvas.drawRect(leftupX ,leftupY, rightdownX,rightdownY,full);
-    if(MyGlobal.getInstance().getREP()>0.85){
-      rate.setColor(Color.RED);
-    }
+    if(MyGlobal.getInstance().getREP()>0.8){ rate.setColor(Color.RED); }
+    if(MyGlobal.getInstance().getREP()>0.8){ rate.setColor(Color.RED); }
     canvas.drawRect(leftupX ,rightdownY + barHeight, rightdownX,rightdownY,rate);
 
 

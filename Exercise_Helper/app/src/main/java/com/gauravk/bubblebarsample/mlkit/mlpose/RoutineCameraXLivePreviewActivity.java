@@ -388,6 +388,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
                     //운동이 아예 끝난 상황이면
                     temp = MyGlobal.getInstance().getNow_routine();
                     temp.Complete();
+                    Log.d("COMPLETE",MyGlobal.getInstance().getNow_routine().toString());
                     databaseQueryClass.updateRoutineInfo(temp); //끝났다고 표시를 해주고
 
                     if(!MyGlobal.getInstance().Done()){   //여기서 세트수를 올려주고 다음 세트를 셋팅합니다

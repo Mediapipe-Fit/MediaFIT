@@ -64,10 +64,12 @@ public class RepetitionCounter {
     }
 
     if (poseConfidence < exitThreshold) {
-      tone.startTone(ToneGenerator.TONE_PROP_ACK,200);
-      MyGlobal.getInstance().Do1();
-      numRepeats++;
-      poseEntered = false;
+      if(MyGlobal.getInstance().getRest_time()==false && MyGlobal.getInstance().isFinish()==false) {
+        tone.startTone(ToneGenerator.TONE_PROP_ACK, 200);
+        MyGlobal.getInstance().Do1();
+        numRepeats++;
+        poseEntered = false;
+      }
     }
 
     return numRepeats;

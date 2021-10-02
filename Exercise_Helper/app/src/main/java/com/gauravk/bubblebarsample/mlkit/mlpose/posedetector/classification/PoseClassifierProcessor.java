@@ -147,13 +147,21 @@ public class PoseClassifierProcessor {
           ToneGenerator tg = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
           tg.startTone(ToneGenerator.TONE_PROP_BEEP);
           if(MyGlobal.getInstance().getmode() == false) {//운동모드
+            /*
             lastRepResult = String.format(
                 //Locale.US, "%s : %d reps", repCounter.getClassName(), repsAfter);
                     Locale.US, "%s : %d ", "횟수", repsAfter);
+
+             */
+            lastRepResult = ""+repsAfter;
           }
           else{
+            /*
             lastRepResult = String.format(
                     Locale.US,"%s : %d","남은횟수",MyGlobal.getInstance().getNum()-repsAfter);
+
+             */
+            lastRepResult = ""+repsAfter;
           }
           break;
         }
@@ -170,10 +178,10 @@ public class PoseClassifierProcessor {
           maxConfidenceClass,
           classification.getClassConfidence(maxConfidenceClass)
               / poseClassifier.confidenceRange());
-      result.add(maxConfidenceClassResult);
+      //result.add(maxConfidenceClassResult);
 
-      result.add("start : " + classification.getClassConfidence("start"));
-      result.add("end : " + classification.getClassConfidence("end"));
+      //result.add("start : " + classification.getClassConfidence("start"));
+      //result.add("end : " + classification.getClassConfidence("end"));
       MyGlobal.getInstance().setREP(
               classification.getClassConfidence("end")
               / poseClassifier.confidenceRange()

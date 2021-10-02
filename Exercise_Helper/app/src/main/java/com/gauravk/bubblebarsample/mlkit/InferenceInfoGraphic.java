@@ -21,6 +21,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import androidx.annotation.Nullable;
 
+import com.gauravk.bubblebarsample.cfg.MyGlobal;
+
 /** Graphic instance for rendering inference info (latency, FPS, resolution) in an overlay view. */
 public class InferenceInfoGraphic extends GraphicOverlay.Graphic {
 
@@ -61,9 +63,9 @@ public class InferenceInfoGraphic extends GraphicOverlay.Graphic {
 
   @Override
   public synchronized void draw(Canvas canvas) {
-    float x = TEXT_SIZE * 0.5f;
+    float x = TEXT_SIZE * 0.5f+20;
     float y = TEXT_SIZE * 1.5f;
-
+    /*
     canvas.drawText(
         "InputImage size: " + overlay.getImageHeight() + "x" + overlay.getImageWidth(),
         x,
@@ -85,5 +87,13 @@ public class InferenceInfoGraphic extends GraphicOverlay.Graphic {
     }
     canvas.drawText(
         "Detector latency: " + detectorLatency + " ms", x, y + TEXT_SIZE * 2, textPaint);
+
+     */
+    canvas.drawText("현재 운동 : " + MyGlobal.getInstance().getExercise(),x,y,textPaint);
+    canvas.drawText("쉬는 시간 : " + MyGlobal.getInstance().getREST(),x,y+TEXT_SIZE,textPaint);
+    canvas.drawText("남은 세트 : " + (MyGlobal.getInstance().getSET() - MyGlobal.getInstance().getnow_set()),
+            x,y+TEXT_SIZE*2,textPaint);
+    canvas.drawText("세트 남은 개수 : " + (MyGlobal.getInstance().getNum()-MyGlobal.getInstance().getNow_num()),
+            x,y+TEXT_SIZE*3,textPaint);
   }
 }
