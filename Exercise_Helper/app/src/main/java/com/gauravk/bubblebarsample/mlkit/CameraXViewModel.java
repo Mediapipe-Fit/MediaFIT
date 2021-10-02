@@ -17,14 +17,17 @@
 package com.gauravk.bubblebarsample.mlkit;
 
 import android.app.Application;
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.camera.lifecycle.ProcessCameraProvider;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.annotation.NonNull;
-import android.util.Log;
-import androidx.camera.lifecycle.ProcessCameraProvider;
-import androidx.core.content.ContextCompat;
+
 import com.google.common.util.concurrent.ListenableFuture;
+
 import java.util.concurrent.ExecutionException;
 
 /** View model for interacting with CameraX. */

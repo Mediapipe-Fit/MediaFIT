@@ -24,14 +24,17 @@ import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresPermission;
 import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.WindowManager;
-import com.google.android.gms.common.images.Size;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresPermission;
+
 import com.gauravk.bubblebarsample.mlkit.preference.PreferenceUtils;
+import com.google.android.gms.common.images.Size;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;

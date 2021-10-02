@@ -21,7 +21,9 @@ import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.util.AttributeSet;
 import android.view.View;
+
 import com.google.common.base.Preconditions;
+
 import java.util.ArrayList;
 import java.util.List;
 

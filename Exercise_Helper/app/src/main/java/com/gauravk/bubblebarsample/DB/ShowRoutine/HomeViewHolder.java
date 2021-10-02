@@ -1,7 +1,6 @@
 package com.gauravk.bubblebarsample.DB.ShowRoutine;
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;

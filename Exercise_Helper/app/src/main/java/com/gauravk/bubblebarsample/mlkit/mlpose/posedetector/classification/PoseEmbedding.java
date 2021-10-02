@@ -15,6 +15,7 @@
  */
 
 package com.gauravk.bubblebarsample.mlkit.mlpose.posedetector.classification;
+
 import static com.gauravk.bubblebarsample.mlkit.mlpose.posedetector.classification.Utils.average;
 import static com.gauravk.bubblebarsample.mlkit.mlpose.posedetector.classification.Utils.l2Norm2D;
 import static com.gauravk.bubblebarsample.mlkit.mlpose.posedetector.classification.Utils.multiplyAll;
@@ -23,6 +24,7 @@ import static com.gauravk.bubblebarsample.mlkit.mlpose.posedetector.classificati
 
 import com.google.mlkit.vision.common.PointF3D;
 import com.google.mlkit.vision.pose.PoseLandmark;
+
 import java.util.ArrayList;
 import java.util.List;
 

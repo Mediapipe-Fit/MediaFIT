@@ -23,7 +23,6 @@ import com.gauravk.bubblebarsample.cfg.Config;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
-import java.util.ArrayList;
 import java.util.List;
 
 

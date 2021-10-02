@@ -26,15 +26,16 @@ import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.PreferenceCategory;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-
 import android.preference.PreferenceFragment;
 import android.util.Size;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.annotation.StringRes;
 import androidx.camera.core.CameraSelector;
-//import com.gauravk.bubblebarsample.mlkit.preference.R;
+
 import com.gauravk.bubblebarsample.R;
+
 import java.util.Arrays;
 import java.util.List;
 

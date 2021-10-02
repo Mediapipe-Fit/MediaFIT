@@ -22,9 +22,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
@@ -72,7 +69,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 /** Live preview demo app for ML Kit APIs using CameraX. */
 @KeepName
@@ -282,6 +278,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
 
   //private에서 바꿈
   private void bindAnalysisUseCase() {
+    temp = MyGlobal.getInstance().getNow_routine();
     System.out.println("bindAnalysisUseCase()");
     if (cameraProvider == null) {
       return;
@@ -388,6 +385,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
                     //운동이 아예 끝난 상황이면
                     temp = MyGlobal.getInstance().getNow_routine();
                     temp.Complete();
+                    Log.d("COMPLETE",MyGlobal.getInstance().getNow_routine().toString());
                     databaseQueryClass.updateRoutineInfo(temp); //끝났다고 표시를 해주고
 
                     if(!MyGlobal.getInstance().Done()){   //여기서 세트수를 올려주고 다음 세트를 셋팅합니다

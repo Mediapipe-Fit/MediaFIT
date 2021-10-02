@@ -18,6 +18,7 @@ package com.gauravk.bubblebarsample.mlkit;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+
 import com.gauravk.bubblebarsample.mlkit.GraphicOverlay.Graphic;
 
 /** Draw camera image to background. */

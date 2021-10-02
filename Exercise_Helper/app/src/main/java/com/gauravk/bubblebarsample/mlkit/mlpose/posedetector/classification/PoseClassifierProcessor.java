@@ -15,7 +15,6 @@
  */
 
 package com.gauravk.bubblebarsample.mlkit.mlpose.posedetector.classification;
-import static java.lang.Math.round;
 
 import android.content.Context;
 import android.media.AudioManager;
@@ -24,15 +23,18 @@ import android.os.Looper;
 import android.util.Log;
 
 import androidx.annotation.WorkerThread;
+
+import com.gauravk.bubblebarsample.cfg.MyGlobal;
 import com.google.common.base.Preconditions;
 import com.google.mlkit.vision.pose.Pose;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import com.gauravk.bubblebarsample.cfg.MyGlobal;
+
 /**
  * Accepts a stream of {@link Pose} for classification and Rep counting.
  */
@@ -147,13 +149,21 @@ public class PoseClassifierProcessor {
           ToneGenerator tg = new ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100);
           tg.startTone(ToneGenerator.TONE_PROP_BEEP);
           if(MyGlobal.getInstance().getmode() == false) {//운동모드
+            /*
             lastRepResult = String.format(
                 //Locale.US, "%s : %d reps", repCounter.getClassName(), repsAfter);
                     Locale.US, "%s : %d ", "횟수", repsAfter);
+
+             */
+            lastRepResult = ""+repsAfter;
           }
           else{
+            /*
             lastRepResult = String.format(
                     Locale.US,"%s : %d","남은횟수",MyGlobal.getInstance().getNum()-repsAfter);
+
+             */
+            lastRepResult = ""+repsAfter;
           }
           break;
         }
@@ -170,10 +180,10 @@ public class PoseClassifierProcessor {
           maxConfidenceClass,
           classification.getClassConfidence(maxConfidenceClass)
               / poseClassifier.confidenceRange());
-      result.add(maxConfidenceClassResult);
+      //result.add(maxConfidenceClassResult);
 
-      result.add("start : " + classification.getClassConfidence("start"));
-      result.add("end : " + classification.getClassConfidence("end"));
+      //result.add("start : " + classification.getClassConfidence("start"));
+      //result.add("end : " + classification.getClassConfidence("end"));
       MyGlobal.getInstance().setREP(
               classification.getClassConfidence("end")
               / poseClassifier.confidenceRange()

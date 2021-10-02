@@ -18,9 +18,12 @@ package com.gauravk.bubblebarsample.mlkit;
 
 import android.graphics.Bitmap;
 import android.os.Build.VERSION_CODES;
+
 import androidx.annotation.RequiresApi;
 import androidx.camera.core.ImageProxy;
+
 import com.google.mlkit.common.MlKitException;
+
 import java.nio.ByteBuffer;
 
 /** An interface to process the images with different vision detectors and custom image models. */

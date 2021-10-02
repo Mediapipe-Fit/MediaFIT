@@ -29,12 +29,14 @@ import android.media.Image.Plane;
 import android.net.Uri;
 import android.os.Build.VERSION_CODES;
 import android.provider.MediaStore;
+import android.util.Log;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
-import android.util.Log;
 import androidx.camera.core.ExperimentalGetImage;
 import androidx.camera.core.ImageProxy;
 import androidx.exifinterface.media.ExifInterface;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;

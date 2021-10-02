@@ -16,8 +16,6 @@
 
 package com.gauravk.bubblebarsample.mlkit.mlpose;
 
-import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -25,10 +23,6 @@ import android.content.pm.PackageManager;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.util.Size;
 import android.view.View;
@@ -40,6 +34,11 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.CameraInfoUnavailableException;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageAnalysis;
@@ -49,18 +48,21 @@ import androidx.camera.view.PreviewView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory;
 
+import com.gauravk.bubblebarsample.R;
 import com.gauravk.bubblebarsample.cfg.MyGlobal;
-import com.google.android.gms.common.annotation.KeepName;
-import com.google.mlkit.common.MlKitException;
 import com.gauravk.bubblebarsample.mlkit.CameraXViewModel;
 import com.gauravk.bubblebarsample.mlkit.GraphicOverlay;
-import com.gauravk.bubblebarsample.R;
 import com.gauravk.bubblebarsample.mlkit.VisionImageProcessor;
 import com.gauravk.bubblebarsample.mlkit.mlpose.posedetector.PoseDetectorProcessor;
 import com.gauravk.bubblebarsample.mlkit.preference.PreferenceUtils;
 import com.gauravk.bubblebarsample.mlkit.preference.SettingsActivity;
+import com.google.android.gms.common.annotation.KeepName;
+import com.google.mlkit.common.MlKitException;
 import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
+
 import java.util.ArrayList;
 import java.util.List;
 

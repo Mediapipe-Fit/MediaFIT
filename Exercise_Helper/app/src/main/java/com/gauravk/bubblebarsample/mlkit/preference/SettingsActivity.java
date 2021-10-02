@@ -18,9 +18,10 @@ package com.gauravk.bubblebarsample.mlkit.preference;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-//import com.google.mlkit.vision.demo.R;
+
 import com.gauravk.bubblebarsample.R;
 
 /**

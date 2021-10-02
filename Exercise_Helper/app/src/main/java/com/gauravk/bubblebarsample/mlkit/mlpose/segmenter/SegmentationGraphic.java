@@ -21,10 +21,13 @@ import android.graphics.Bitmap.Config;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
+
 import androidx.annotation.ColorInt;
+
 import com.gauravk.bubblebarsample.mlkit.GraphicOverlay;
 import com.gauravk.bubblebarsample.mlkit.GraphicOverlay.Graphic;
 import com.google.mlkit.vision.segmentation.SegmentationMask;
+
 import java.nio.ByteBuffer;
 
 /** Draw the mask from SegmentationResult in preview. */

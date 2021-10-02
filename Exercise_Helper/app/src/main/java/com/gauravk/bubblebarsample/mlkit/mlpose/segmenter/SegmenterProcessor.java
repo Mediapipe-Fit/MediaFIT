@@ -17,13 +17,15 @@
 package com.gauravk.bubblebarsample.mlkit.mlpose.segmenter;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import android.util.Log;
-import com.google.android.gms.tasks.Task;
-import com.google.mlkit.vision.common.InputImage;
+
+import androidx.annotation.NonNull;
+
 import com.gauravk.bubblebarsample.mlkit.GraphicOverlay;
 import com.gauravk.bubblebarsample.mlkit.mlpose.VisionProcessorBase;
 import com.gauravk.bubblebarsample.mlkit.preference.PreferenceUtils;
+import com.google.android.gms.tasks.Task;
+import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.segmentation.Segmentation;
 import com.google.mlkit.vision.segmentation.SegmentationMask;
 import com.google.mlkit.vision.segmentation.Segmenter;

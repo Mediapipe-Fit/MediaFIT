@@ -15,9 +15,11 @@
  */
 
 package com.gauravk.bubblebarsample.mlkit.mlpose.posedetector.classification;
+
 import static com.google.common.primitives.Floats.max;
 
 import com.google.mlkit.vision.common.PointF3D;
+
 import java.util.List;
 import java.util.ListIterator;
 

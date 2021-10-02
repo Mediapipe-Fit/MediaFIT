@@ -20,20 +20,20 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build.VERSION_CODES;
 import android.preference.PreferenceManager;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.StringRes;
 import androidx.camera.core.CameraSelector;
-import com.google.android.gms.common.images.Size;
-import com.google.common.base.Preconditions;
-import com.google.mlkit.common.model.LocalModel;
+
+import com.gauravk.bubblebarsample.R;
 import com.gauravk.bubblebarsample.mlkit.CameraSource;
 import com.gauravk.bubblebarsample.mlkit.CameraSource.SizePair;
-//import com.gauravk.bubblebarsample.mlkit.preference.R;
+import com.google.android.gms.common.images.Size;
+import com.google.common.base.Preconditions;
 import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
 import com.google.mlkit.vision.pose.accurate.AccuratePoseDetectorOptions;
 import com.google.mlkit.vision.pose.defaults.PoseDetectorOptions;
-import com.gauravk.bubblebarsample.R;
 
 /** Utility class to retrieve shared preferences. */
 public class PreferenceUtils {

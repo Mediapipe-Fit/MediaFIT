@@ -1,7 +1,5 @@
 package com.gauravk.bubblebarsample.DB.CreateRoutine;
 
-import android.util.Log;
-
 import com.gauravk.bubblebarsample.cfg.Config;
 
 
