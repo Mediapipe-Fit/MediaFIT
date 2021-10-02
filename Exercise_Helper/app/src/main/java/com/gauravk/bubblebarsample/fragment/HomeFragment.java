@@ -324,27 +324,6 @@ public class HomeFragment extends Fragment
         Wearable.getDataClient(getActivity()).putDataItem(request);
 
     }
-    public void sendData_init(int count) {
-        PutDataMapRequest dataMap = PutDataMapRequest.create(COUNT_PATH);
-        dataMap.getDataMap().putString("counts", Integer.toString(count));
-        PutDataRequest request = dataMap.asPutDataRequest();
-        request.setUrgent();
-
-        Task<DataItem> dataItemTask = Wearable.getDataClient(getActivity()).putDataItem(request);
-        try {
-            // Block on a task and get the result synchronously (because this is on a background
-            // thread).
-            DataItem dataItem = Tasks.await(dataItemTask);
-
-            LOGD(TAG, "DataItem saved: " + dataItem);
-
-        } catch (ExecutionException exception) {
-            Log.e(TAG, "Task failed: " + exception);
-
-        } catch (InterruptedException exception) {
-            Log.e(TAG, "Interrupt occurred: " + exception);
-        }
-    }
 
     public void sendData_info(Routine routine) {
         Log.i("Send_info",routine.getName());
