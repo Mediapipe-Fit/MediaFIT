@@ -286,26 +286,28 @@ public class QueryClass {
         return Routine;
     }
 
-    public void updateRoutineInfo(Routine Routine){
+    public void updateRoutineInfo(Routine routine){
 
         long rowCount = 0;
         DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
         SQLiteDatabase sqLiteDatabase = databaseHelper.getWritableDatabase();
 
+        if(routine.getCounts() > routine.getSet_num()) routine.setCounts(routine.getSet_num());
+
         ContentValues contentValues = new ContentValues();
         //contentValues.put(Config.COLUMN_Routine_ID, Routine.getId());
-        contentValues.put(Config.COLUMN_Exercise_NAME, Routine.getName());;
-        contentValues.put(Config.COLUMN_Weekday, Routine.getWeekday());
-        contentValues.put(Config.COLUMN_RegNO, Routine.getRegNO());
-        contentValues.put(Config.COLUMN_Routine_Set_num, Routine.getSet_num());
-        contentValues.put(Config.COLUMN_Routine_Repeat_num, Routine.getRepeat_num());
-        contentValues.put(Config.COLUMN_Routine_Rest_time, Routine.getRest_time());
-        contentValues.put(Config.COLUMN_Routine_Counts, Routine.getCounts());
-        contentValues.put(Config.COLUMN_Routine_Complete, Routine.getcheck());
+        contentValues.put(Config.COLUMN_Exercise_NAME, routine.getName());;
+        contentValues.put(Config.COLUMN_Weekday, routine.getWeekday());
+        contentValues.put(Config.COLUMN_RegNO, routine.getRegNO());
+        contentValues.put(Config.COLUMN_Routine_Set_num, routine.getSet_num());
+        contentValues.put(Config.COLUMN_Routine_Repeat_num, routine.getRepeat_num());
+        contentValues.put(Config.COLUMN_Routine_Rest_time, routine.getRest_time());
+        contentValues.put(Config.COLUMN_Routine_Counts, routine.getCounts());
+        contentValues.put(Config.COLUMN_Routine_Complete, routine.getcheck());
         try {
             rowCount = sqLiteDatabase.update(Config.TABLE_Routine, contentValues,
                     Config.COLUMN_Routine_ID + " = ? ",
-                    new String[] {String.valueOf(Routine.getId())});
+                    new String[] {String.valueOf(routine.getId())});
         } catch (SQLiteException e){
             Logger.d("Exception: " + e.getMessage());
             Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();

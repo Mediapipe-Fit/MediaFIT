@@ -73,7 +73,6 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener{
         Logger.addLogAdapter(new AndroidLogAdapter());
         setBtns();
         Config.selected_weekday = MyGlobal.today_hangle();
-        Title = (TextView) getView().findViewById(R.id.Title_Routine);
         recyclerView = (RecyclerView) getView().findViewById(R.id.RoutineRecyclerView);
         routineListEmptyTextView = (TextView) getView().findViewById(R.id.emptyRoutineListTextView);
         Btns.get(MyGlobal.index-1).callOnClick();
@@ -111,7 +110,6 @@ public class RoutineFragment extends Fragment implements RoutineCreateListener{
                 @Override
                 public void onClick(View v) {
                     reset_button(btns);
-                    Title.setText(Config.selected_weekday+"요일 루틴");
                     btns.get(finalI).setBackgroundDrawable(ContextCompat.getDrawable(getActivity(),R.drawable.weekday_active));
                     Log.i("Touched", String.valueOf(btns.get(finalI).getText()));
                     Config.selected_weekday = String.valueOf(btns.get(finalI).getText());
