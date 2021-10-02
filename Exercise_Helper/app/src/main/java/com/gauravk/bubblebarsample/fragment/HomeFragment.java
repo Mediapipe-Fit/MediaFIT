@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,17 +89,25 @@ public class HomeFragment extends Fragment implements CircleProgressBar.Progress
         set_circle();
     }
     public void set_circle(){
+        total_setnum = 0;
+        complete_setnum = 0;
+        prograss_num = 0;
         for(int i=0;i<Days_routineList.size();++i){
             Routine cur = Days_routineList.get(i);
             if(cur.getcheck() == 1){
-                Days_routineList.remove(i);
+                total_setnum = total_setnum + (int) cur.getSet_num();
+                complete_setnum = complete_setnum + (int) cur.getCounts();
+                continue;
+               //Days_routineList.remove(i);
             }
-            total_setnum = (int) (total_setnum + cur.getSet_num());
-            complete_setnum = (int) (complete_setnum + cur.getCounts());
+            total_setnum = total_setnum + (int) cur.getSet_num();
         }
         if(total_setnum!=0){
             prograss_num = (int)(100*complete_setnum/total_setnum);}
         else{prograss_num = 0;}
+        Log.e("routinelistsize", Integer.toString(Days_routineList.size()));
+        Log.e("total_setup", Integer.toString(total_setnum));
+        Log.e("complete_setup", Integer.toString(complete_setnum));
         circleProgressBar.setProgress(prograss_num);
     }
 

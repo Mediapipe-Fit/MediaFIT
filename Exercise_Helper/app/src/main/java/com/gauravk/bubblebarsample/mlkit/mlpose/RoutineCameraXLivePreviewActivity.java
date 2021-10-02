@@ -282,6 +282,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
 
   //private에서 바꿈
   private void bindAnalysisUseCase() {
+    temp = MyGlobal.getInstance().getNow_routine();
     System.out.println("bindAnalysisUseCase()");
     if (cameraProvider == null) {
       return;
