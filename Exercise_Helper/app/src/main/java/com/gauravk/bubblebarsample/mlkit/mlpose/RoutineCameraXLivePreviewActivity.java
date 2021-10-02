@@ -125,8 +125,6 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
   private String selectedModel = POSE_DETECTION;
   private int lensFacing = CameraSelector.LENS_FACING_FRONT;
   private CameraSelector cameraSelector;
-  private int rep = 0;
-  private long rest_time = 0;
   //for routine
   private Date currentTime ;
   private SimpleDateFormat weekdayFormat;
@@ -136,6 +134,8 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
   private Routine temp;
 
   // Wear os
+  private int rep = 0;
+  private long rest_time = 0;
   public static final String START_ACTIVITY_PATH = "/start-activity";
   public static final String COUNT_PATH = "/count";
   public static final String Rest_PATH = "/rest";

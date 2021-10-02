@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.os.AsyncTask;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
@@ -38,6 +39,7 @@ import android.widget.ToggleButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.annotation.WorkerThread;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.core.CameraInfoUnavailableException;
 import androidx.camera.core.CameraSelector;
@@ -51,6 +53,7 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory;
 
+import com.gauravk.bubblebarsample.DB.CreateRoutine.Routine;
 import com.gauravk.bubblebarsample.R;
 import com.gauravk.bubblebarsample.cfg.MyGlobal;
 import com.gauravk.bubblebarsample.mlkit.CameraXViewModel;
@@ -60,11 +63,29 @@ import com.gauravk.bubblebarsample.mlkit.mlpose.posedetector.PoseDetectorProcess
 import com.gauravk.bubblebarsample.mlkit.preference.PreferenceUtils;
 import com.gauravk.bubblebarsample.mlkit.preference.SettingsActivity;
 import com.google.android.gms.common.annotation.KeepName;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
+import com.google.android.gms.wearable.CapabilityClient;
+import com.google.android.gms.wearable.CapabilityInfo;
+import com.google.android.gms.wearable.DataClient;
+import com.google.android.gms.wearable.DataEventBuffer;
+import com.google.android.gms.wearable.DataItem;
+import com.google.android.gms.wearable.MessageClient;
+import com.google.android.gms.wearable.MessageEvent;
+import com.google.android.gms.wearable.Node;
+import com.google.android.gms.wearable.PutDataMapRequest;
+import com.google.android.gms.wearable.PutDataRequest;
+import com.google.android.gms.wearable.Wearable;
 import com.google.mlkit.common.MlKitException;
 import com.google.mlkit.vision.pose.PoseDetectorOptionsBase;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /** Live preview demo app for ML Kit APIs using CameraX. */
 @KeepName
@@ -72,7 +93,10 @@ import java.util.List;
 public final class CameraXLivePreviewActivity extends AppCompatActivity
     implements OnRequestPermissionsResultCallback,
         OnItemSelectedListener,
-        CompoundButton.OnCheckedChangeListener {
+        CompoundButton.OnCheckedChangeListener,
+        DataClient.OnDataChangedListener,
+        MessageClient.OnMessageReceivedListener,
+        CapabilityClient.OnCapabilityChangedListener {
   private static final String TAG = "CameraXLivePreview";
   private static final int PERMISSION_REQUESTS = 1;
 
@@ -100,6 +124,13 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
   private int lensFacing = CameraSelector.LENS_FACING_FRONT;
   private CameraSelector cameraSelector;
 
+  // Wear os
+  private int rep = 0;
+  private long rest_time = 0;
+  public static final String START_ACTIVITY_PATH = "/start-activity";
+  public static final String COUNT_PATH = "/count";
+  public static final String Rest_PATH = "/rest";
+  public static final String info_PATH = "/info";
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -309,6 +340,8 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
 
   //private에서 바꿈
   private void bindAnalysisUseCase() {
+    sendData_info(selectedModel);
+    rep = 0;
     if (cameraProvider == null) {
       return;
     }
@@ -408,6 +441,11 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
           try {
             //processImageProxy() -> requestDetectImage() -> processImageProxy() -> detectInImage() -> getPoseResult() -> 문자열 생성
             imageProcessor.processImageProxy(imageProxy, graphicOverlay);
+
+            if(rep < MyGlobal.getInstance().getNow_num()){
+              rep = (int)MyGlobal.getInstance().getNow_num();
+              sendData_counts(rep);
+            };
           } catch (MlKitException e) {
             Log.e(TAG, "Failed to process image. Error: " + e.getLocalizedMessage());
             Toast.makeText(getApplicationContext(), e.getLocalizedMessage(), Toast.LENGTH_SHORT)
@@ -483,5 +521,159 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
     }
     Log.i(TAG, "Permission NOT granted: " + permission);
     return false;
+  }
+  @Override
+  public void onCapabilityChanged(@NonNull CapabilityInfo capabilityInfo) {
+
+    LOGD(TAG, "onCapabilityChanged: " + capabilityInfo);
+  }
+
+  @Override
+  public void onDataChanged(@NonNull DataEventBuffer dataEventBuffer) {
+
+    LOGD(TAG, "onDataChanged: " + dataEventBuffer);
+  }
+
+  @Override
+  public void onMessageReceived(@NonNull MessageEvent messageEvent) {
+    LOGD(
+            TAG,
+            "onMessageReceived() A message from watch was received:"
+                    + messageEvent.getRequestId()
+                    + " "
+                    + messageEvent.getPath());
+  }
+
+  /** As simple wrapper around Log.d */
+  private static void LOGD(final String tag, String message) {
+    if (Log.isLoggable(tag, Log.DEBUG)) {
+      Log.d(tag, message);
+    }
+  }
+
+  private class StartWearableActivityTask extends AsyncTask<Void, Void, Void> {
+
+    @Override
+    protected Void doInBackground(Void... args) {
+      Collection<String> nodes = getNodes();
+      for (String node : nodes) {
+        sendStartActivityMessage(node);
+      }
+      return null;
+    }
+  }
+
+
+
+  @WorkerThread
+  private void sendStartActivityMessage(String node) {
+
+    Task<Integer> sendMessageTask =
+            Wearable.getMessageClient(this).sendMessage(node, START_ACTIVITY_PATH, new byte[0]);
+
+    try {
+      // Block on a task and get the result synchronously (because this is on a background
+      // thread).
+      Integer result = Tasks.await(sendMessageTask);
+      LOGD(TAG, "Message sent: " + result);
+
+    } catch (ExecutionException exception) {
+      Log.e(TAG, "Task failed: " + exception);
+
+    } catch (InterruptedException exception) {
+      Log.e(TAG, "Interrupt occurred: " + exception);
+    }
+  }
+
+  @WorkerThread
+  private Collection<String> getNodes() {
+    HashSet<String> results = new HashSet<>();
+
+    Task<List<Node>> nodeListTask =
+            Wearable.getNodeClient(this).getConnectedNodes();
+
+    try {
+      // Block on a task and get the result synchronously (because this is on a background
+      // thread).
+      List<Node> nodes = Tasks.await(nodeListTask);
+
+      for (Node node : nodes) {
+        results.add(node.getId());
+      }
+
+    } catch (ExecutionException exception) {
+      Log.e(TAG, "Task failed: " + exception);
+
+    } catch (InterruptedException exception) {
+      Log.e(TAG, "Interrupt occurred: " + exception);
+    }
+
+    return results;
+  }
+
+
+  public void sendData_counts(int count) {
+    Log.i("Send_info","send Counts");
+    PutDataMapRequest dataMap = PutDataMapRequest.create(COUNT_PATH);
+    dataMap.getDataMap().putString("path", COUNT_PATH);
+    dataMap.getDataMap().putString("counts", Integer.toString(count));
+    PutDataRequest request = dataMap.asPutDataRequest();
+    request.setUrgent();
+    Wearable.getDataClient(this).putDataItem(request);
+
+  }
+
+  public void sendData_info(String exeName) {
+    Log.i("Send_info",exeName);
+    PutDataMapRequest dataMap = PutDataMapRequest.create(COUNT_PATH);
+    dataMap.getDataMap().putString("path", info_PATH);
+    dataMap.getDataMap().putString("1", exeName);
+    dataMap.getDataMap().putString("2", Integer.toString(0));
+    dataMap.getDataMap().putString("3", Integer.toString(0));
+    dataMap.getDataMap().putString("4", Integer.toString(0));
+    PutDataRequest request = dataMap.asPutDataRequest();
+    request.setUrgent();
+
+    Task<DataItem> dataItemTask = Wearable.getDataClient(this).putDataItem(request);
+    dataItemTask
+            .addOnSuccessListener(new OnSuccessListener<DataItem>() {
+              @Override
+              public void onSuccess(DataItem dataItem) {
+                Log.d(TAG, "Sending message was successful: " + dataItem);
+              }
+            })
+            .addOnFailureListener(new OnFailureListener() {
+              @Override
+              public void onFailure(@NonNull Exception e) {
+                Log.e(TAG, "Sending message failed: " + e);
+              }
+            })
+    ;
+
+  }
+  public void sendData_Rest(long Rest_time) {
+    Log.i("Send_info","send Rest_time");
+    PutDataMapRequest dataMap = PutDataMapRequest.create(COUNT_PATH);
+    dataMap.getDataMap().putString("path", Rest_PATH);
+    dataMap.getDataMap().putString("Rest_time", Integer.toString((int)Rest_time));
+    PutDataRequest request = dataMap.asPutDataRequest();
+    request.setUrgent();
+
+
+    Task<DataItem> dataItemTask = Wearable.getDataClient(this).putDataItem(request);
+    dataItemTask
+            .addOnSuccessListener(new OnSuccessListener<DataItem>() {
+              @Override
+              public void onSuccess(DataItem dataItem) {
+                Log.d(TAG, "Sending message was successful: " + dataItem);
+              }
+            })
+            .addOnFailureListener(new OnFailureListener() {
+              @Override
+              public void onFailure(@NonNull Exception e) {
+                Log.e(TAG, "Sending message failed: " + e);
+              }
+            })
+    ;
   }
 }
