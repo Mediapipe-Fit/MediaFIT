@@ -12,6 +12,8 @@ https://github.com/UsamaKhurshid/SQLite-CRUD-Android-Tutorial
 NumberPicker
 https://github.com/ShawnLin013/NumberPicker
 
+Galaxy_Watch
+https://github.com/android/wear-os-samples/tree/main/DataLayer
 
 운동 아이콘
 1. https://www.flaticon.com/
