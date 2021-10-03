@@ -225,7 +225,6 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
 
   public void onStartWearableActivityClick() {
     LOGD(TAG, "Generating RPC");
-
     // Trigger an AsyncTask that will query for a list of connected nodes and send a
     // "start-activity" message to each connected node.
     new StartWearableActivityTask().execute();
@@ -340,7 +339,6 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
     sendData_info(temp);
     rep = 0;
     rest_time = temp.getRest_time();
-    System.out.println("bindAnalysisUseCase()");
     if (cameraProvider == null) {
       return;
     }
@@ -383,7 +381,6 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
           MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/dead.csv");
           break;
       }
-      System.out.println("selected:" + selectedModel);
       PoseDetectorOptionsBase poseDetectorOptions =
               PreferenceUtils.getPoseDetectorOptionsForLivePreview(this);
       //이미지 프로세서 설정
@@ -430,11 +427,10 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
                 }
                 needUpdateGraphicOverlayImageSourceInfo = false;
               }
-              //이부분이 카메라 실행시키는 부분
-              //반복되는것도 이부분이넹
               try {
                 //processImageProxy() -> requestDetectImage() -> processImageProxy() -> detectInImage() -> getPoseResult() -> 문자열 생성
                 imageProcessor.processImageProxy(imageProxy, graphicOverlay);
+
                 if(rep < MyGlobal.getInstance().getNow_num()){
                   rep = (int)MyGlobal.getInstance().getNow_num();
                   sendData_counts(rep);
@@ -472,7 +468,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
                         @Override
                         public void run() {
                           MyGlobal.getInstance().setRest_time(false);
-                          bindAnalysisUseCase();
+                          bindAllCameraUseCases();
                         }
                       },6000);          //요만큼 쉬어준 다음에 실행을 함
                       MyGlobal.getInstance().setRest_time(true);  //휴식시간인것을 세팅해줌
@@ -485,7 +481,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
                       @Override
                       public void run() {
                         MyGlobal.getInstance().setRest_time(false);
-                        bindAnalysisUseCase();
+                        bindAllCameraUseCases();
                       }
                     },(int)(MyGlobal.getInstance().getREST())*1000);
                     MyGlobal.getInstance().setRest_time(true);
@@ -498,9 +494,9 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
               }
             });
     //이부분 제거하면 detector 사라지네
-    //analysisusecase에서 imageprocessor하고 graphic씌우고 여기서 그걸 업로드 해주나 봄
-    //cameraselector가 뭐지
+    if(analysisUseCase!=null && cameraSelector != null){
     cameraProvider.bindToLifecycle(/* lifecycleOwner= */ this, cameraSelector, analysisUseCase);
+    }
     //imageProcessor.stop();
     //finish();
   }
