@@ -114,7 +114,7 @@ public class PoseGraphic extends Graphic {
       Paint white = new Paint();
       white.setColor(Color.WHITE);
       white.setTextSize(100);
-      canvas.drawText("오늘의 운동을 완료하였습니다",100,800, white);
+      canvas.drawText("오늘의 운동을 완료!",100,800, white);
       return;
     }
 
