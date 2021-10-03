@@ -133,48 +133,20 @@ public class PoseGraphic extends Graphic {
     number.setTextSize(200);
     number.setColor(Color.BLACK);
     number.setUnderlineText(true);
-    /*
-    float classificationX = POSE_CLASSIFICATION_TEXT_SIZE * 0.5f;
-    poseClassification.add("운동이름 : "+MyGlobal.getInstance().getExercise());
-    //poseClassification.add("현재 파일 : " + MyGlobal.getInstance().getPOSE_SAMPLE_FILE());
-    if(MyGlobal.getInstance().getmode() == true){
-      poseClassification.add("남은 세트: " + (MyGlobal.getInstance().getSET()-MyGlobal.getInstance().getnow_set()));
-    }
 
-    for (int i = 0; i < poseClassification.size(); i++) {
-      if(MyGlobal.getInstance().getmode() == false){    //운동모드
-        float classificationY = (canvas.getHeight() - POSE_CLASSIFICATION_TEXT_SIZE * 1.5f
-            * (poseClassification.size() - i));
-        canvas.drawText(
-            poseClassification.get(i),
-            classificationX,
-            classificationY,
-            classificationTextPaint);
-      }
-      else{     //루틴모드
-        float classificationY = (canvas.getHeight() - POSE_CLASSIFICATION_TEXT_SIZE * 1.5f
-                * (poseClassification.size() - i));
-        canvas.drawText(
-                poseClassification.get(i),
-                classificationX,
-                classificationY,
-                classificationTextPaint);
-      }
-    }*/
     float classificationY = (canvas.getHeight() - POSE_CLASSIFICATION_TEXT_SIZE * 1.5f
             * (poseClassification.size()));
     Paint back = new Paint();
     back.setColor(Color.WHITE);
     long num = MyGlobal.getInstance().getNow_num();
-    int offset = 300;
-    if(num>9){
-      offset = 380;
-    }
-    float classificationX = POSE_CLASSIFICATION_TEXT_SIZE * 0.5f;
-    canvas.drawRect(classificationX+120, classificationY-180,
-            classificationX+offset,classificationY+60,
+    int offset = 240;
+    if(num>9){ offset = 320; }
+    //float classificationX = POSE_CLASSIFICATION_TEXT_SIZE * 0.2f;
+
+    canvas.drawRect(60, classificationY-240,
+            +offset,classificationY,
             back);
-    canvas.drawText(""+num,classificationX+140,classificationY,number);
+    canvas.drawText(""+num,80,classificationY-60,number);
 
 
 
@@ -188,7 +160,7 @@ public class PoseGraphic extends Graphic {
     float leftupX = fullX - fullX/12*2;
     float leftupY = fullY - fullY/10*9;
     float rightdownX = leftupX + fullX/12;
-    float rightdownY = fullY - fullY/10*2;
+    float rightdownY = fullY - fullY/21-4;
 
     Paint rate = new Paint();
     Paint full = new Paint();
@@ -199,8 +171,6 @@ public class PoseGraphic extends Graphic {
     barHeight = barHeight * MyGlobal.getInstance().getREP();
     canvas.drawRect(leftupX ,leftupY, rightdownX,rightdownY,full);
     if(MyGlobal.getInstance().getREP()>0.8){ rate.setColor(Color.RED); }
-    if(MyGlobal.getInstance().getREP()>0.8
-    ){ rate.setColor(Color.RED); }
     canvas.drawRect(leftupX ,rightdownY + barHeight, rightdownX,rightdownY,rate);
 
     // Draw all the points

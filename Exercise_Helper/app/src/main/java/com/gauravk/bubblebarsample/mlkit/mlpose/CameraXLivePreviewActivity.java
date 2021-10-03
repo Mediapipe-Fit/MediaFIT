@@ -247,7 +247,7 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
     // An item was selected. You can retrieve the selected item using
     // parent.getItemAtPosition(pos)
     selectedModel = parent.getItemAtPosition(pos).toString();
-    Log.d(TAG, "Selected model: " + selectedModel);
+    MyGlobal.getInstance().setNow_num();
     bindAnalysisUseCase();
   }
 

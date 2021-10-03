@@ -106,7 +106,7 @@ public class MyGlobal {
         this.now_set++;
         this.now_num = 0;
     }
-
+    public void setNow_num(){this.now_num = 0;}
     public void Do1(){this.now_num++;} //한개 했을떄 now_num 1증가;
     public void setMode(boolean mode){this.mode = mode;}
     public void setNum(long num){this.Num = num;}
