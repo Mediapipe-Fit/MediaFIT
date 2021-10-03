@@ -34,7 +34,7 @@ public class InferenceInfoGraphic extends GraphicOverlay.Graphic {
   private final GraphicOverlay overlay;
   private final long frameLatency;
   private final long detectorLatency;
-
+  private int temp;
   // Only valid when a stream of input images is being processed. Null for single image mode.
   @Nullable private final Integer framesPerSecond;
   private boolean showLatencyInfo = true;
@@ -90,13 +90,16 @@ public class InferenceInfoGraphic extends GraphicOverlay.Graphic {
         "Detector latency: " + detectorLatency + " ms", x, y + TEXT_SIZE * 2, textPaint);
 
      */
+    temp = 1;
     canvas.drawText("현재 운동 : " + MyGlobal.getInstance().getExercise(),x,y,textPaint);
     if(MyGlobal.getInstance().getmode()==true){
-    canvas.drawText("쉬는 시간 : " + MyGlobal.getInstance().getREST(),x,y+TEXT_SIZE,textPaint);
-    canvas.drawText("남은 세트 : " + (MyGlobal.getInstance().getSET() - MyGlobal.getInstance().getnow_set()),
+      canvas.drawText("쉬는 시간 : " + MyGlobal.getInstance().getREST(),x,y+TEXT_SIZE,textPaint);
+      canvas.drawText("남은 세트 : " + (MyGlobal.getInstance().getSET() - MyGlobal.getInstance().getnow_set()),
             x,y+TEXT_SIZE*2,textPaint);
-    canvas.drawText("세트 남은 개수 : " + (MyGlobal.getInstance().getNum()-MyGlobal.getInstance().getNow_num()),
+      canvas.drawText("세트 남은 개수 : " + (MyGlobal.getInstance().getNum()-MyGlobal.getInstance().getNow_num()),
             x,y+TEXT_SIZE*3,textPaint);
+      temp = 4;
     }
+    canvas.drawText(  "FPS: " + framesPerSecond, x, y + TEXT_SIZE*temp, textPaint);
   }
 }
