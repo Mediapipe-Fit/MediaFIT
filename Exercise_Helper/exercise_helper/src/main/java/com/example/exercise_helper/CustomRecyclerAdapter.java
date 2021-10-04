@@ -157,7 +157,7 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             case TYPE_GET_COUNT:
                 CountsViewHolder exe_c = (CountsViewHolder) viewHolder;
                 Counts myc = (Counts) mDataSet.get(position);
-                exe_c.setc(myc.get_Counts());
+                exe_c.setc(myc.get_Counts(),myc.get_Exercise());
                 break;
 
             case TYPE_start_REST_TIME:
@@ -210,12 +210,12 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             notifyItemChanged(index);
         }
     }
-    public void set_count(String s){
+    public void set_count(String s,String exercise){
         int index = findItemIndex(TYPE_GET_COUNT);
 
         if (index > -1) {
             Counts dataItemType = (Counts) mDataSet.get(index);
-            dataItemType.Set_Count(s);
+            dataItemType.Set_Count(s,exercise);
 
             notifyItemChanged(index);
         }
@@ -293,12 +293,16 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             super(view);
             Cur_Exercise_name = view.findViewById(R.id.Cur_Exercise_name);
             counts = view.findViewById(R.id.counts);
-            if(cur_exe_name != "") Cur_Exercise_name.setText(cur_exe_name);
+
+            //if(cur_exe_name != "") Cur_Exercise_name.setText(cur_exe_name);
         }
 
-        public void setc(String c) {
+        public void setc(String c,String exer) {
             if(c != "")
                 counts.setText(c);
+            if(exer!=""){
+                Cur_Exercise_name.setText(exer);
+            }
         }
     }
 
@@ -323,7 +327,6 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                     }
                 }.start();
             }
-
         }
     }
 

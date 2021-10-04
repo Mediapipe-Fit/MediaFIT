@@ -219,7 +219,6 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
   @Override
   protected void onStart(){
     super.onStart();
-    onStartWearableActivityClick();
 
   }
 
@@ -336,7 +335,6 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
   //private에서 바꿈
   private void bindAnalysisUseCase() {
     temp = MyGlobal.getInstance().getNow_routine();
-    sendData_info(temp);
     rep = 0;
     rest_time = temp.getRest_time();
     if (cameraProvider == null) {
@@ -350,34 +348,35 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
     }
 
     selectedModel = MyGlobal.getInstance().getExercise();
+    /*
     if(selectedModel.compareTo("스쿼트")==0){selectedModel = SQUATS;}
     else if (selectedModel.compareTo("무릎올리기")==0){selectedModel = KNEE_RAISE;}
     else if (selectedModel.compareTo("팔굽혀펴기")==0){selectedModel = PUSH_UP;}
     else if (selectedModel.compareTo("윗몸일으키기")==0){selectedModel = SITUP;}
     else if (selectedModel.compareTo("턱걸이")==0){selectedModel = BARBELL_CURL;}
     else if (selectedModel.compareTo("크런치")==0){selectedModel = DEAD;}
-
+    */
 
     //이부분이 실질적으로 detect하는부분임
     //옵션, Z축 저건 다 환경설정의 옵션
     try {
       switch (selectedModel) {
-        case PUSH_UP:
+        case "팔굽혀펴기":
           MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/push_up.csv");
           break;
-        case SQUATS:
+        case "스쿼트":
           MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/squat.csv");
           break;
-        case KNEE_RAISE:
+        case "무릎올리기":
           MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/kneel_up.csv");
           break;
-        case SITUP:
+        case "윗몸일으키기":
           MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/situp.csv");
           break;
-        case BARBELL_CURL:
+        case "바벨컬":
           MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/barbell_curl.csv");
           break;
-        case DEAD:
+        case "데드리프트":
           MyGlobal.getInstance().setPOSE_SAMPLE_FILE("pose/dead.csv");
           break;
       }
@@ -410,6 +409,8 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
     analysisUseCase = builder.build();
     needUpdateGraphicOverlayImageSourceInfo = true;
     //이놈이 계속 실행이 된다
+    onStartWearableActivityClick();
+    sendData_info(temp);
     analysisUseCase.setAnalyzer(
             // imageProcessor.processImageProxy will use another thread to run the detection underneath,
             // thus we can just runs the analyzer itself on main thread.
@@ -433,6 +434,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
 
                 if(rep < MyGlobal.getInstance().getNow_num()){
                   rep = (int)MyGlobal.getInstance().getNow_num();
+
                   sendData_counts(rep);
                 };
 
@@ -441,7 +443,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
                   MyGlobal.getInstance().do1set();
                   temp.setCounts(MyGlobal.getInstance().getnow_set());
                   databaseQueryClass.updateRoutineInfo(temp);
-
+                  sendData_info(temp);
                   if(MyGlobal.getInstance().getnow_set()== MyGlobal.getInstance().getSET()){
                     //운동이 아예 끝난 상황이면
                     temp = MyGlobal.getInstance().getNow_routine();
@@ -661,6 +663,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
     Log.i("Send_info","send Counts");
     PutDataMapRequest dataMap = PutDataMapRequest.create(COUNT_PATH);
     dataMap.getDataMap().putString("path", COUNT_PATH);
+    dataMap.getDataMap().putString("name",MyGlobal.getInstance().getExercise());
     dataMap.getDataMap().putString("counts", Integer.toString(count));
     PutDataRequest request = dataMap.asPutDataRequest();
     request.setUrgent();
@@ -673,7 +676,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
     PutDataMapRequest dataMap = PutDataMapRequest.create(COUNT_PATH);
     dataMap.getDataMap().putString("path", info_PATH);
     dataMap.getDataMap().putString("1", routine.getName());
-    dataMap.getDataMap().putString("2", Integer.toString((int)routine.getSet_num()));
+    dataMap.getDataMap().putString("2", Integer.toString((int)(routine.getSet_num()-MyGlobal.getInstance().getnow_set())));
     dataMap.getDataMap().putString("3", Integer.toString((int)routine.getRepeat_num()));
     dataMap.getDataMap().putString("4", Integer.toString((int)routine.getRest_time()));
     PutDataRequest request = dataMap.asPutDataRequest();

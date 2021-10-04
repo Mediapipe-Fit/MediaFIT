@@ -100,14 +100,19 @@ public class DataLayerScreen {
 
     public static class Counts implements DataLayerScreenData {
         private String Counts;
-        Counts(){Counts = "";}
+        private String Exercise;
+        Counts(){Counts = ""; Exercise = "";}
 
-        public void Set_Count(String s){
+        public void Set_Count(String s,String exercise){
             Counts = s;
+            Exercise = exercise;
         }
 
         public String get_Counts(){
             return Counts;
+        }
+        public String get_Exercise(){
+            return Exercise;
         }
         @Override
         public int getType() {

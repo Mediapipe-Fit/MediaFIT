@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="Exercises">
-        <item>스쿼트</item>
         <item>팔굽혀펴기</item>
-        <item>턱걸이</item>
+        <item>스쿼트</item>
         <item>무릎올리기</item>
+        <item>바벨컬</item>
         <item>윗몸일으키기</item>
-        <item>크런치</item>
+        <item>데드리프트</item>
     </string-array>
 </resources>

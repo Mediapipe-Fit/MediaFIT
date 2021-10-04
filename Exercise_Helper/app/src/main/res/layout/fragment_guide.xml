@@ -37,6 +37,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:id="@+id/layout"
+            android:padding="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -64,19 +65,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp" />
+
             <TextView
-                android:text="5. 본 페이지로 이동시키는 가이드 버튼입니다.\n"
+                android:text="*워치 설치방법\n 1. 스마트폰에서 Bugjaeger 설치\n
+2.워치 설정 들어가서 워치정보 -> 소프트웨어 진입 후 소프트웨어 버전 연타해 개발자 옵션 활성화\n
+3.개발자옵션 -> ADB디버깅 활성화/wifi로 디버깅 활성화\n
+4.wifi로 디버깅 정보 밑에 \n
+192.168.X.XXX:XXXX   ip/port확인\n
+5.Bugjaegur어플 들어가서 오른쪽 위에 +코드 버튼 클릭\n
+6.워치에서 확인했던 ip와 포트 입력 후 connect\n
+7.Packeges로 들어가서 워치에 APK설치\n"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp" />
-            <Button
-                android:text="운동 인식페이지 자세히 보기"
-                android:textStyle="bold"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/exercise_guide_btn"/>
-
 
         </LinearLayout>
     </ScrollView>

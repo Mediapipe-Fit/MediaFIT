@@ -102,12 +102,12 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
 
 
   private static final String POSE_DETECTION = "Pose Detection";
-  private static final String PUSH_UP = "PUSH UP";
-  private static final String KNEE_RAISE = "KNEE RAISE";
-  private static final String SQUATS = "SQUATS";
-  private static final String SITUP = "SITUP";
-  private static final String BARBELL_CURL = "BARBELL_CURL";
-  private static final String DEAD = "DEAD";
+  private static final String PUSH_UP = "팔굽혀펴기";
+  private static final String KNEE_RAISE = "무릎올리기";
+  private static final String SQUATS = "스쿼트";
+  private static final String SITUP = "윗몸일으키기";
+  private static final String BARBELL_CURL = "바벨컬";
+  private static final String DEAD = "데드리프트";
   private static final String STATE_SELECTED_MODEL = "selected_model";
 
   private PreviewView previewView;
@@ -616,6 +616,7 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
     Log.i("Send_info","send Counts");
     PutDataMapRequest dataMap = PutDataMapRequest.create(COUNT_PATH);
     dataMap.getDataMap().putString("path", COUNT_PATH);
+    dataMap.getDataMap().putString("name",MyGlobal.getInstance().getExercise());
     dataMap.getDataMap().putString("counts", Integer.toString(count));
     PutDataRequest request = dataMap.asPutDataRequest();
     request.setUrgent();
@@ -628,9 +629,9 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
     PutDataMapRequest dataMap = PutDataMapRequest.create(COUNT_PATH);
     dataMap.getDataMap().putString("path", info_PATH);
     dataMap.getDataMap().putString("1", exeName);
-    dataMap.getDataMap().putString("2", Integer.toString(0));
-    dataMap.getDataMap().putString("3", Integer.toString(0));
-    dataMap.getDataMap().putString("4", Integer.toString(0));
+    dataMap.getDataMap().putString("2", "X");
+    dataMap.getDataMap().putString("3", "X");
+    dataMap.getDataMap().putString("4", "X");
     PutDataRequest request = dataMap.asPutDataRequest();
     request.setUrgent();
 

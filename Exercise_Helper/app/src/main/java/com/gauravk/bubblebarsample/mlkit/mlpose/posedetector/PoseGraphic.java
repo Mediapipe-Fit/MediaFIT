@@ -297,7 +297,7 @@ public class PoseGraphic extends Graphic {
             translateY(rightHip.getPosition().y),
             whitePaint);
 
-    if(MyGlobal.getInstance().getExercise().compareTo("PUSH UP") == 0 ){
+    if(MyGlobal.getInstance().getExercise().compareTo("팔굽혀펴기") == 0 ){
       float temp = getAngle(leftShoulder,leftHip,leftKnee);
       float temp2 = getAngle(rightShoulder,rightHip,rightKnee);
       Paint tempPaint = new Paint();

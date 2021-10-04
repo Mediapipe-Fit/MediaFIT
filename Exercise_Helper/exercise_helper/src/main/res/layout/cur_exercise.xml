@@ -16,6 +16,7 @@
         android:id="@+id/center"
         android:visibility="invisible"
         android:layout_centerVertical="true" />
+
     <TextView
         android:id="@+id/Exercise_name"
         android:layout_width="wrap_content"
@@ -23,16 +24,16 @@
         android:layout_above="@id/Set_numTitle"
         android:text="Nothing"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Set_numTitle"
-        android:layout_above="@id/center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@id/center"
+        android:text="남은 세트 수"
         android:textSize="20sp"
-        android:text="세트 수"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Set_num"
@@ -50,9 +51,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/center"
-        android:textSize="20sp"
         android:text="반복 횟수"
-        android:textStyle="bold"/>
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Repeat_num"
@@ -70,9 +71,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Repeat_numTitle"
-        android:textSize="20sp"
         android:text="휴식 시간"
-        android:textStyle="bold"/>
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/Rest_time"

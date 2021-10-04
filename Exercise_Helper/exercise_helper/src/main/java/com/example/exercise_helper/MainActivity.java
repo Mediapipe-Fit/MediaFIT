@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -96,7 +97,7 @@ public class MainActivity extends FragmentActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         AmbientModeSupport.attach(this);
 
         mWearableRecyclerView = findViewById(R.id.recycler_view);
@@ -159,7 +160,8 @@ public class MainActivity extends FragmentActivity
                 String path = dataMapItem.getDataMap().getString("path");
                 if (DataLayerListenerService.COUNT_PATH.equals(path)) {
                     String message = dataMapItem.getDataMap().getString("counts");
-                    mCustomRecyclerAdapter.set_count(message);
+                    String exercise = dataMapItem.getDataMap().getString("name");
+                    mCustomRecyclerAdapter.set_count(message,exercise);
                     mWearableRecyclerView.scrollToPosition(1);
                     //Tv.setText(message);
                 }

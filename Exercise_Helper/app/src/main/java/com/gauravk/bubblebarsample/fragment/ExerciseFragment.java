@@ -43,7 +43,7 @@ public class ExerciseFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), CameraXLivePreviewActivity.class);
-                MyGlobal.getInstance().setExercise("KNEE RAISE");
+                MyGlobal.getInstance().setExercise("무릎올리기");
                 MyGlobal.getInstance().setMode(false);
                 startActivity(intent);
             }
@@ -53,7 +53,7 @@ public class ExerciseFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), CameraXLivePreviewActivity.class);
-                MyGlobal.getInstance().setExercise("SQUATS");
+                MyGlobal.getInstance().setExercise("스쿼트");
                 MyGlobal.getInstance().setMode(false);
                 startActivity(intent);
             }
@@ -63,7 +63,7 @@ public class ExerciseFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), CameraXLivePreviewActivity.class);
-                MyGlobal.getInstance().setExercise("PUSH UP");
+                MyGlobal.getInstance().setExercise("팔굽혀펴기");
                 MyGlobal.getInstance().setMode(false);
                 startActivity(intent);
             }
@@ -73,7 +73,7 @@ public class ExerciseFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), CameraXLivePreviewActivity.class);
-                MyGlobal.getInstance().setExercise("SITUP");
+                MyGlobal.getInstance().setExercise("윗몸일으키기");
                 MyGlobal.getInstance().setMode(false);
                 startActivity(intent);
             }
@@ -83,7 +83,7 @@ public class ExerciseFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), CameraXLivePreviewActivity.class);
-                MyGlobal.getInstance().setExercise("BARBELL_CURL");
+                MyGlobal.getInstance().setExercise("바벨컬");
                 MyGlobal.getInstance().setMode(false);
                 startActivity(intent);
             }
@@ -93,7 +93,7 @@ public class ExerciseFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), CameraXLivePreviewActivity.class);
-                MyGlobal.getInstance().setExercise("DEAD");
+                MyGlobal.getInstance().setExercise("데드리프트");
                 MyGlobal.getInstance().setMode(false);
                 startActivity(intent);
             }
