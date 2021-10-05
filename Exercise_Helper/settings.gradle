@@ -1,2 +1,0 @@
-include ':app', ':bubblenavigation'
-include ':Application',':exercise_helper'
