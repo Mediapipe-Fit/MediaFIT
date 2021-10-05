@@ -135,7 +135,7 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Log.d(TAG, "onCreate");
-
+    sendData_counts(0);
     //권한 얻는 함수
     if (!allPermissionsGranted()) {
       getRuntimePermissions();
@@ -340,7 +340,6 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
 
   //private에서 바꿈
   private void bindAnalysisUseCase() {
-    sendData_info(selectedModel);
     rep = 0;
     if (cameraProvider == null) {
       return;
@@ -444,6 +443,7 @@ public final class CameraXLivePreviewActivity extends AppCompatActivity
 
             if(rep < MyGlobal.getInstance().getNow_num()){
               rep = (int)MyGlobal.getInstance().getNow_num();
+              sendData_info(MyGlobal.getInstance().getExercise());
               sendData_counts(rep);
             };
           } catch (MlKitException e) {

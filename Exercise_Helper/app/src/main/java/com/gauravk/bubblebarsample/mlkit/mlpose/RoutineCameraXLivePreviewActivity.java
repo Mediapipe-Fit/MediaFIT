@@ -409,7 +409,7 @@ public final class RoutineCameraXLivePreviewActivity extends AppCompatActivity
     analysisUseCase = builder.build();
     needUpdateGraphicOverlayImageSourceInfo = true;
     //이놈이 계속 실행이 된다
-    onStartWearableActivityClick();
+    //onStartWearableActivityClick();
     sendData_info(temp);
     analysisUseCase.setAnalyzer(
             // imageProcessor.processImageProxy will use another thread to run the detection underneath,

@@ -166,13 +166,14 @@ public class MainActivity extends FragmentActivity
                     //Tv.setText(message);
                 }
                 else if (DataLayerListenerService.info_PATH.equals(path)) {
-                    final ArrayList<String> get = new ArrayList<>();
+                     final ArrayList<String> get = new ArrayList<>();
                     for(int i=1;i<=4;++i){
+                        System.out.println("sex" +dataMapItem.getDataMap().getString(Integer.toString(i)) );
                         get.add(dataMapItem.getDataMap().getString(Integer.toString(i)));
                     }
                     Log.i("what",String.valueOf(get.size()));
                     mCustomRecyclerAdapter.set_Info(get);
-                    mWearableRecyclerView.scrollToPosition(0);
+                   // mWearableRecyclerView.scrollToPosition(0);
                 }
                 else if (DataLayerListenerService.Rest_PATH.equals(path)) {
                     String message = dataMapItem.getDataMap().getString("Rest_time");
