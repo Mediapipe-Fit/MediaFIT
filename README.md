@@ -24,7 +24,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 완료 후, "운동 시작" 버튼을 누르면 설정한 루틴이 실행됩니다. 
 ```
 
-<p align="center">
+<p align="center" style="padding:10px">
   <img src = "https://user-images.githubusercontent.com/38587274/136323655-46ed2fd8-3856-48b4-a2bf-f1616ef6a2f7.jpg" alt="루틴설정 전" title="루틴설정 전"><img src = "https://user-images.githubusercontent.com/38587274/136323645-d62be43f-f3e1-412e-865d-a8f4c8cce102.jpg" alt="루틴설정 후" title="루틴설정 후">
 </p>
 
