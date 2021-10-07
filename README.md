@@ -23,10 +23,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 "운동 시작" 버튼 클릭 전, Routine 설정 화면에서 오늘의 요일에 해당하는 루틴을 만들어 주세요.
 완료 후, "운동 시작" 버튼을 누르면 설정한 루틴이 실행됩니다. 
 ```
-```
-                          <루틴설정 전>                      <루틴설정 후>
-```
-<p align="center" style="margin:20px">
+<p align="center">
   <img src = "https://user-images.githubusercontent.com/38587274/136323655-46ed2fd8-3856-48b4-a2bf-f1616ef6a2f7.jpg"><img src = "https://user-images.githubusercontent.com/38587274/136323645-d62be43f-f3e1-412e-865d-a8f4c8cce102.jpg">
 </p>
 
@@ -48,7 +45,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 ```
          <루틴설정 전>                        <루틴설정 중>                         <루틴설정 후>
 ```
-<p align="center" style="margin:20px">
+<p align="center">
   <img src = "https://user-images.githubusercontent.com/38587274/136322823-bbd3e16b-baf2-4df6-a39a-8a6ca304f6ea.jpg" margin=30><img src = "https://user-images.githubusercontent.com/38587274/136322831-bef19256-bb1f-46ab-9530-5350bb212370.jpg" margin=30><img src = "https://user-images.githubusercontent.com/38587274/136322849-60e6cffd-bdc4-47a1-b9db-1edd094cc7e4.jpg" margin=30>
 </p>
 
@@ -58,7 +55,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 체험하고 싶은 운동의 이미지를 클릭시 카메라 화면으로 넘어갑니다.
 해당 기능 사용 후 Routine설정에서 자신만의 루틴을 설정하는 것을 권장합니다.
 ```
-<p align="center" style="margin:20px">
+<p align="center">
   <img src = "https://user-images.githubusercontent.com/38587274/136323620-0c8a03f7-b371-44c5-810d-b71cdf93e2ec.jpg">
 </p>
 
@@ -66,6 +63,6 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 5. 가이드 
 앱의 사용법과 apk 파일을 이용해 watch에 설치하는 방법이 나와있습니다.
 ```
-<p align="center" style="margin:20px">
+<p align="center">
   <img src = "https://user-images.githubusercontent.com/38587274/136323613-ebf1c62e-d1ba-4a73-94d0-2f4a17bb1319.jpg">
 </p>
