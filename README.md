@@ -81,7 +81,3 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
   <img src = "https://user-images.githubusercontent.com/38587274/136323613-ebf1c62e-d1ba-4a73-94d0-2f4a17bb1319.jpg" alt="가이드">
 </p>
 
-img[src$="centerme"] {
-  display:block;
-  margin: 30;
-}
