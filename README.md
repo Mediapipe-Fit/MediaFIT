@@ -23,7 +23,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 "운동 시작" 버튼 클릭 전, Routine 설정 화면에서 오늘의 요일에 해당하는 루틴을 만들어 주세요.
 완료 후, "운동 시작" 버튼을 누르면 설정한 루틴이 실행됩니다. 
 ```
-|루틴설정 전|루틴설정 후|
+|초기화면|루틴생성 후|
 |:---:|:----:|
 |![루틴설정 전](https://user-images.githubusercontent.com/38587274/136323655-46ed2fd8-3856-48b4-a2bf-f1616ef6a2f7.jpg)|![루틴설정 후](https://user-images.githubusercontent.com/38587274/136323645-d62be43f-f3e1-412e-865d-a8f4c8cce102.jpg)|
 
@@ -49,7 +49,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 요일별로 자신의 루틴을 설정할 수 있습니다. 추가, 수정, 삭제가 가능하며, 
 오늘의 루틴을 수정시 Home화면에 업데이트 됩니다. 
 ```
-|루틴설정 전|루틴설정 중|루틴설정 후|
+|초기화면|루틴생성|루틴생성 후|
 |:---:|:----:|:----:|
 |![루틴설정 전](https://user-images.githubusercontent.com/38587274/136322823-bbd3e16b-baf2-4df6-a39a-8a6ca304f6ea.jpg)|![루틴설정 후](https://user-images.githubusercontent.com/38587274/136322831-bef19256-bb1f-46ab-9530-5350bb212370.jpg)|![루틴설정 후](https://user-images.githubusercontent.com/38587274/136322849-60e6cffd-bdc4-47a1-b9db-1edd094cc7e4.jpg)|
 <!--
