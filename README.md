@@ -16,6 +16,12 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 카메라 : 카메라 API 를 통해 카메라를 제어하고 사진 촬영을 합니다.
 ```
 
+## 주요 기능 화면 
+<p align="center">
+  <img src = "https://user-images.githubusercontent.com/38587274/136329530-1b0dcaf7-80d0-4ba8-83b8-530c01c04178.gif" alt="push_up">
+</p>
+
+
 ## 사용법 / How to Use
 ```
 1. HOME 화면 
