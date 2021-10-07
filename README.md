@@ -46,7 +46,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 ```
 
 ```
-                    <루틴설정 전>                         <루틴설정 중>                           <루틴설정 후>
+                      <루틴설정 전>                        <루틴설정 중>                         <루틴설정 후>
 ```
 <p align="center" style="margin:20px">
   <img src = "https://user-images.githubusercontent.com/38587274/136322823-bbd3e16b-baf2-4df6-a39a-8a6ca304f6ea.jpg" margin=30><img src = "https://user-images.githubusercontent.com/38587274/136322831-bef19256-bb1f-46ab-9530-5350bb212370.jpg" margin=30><img src = "https://user-images.githubusercontent.com/38587274/136322849-60e6cffd-bdc4-47a1-b9db-1edd094cc7e4.jpg" margin=30>
