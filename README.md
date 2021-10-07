@@ -43,6 +43,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 ## 사용법 / How to Use
 ```
 1. HOME 화면 
+
 ![KakaoTalk_20211007_132119874_06](https://user-images.githubusercontent.com/38587274/136322027-3f318690-351d-401e-b069-d34980ac0cdd.jpg)
 ![KakaoTalk_20211007_132119874](https://user-images.githubusercontent.com/38587274/136322211-41d6078d-9023-4de8-8dbf-b5d85072faf0.jpg)
 
@@ -50,12 +51,13 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 완료 후, "운동 시작" 버튼을 누르면 설정한 루틴이 실행됩니다. 
 
 2. Calendar (기능 구현 X)
+
 ![KakaoTalk_20211007_132344835](https://user-images.githubusercontent.com/38587274/136322087-97fbbb79-8d3b-44f0-8eca-16352954c651.jpg)
 
 3. Routine 설정
 요일별로 자신의 루틴을 설정할 수 있습니다. 추가, 수정, 삭제가 가능하며, 
 오늘의 루틴을 수정시 Home화면에 업데이트 됩니다. 
-<초기화면> <생성화면> <생성 후 화면>
+
 ![KakaoTalk_20211007_132119874_05](https://user-images.githubusercontent.com/38587274/136322047-e52b7441-3f1e-4042-8596-01fa45b434e3.jpg)
 ![KakaoTalk_20211007_132119874_04](https://user-images.githubusercontent.com/38587274/136322116-09b61de1-05b5-4a7b-9d43-4252fa02a63b.jpg)
 ![KakaoTalk_20211007_132119874_03](https://user-images.githubusercontent.com/38587274/136322381-9e1cd8d4-47eb-4e14-bcda-4cd764fa6310.jpg)
@@ -64,10 +66,12 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 현재 App을 통해 사용가능한 운동을 체험할 수 있습니다.
 체험하고 싶은 운동의 이미지를 클릭시 카메라 화면으로 넘어갑니다.
 해당 기능 사용 후 Routine설정에서 자신만의 루틴을 설정하는 것을 권장합니다.
+
 ![KakaoTalk_20211007_132119874_02](https://user-images.githubusercontent.com/38587274/136322190-6654cb6b-2617-4048-9917-9efb39c000f5.jpg)
 
 5. 가이드 
 앱의 사용법과 apk 파일을 이용해 watch에 설치하는 방법이 나와있습니다.
+
 ![KakaoTalk_20211007_132119874_01](https://user-images.githubusercontent.com/38587274/136322202-f2ce72c3-92fb-48dd-aa50-0ae1f46118a5.jpg)
 
 ```
