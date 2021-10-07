@@ -21,7 +21,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 ## 사용법 / How to Use
 ```
 1. HOME 화면 
-![KakaoTalk_20211007_132119874_06](https://user-images.githubusercontent.com/38587274/136321469-5ba01cd0-e744-4bbf-becb-dc9f281e999b.jpg)
+https://github.com/Mediapipe-Fit/MediaFIT/issues/1#issue-1019608220
 
 , <루틴설정 화면>
 
