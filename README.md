@@ -46,7 +46,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 자신의 일별 운동 완료여부를 표시합니다. 
 ```
 
-<p align="center" style="margin:20px">
+<p align="left">
   <img src = "https://user-images.githubusercontent.com/38587274/136324126-5fd60d8a-0d8e-4230-bfd2-51b70d324c7a.jpg" alt="캘린더">
 </p>
 
@@ -69,7 +69,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 체험하고 싶은 운동의 이미지를 클릭시 카메라 화면으로 넘어갑니다.
 해당 기능 사용 후 Routine설정에서 자신만의 루틴을 설정하는 것을 권장합니다.
 ```
-<p align="center">
+<p align="left">
   <img src = "https://user-images.githubusercontent.com/38587274/136323620-0c8a03f7-b371-44c5-810d-b71cdf93e2ec.jpg" alt="운동목록">
 </p>
 
@@ -77,7 +77,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 5. 가이드 
 앱의 사용법과 apk 파일을 이용해 watch에 설치하는 방법이 나와있습니다.
 ```
-<p align="center">
+<p align="left">
   <img src = "https://user-images.githubusercontent.com/38587274/136323613-ebf1c62e-d1ba-4a73-94d0-2f4a17bb1319.jpg" alt="가이드">
 </p>
 
