@@ -44,9 +44,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 ## 사용법 / How to Use
 ```
 1. HOME 화면 
-![KakaoTalk_20211007_132119874_06](https://user-images.githubusercontent.com/38587274/136321469-5ba01cd0-e744-4bbf-becb-dc9f281e999b.jpg)
-
-
+<img src="https://user-images.githubusercontent.com/38587274/136321469-5ba01cd0-e744-4bbf-becb-dc9f281e999b.jpg"  width="700" height="370">
 , <루틴설정 화면>
 
 "운동 시작" 버튼 클릭 전, Routine 설정 화면에서 오늘의 요일에 해당하는 루틴을 만들어 주세요.
