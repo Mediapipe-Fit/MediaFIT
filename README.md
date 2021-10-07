@@ -58,9 +58,10 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 요일별로 자신의 루틴을 설정할 수 있습니다. 추가, 수정, 삭제가 가능하며, 
 오늘의 루틴을 수정시 Home화면에 업데이트 됩니다. 
 
-![KakaoTalk_20211007_132119874_05](https://user-images.githubusercontent.com/38587274/136322047-e52b7441-3f1e-4042-8596-01fa45b434e3.jpg)
-![KakaoTalk_20211007_132119874_04](https://user-images.githubusercontent.com/38587274/136322116-09b61de1-05b5-4a7b-9d43-4252fa02a63b.jpg)
-![KakaoTalk_20211007_132119874_03](https://user-images.githubusercontent.com/38587274/136322381-9e1cd8d4-47eb-4e14-bcda-4cd764fa6310.jpg)
+![KakaoTalk_20211007_132119874_05](https://user-images.githubusercontent.com/38587274/136322823-bbd3e16b-baf2-4df6-a39a-8a6ca304f6ea.jpg)
+![KakaoTalk_20211007_132119874_04](https://user-images.githubusercontent.com/38587274/136322831-bef19256-bb1f-46ab-9530-5350bb212370.jpg)
+![KakaoTalk_20211007_132119874_03](https://user-images.githubusercontent.com/38587274/136322849-60e6cffd-bdc4-47a1-b9db-1edd094cc7e4.jpg)
+
 
 4. 운동 목록
 현재 App을 통해 사용가능한 운동을 체험할 수 있습니다.
