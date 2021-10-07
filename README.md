@@ -25,7 +25,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 ```
 |루틴설정 전|루틴설정 후|
 |:---:|:----:
-|![루틴설정 전](https://user-images.githubusercontent.com/38587274/136323655-46ed2fd8-3856-48b4-a2bf-f1616ef6a2f7.jpg "|![루틴설정 후](https://user-images.githubusercontent.com/38587274/136323645-d62be43f-f3e1-412e-865d-a8f4c8cce102.jpg")
+|![루틴설정 전](https://user-images.githubusercontent.com/38587274/136323655-46ed2fd8-3856-48b4-a2bf-f1616ef6a2f7.jpg)"루틴설정 전"|![루틴설정 후](https://user-images.githubusercontent.com/38587274/136323645-d62be43f-f3e1-412e-865d-a8f4c8cce102.jpg)"루틴설정 후")
 
 
 <p align="center">
