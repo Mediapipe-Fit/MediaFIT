@@ -25,7 +25,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 ```
 
 <p align="center">
-  <img src = "https://user-images.githubusercontent.com/38587274/136323655-46ed2fd8-3856-48b4-a2bf-f1616ef6a2f7.jpg"><img src = "https://user-images.githubusercontent.com/38587274/136323645-d62be43f-f3e1-412e-865d-a8f4c8cce102.jpg">
+  <img src = "https://user-images.githubusercontent.com/38587274/136323655-46ed2fd8-3856-48b4-a2bf-f1616ef6a2f7.jpg" alt="루틴설정 전" ><img src = "https://user-images.githubusercontent.com/38587274/136323645-d62be43f-f3e1-412e-865d-a8f4c8cce102.jpg" alt="루틴설정 후">
 </p>
 
 ```
@@ -34,7 +34,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 ```
 
 <p align="center" style="margin:20px">
-  <img src = "https://user-images.githubusercontent.com/38587274/136324126-5fd60d8a-0d8e-4230-bfd2-51b70d324c7a.jpg">
+  <img src = "https://user-images.githubusercontent.com/38587274/136324126-5fd60d8a-0d8e-4230-bfd2-51b70d324c7a.jpg" alt="캘린더">
 </p>
 
 ```
@@ -44,7 +44,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 ```
 
 <p align="center">
-  <img src = "https://user-images.githubusercontent.com/38587274/136322823-bbd3e16b-baf2-4df6-a39a-8a6ca304f6ea.jpg" margin=30><img src = "https://user-images.githubusercontent.com/38587274/136322831-bef19256-bb1f-46ab-9530-5350bb212370.jpg" margin=30><img src = "https://user-images.githubusercontent.com/38587274/136322849-60e6cffd-bdc4-47a1-b9db-1edd094cc7e4.jpg" margin=30>
+  <img src = "https://user-images.githubusercontent.com/38587274/136322823-bbd3e16b-baf2-4df6-a39a-8a6ca304f6ea.jpg" alt="루틴설정 전"><img src = "https://user-images.githubusercontent.com/38587274/136322831-bef19256-bb1f-46ab-9530-5350bb212370.jpg" alt="루틴설정 중"><img src = "https://user-images.githubusercontent.com/38587274/136322849-60e6cffd-bdc4-47a1-b9db-1edd094cc7e4.jpg" alt="루틴설정 후">
 </p>
 
 ```
@@ -54,7 +54,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 해당 기능 사용 후 Routine설정에서 자신만의 루틴을 설정하는 것을 권장합니다.
 ```
 <p align="center">
-  <img src = "https://user-images.githubusercontent.com/38587274/136323620-0c8a03f7-b371-44c5-810d-b71cdf93e2ec.jpg">
+  <img src = "https://user-images.githubusercontent.com/38587274/136323620-0c8a03f7-b371-44c5-810d-b71cdf93e2ec.jpg" alt="운동목록">
 </p>
 
 ```
@@ -62,5 +62,5 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 앱의 사용법과 apk 파일을 이용해 watch에 설치하는 방법이 나와있습니다.
 ```
 <p align="center">
-  <img src = "https://user-images.githubusercontent.com/38587274/136323613-ebf1c62e-d1ba-4a73-94d0-2f4a17bb1319.jpg">
+  <img src = "https://user-images.githubusercontent.com/38587274/136323613-ebf1c62e-d1ba-4a73-94d0-2f4a17bb1319.jpg" alt="가이드">
 </p>
