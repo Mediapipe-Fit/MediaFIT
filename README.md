@@ -34,7 +34,7 @@ Watch의 화면으로 몇 개를 했는지, 세트간 휴식시간이 얼마나 
 ```
 
 <p align="center" style="margin:20px">
-  <img src = "https://user-images.githubusercontent.com/38587274/136323636-4b4e8db0-d55a-4e8a-85d5-89fe34ed0084.jpg">
+  <img src = "https://user-images.githubusercontent.com/38587274/136324126-5fd60d8a-0d8e-4230-bfd2-51b70d324c7a.jpg">
 </p>
 
 ```
