@@ -45,6 +45,14 @@ public class MyGlobal {
 
     private String[] POSE_CLASSES = {"end"};
 
+    private String nickname;
+    private String profile;
+    private String email;
+    private String gender;
+    private String age_range;
+    private String birthday;
+
+
     public boolean getmode() {return this.mode;}
     public String getExercise(){
         return this.Exercise;
@@ -116,6 +124,14 @@ public class MyGlobal {
     public void setREST(long rest){ this.REST = rest; }
     public void setPOSE_SAMPLE_FILE(String str){this.POSE_SAMPLE_FILE = str;}
     public void setFinish(boolean fin){this.finish = fin;}
+
+    public void setEmail(String email){this.email = email;}
+    public void setGender(String gender){this.gender = gender;}
+    public void setBirthday(String birthday){this.birthday = birthday;}
+    public void setAge_range(String age_range){this.age_range = age_range;}
+    public void setNickname(String nickname){this.nickname = nickname;}
+    public void setProfile(String profile){this.profile = profile;}
+
 
     public static int index = -1;
     public static String today_hangle(){

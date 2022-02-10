@@ -8,6 +8,10 @@
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/281ed746c7562d051267a6ed98997d90/jetified-camera-16.0.0-beta1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/281ed746c7562d051267a6ed98997d90/jetified-camera-16.0.0-beta1/AndroidManifest.xml" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/281ed746c7562d051267a6ed98997d90/jetified-camera-16.0.0-beta1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e97d488c7960bace8dd38c49573a73de/jetified-camera-16.0.0-beta1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1d86ef2e566a47dc450104a564b5c881/jetified-camera-16.0.0-beta1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1d86ef2e566a47dc450104a564b5c881/jetified-camera-16.0.0-beta1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1d86ef2e566a47dc450104a564b5c881/jetified-camera-16.0.0-beta1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.mlkit/camera/16.0.0-beta1/b374a86ea8b95b910bd73ed34ee47a349c05d6d3/camera-16.0.0-beta1-javadoc.jar!/" />
