@@ -2,7 +2,6 @@ package com.gauravk.bubblebarsample.DB.CreateRoutine;
 
 import com.gauravk.bubblebarsample.cfg.Config;
 
-
 public class Routine {
     private long id;
     private String name;

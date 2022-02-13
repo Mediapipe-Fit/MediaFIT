@@ -14,7 +14,6 @@ import com.gauravk.bubblebarsample.R;
 import com.gauravk.bubblebarsample.cfg.MyGlobal;
 import com.gauravk.bubblebarsample.mlkit.mlpose.CameraXLivePreviewActivity;
 
-
 public class ExerciseFragment extends Fragment {
     private ImageButton kneelup;
     private ImageButton squat;

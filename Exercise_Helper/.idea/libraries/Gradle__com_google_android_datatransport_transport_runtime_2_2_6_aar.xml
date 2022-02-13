@@ -1,16 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.android.datatransport:transport-runtime:2.2.6@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5ed6bd33f2df36f92f883ed0cc56f1e8/transport-runtime-2.2.6/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/63daaaa108fb711d2bb264cfd22958df/jetified-transport-runtime-2.2.6/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/63daaaa108fb711d2bb264cfd22958df/jetified-transport-runtime-2.2.6/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/63daaaa108fb711d2bb264cfd22958df/jetified-transport-runtime-2.2.6/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7ed3799d0fe765389fe667c8ce55c594/jetified-transport-runtime-2.2.6/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7ed3799d0fe765389fe667c8ce55c594/jetified-transport-runtime-2.2.6/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7ed3799d0fe765389fe667c8ce55c594/jetified-transport-runtime-2.2.6/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/925a935bc3f46c332b132670536127c3/jetified-transport-runtime-2.2.6/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/356d3c28d98d89fff4698c43b42bfd5c/jetified-transport-runtime-2.2.6/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/356d3c28d98d89fff4698c43b42bfd5c/jetified-transport-runtime-2.2.6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/356d3c28d98d89fff4698c43b42bfd5c/jetified-transport-runtime-2.2.6/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/356d3c28d98d89fff4698c43b42bfd5c/jetified-transport-runtime-2.2.6/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>

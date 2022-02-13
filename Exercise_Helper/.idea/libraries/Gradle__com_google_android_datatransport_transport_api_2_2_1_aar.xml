@@ -1,16 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.android.datatransport:transport-api:2.2.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c4920621349ff768ef2ee2b258cb9156/transport-api-2.2.1/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5f4588eec642d19bdc5d497618405715/jetified-transport-api-2.2.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5f4588eec642d19bdc5d497618405715/jetified-transport-api-2.2.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5f4588eec642d19bdc5d497618405715/jetified-transport-api-2.2.1/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0e4e512d78adaaeb3c9244784a6df41f/jetified-transport-api-2.2.1/AndroidManifest.xml" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0e4e512d78adaaeb3c9244784a6df41f/jetified-transport-api-2.2.1/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0e4e512d78adaaeb3c9244784a6df41f/jetified-transport-api-2.2.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1419a80ef9f7b051a95940b4d739f80f/jetified-transport-api-2.2.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e65e26719f56662eb737d6f2cecc5332/jetified-transport-api-2.2.1/res" />
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e65e26719f56662eb737d6f2cecc5332/jetified-transport-api-2.2.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e65e26719f56662eb737d6f2cecc5332/jetified-transport-api-2.2.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e65e26719f56662eb737d6f2cecc5332/jetified-transport-api-2.2.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
