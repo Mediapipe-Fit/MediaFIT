@@ -16,3 +16,6 @@ https://github.com/ShawnLin013/NumberPicker
 운동 아이콘
 1. https://www.flaticon.com/
 2. https://thenounproject.com/
+
+gitignore 자동생성
+https://www.toptal.com/developers/gitignore
