@@ -62,7 +62,7 @@ public interface RetrofitAPI {
     /*
     보내는 함수
     postuser에 다 넣고 보내면 댐
-    
+
     user postuser = new user();
         postuser.setEmail("it is work?");
         postuser.setName("fwadl");
