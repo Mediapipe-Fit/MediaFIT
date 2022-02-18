@@ -25,13 +25,9 @@ public class KakaoActivity extends AppCompatActivity {
 
     private View loginButton, logoutButton, getinButton;
     private TextView nickName;
+    private TextView startText;
     private ImageView profileImage;
-    private String nickName2;
-    private String profileImage2;
-    private String email;
-    private String age;
-    private String birthday;
-    private String gender;
+    private ImageView startIcon;
 
 
     @Override
@@ -44,6 +40,8 @@ public class KakaoActivity extends AppCompatActivity {
         nickName = findViewById(R.id.nickname);
         profileImage = findViewById(R.id.profile);
         getinButton = findViewById(R.id.getin);
+        startIcon = findViewById(R.id.start_icon);
+        startText = findViewById(R.id.start_text);
 
         Function2<OAuthToken, Throwable, Unit> callback = new Function2<OAuthToken, Throwable, Unit>(){
             @Override
@@ -120,12 +118,16 @@ public class KakaoActivity extends AppCompatActivity {
                     loginButton.setVisibility(View.GONE);
                     logoutButton.setVisibility(View.VISIBLE);
                     getinButton.setVisibility(View.VISIBLE);
+                    startIcon.setVisibility(View.GONE);
+                    startText.setVisibility(View.GONE);
                 }else{
                     nickName.setText(null);
                     profileImage.setImageBitmap(null);
                     loginButton.setVisibility(View.VISIBLE);
                     logoutButton.setVisibility(View.GONE);
                     getinButton.setVisibility(View.GONE);
+                    startIcon.setVisibility(View.VISIBLE);
+                    startText.setVisibility(View.VISIBLE);
                 }
                 return null;
             }
